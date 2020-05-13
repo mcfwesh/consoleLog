@@ -10,6 +10,17 @@ export default class Signup extends Component {
     message: "",
     role: "Student",
     specialization: [],
+    github: "",
+    codewars: "",
+    linkedin: "",
+    classroom: "Web Dev",
+  };
+
+  handleClassroom = (event) => {
+    //console.log(event.target.name);
+    this.setState({
+      classroom: event.target.name,
+    });
   };
 
   handleChange = (event) => {
@@ -19,15 +30,16 @@ export default class Signup extends Component {
     this.setState({
       [name]: value,
     });
-    console.log(name);
-    console.log(this.state);
+    //console.log(name);
+    //console.log(this.state);
   };
 
   handleSpecialization = (event) => {
     const name = event.target.name;
     if (event.target.checked) {
       if (!this.state.specialization.includes(name)) {
-        //console.log("hiertrue");
+        if (this.state.specialization.length > 1) return;
+        // console.log("hiertrue");
         this.setState({
           specialization: [...this.state.specialization, name],
         });
@@ -55,8 +67,12 @@ export default class Signup extends Component {
       role,
       description,
       specialization,
+      github,
+      codewars,
+      linkedin,
+      classroom,
     } = this.state;
-    console.log(this.state.specialization);
+    //console.log(this.state.specialization);
     signup(
       username,
       password,
@@ -64,9 +80,13 @@ export default class Signup extends Component {
       surname,
       role,
       description,
-      specialization
+      specialization,
+      github,
+      codewars,
+      linkedin,
+      classroom
     ).then((data) => {
-      console.log(data);
+      //console.log(data);
       if (data.message) {
         this.setState({
           message: data.message,
@@ -74,9 +94,13 @@ export default class Signup extends Component {
           password: "",
           name: "",
           surname: "",
-          role: "",
+          role: "Student",
           description: "",
           specialization: [],
+          github: "",
+          codewars: "",
+          linkedin: "",
+          classroom: "Web Dev",
         });
       } else {
         // everything is fine -> log the user in
@@ -87,11 +111,34 @@ export default class Signup extends Component {
   };
 
   render() {
-    console.log(this.state.specialization);
+    //console.log(this.state.classroom);
     return (
       <>
         <h2>Signup</h2>
         <form onSubmit={this.handleSubmit}>
+          <label>Classroom:</label>
+          <br></br>
+          <input
+            type="checkbox"
+            name="Web Dev"
+            checked={this.state.classroom.includes("Web Dev")}
+            onChange={this.handleClassroom}
+          ></input>
+          <label>Web Dev</label>
+          <input
+            type="checkbox"
+            name="UX/UI"
+            checked={this.state.classroom.includes("UX/UI")}
+            onChange={this.handleClassroom}
+          ></input>
+          <label>UX/UI</label>
+          <input
+            type="checkbox"
+            name="Data"
+            checked={this.state.classroom.includes("Data")}
+            onChange={this.handleClassroom}
+          ></input>
+          <label>Data</label>
           <div>
             <label htmlFor="username">Mail: </label>
             <input
@@ -155,30 +202,33 @@ export default class Signup extends Component {
             </select>
           </div>
           <div>
-            <label>Spezialization:</label>
+            <label>Spezialization (Max 2 options):</label>
             <br></br>
             <input
               type="checkbox"
               name="Frontend"
-              // checked={this.state.specialization}
+              checked={this.state.specialization.includes("Frontend")}
               onChange={this.handleSpecialization}
             ></input>
             <label>Frontend</label>
             <input
               type="checkbox"
               name="Backend"
+              checked={this.state.specialization.includes("Backend")}
               onChange={this.handleSpecialization}
             ></input>
             <label>Backend</label>
             <input
               type="checkbox"
               name="CSS"
+              checked={this.state.specialization.includes("CSS")}
               onChange={this.handleSpecialization}
             ></input>
             <label>CSS</label>
             <input
               type="checkbox"
               name="React"
+              checked={this.state.specialization.includes("React")}
               onChange={this.handleSpecialization}
             ></input>
             <label>React</label>
@@ -186,29 +236,59 @@ export default class Signup extends Component {
             <input
               type="checkbox"
               name="Bootstrap"
+              checked={this.state.specialization.includes("Bootstrap")}
               onChange={this.handleSpecialization}
             ></input>
             <label>Bootstrap</label>
             <input
               type="checkbox"
               name="Managment"
+              checked={this.state.specialization.includes("Managment")}
               onChange={this.handleSpecialization}
             ></input>
             <label>Managment</label>
             <input
               type="checkbox"
               name="API"
+              checked={this.state.specialization.includes("API")}
               onChange={this.handleSpecialization}
             ></input>
             <label>API</label>
             <input
               type="checkbox"
               name="Mongo DB"
+              checked={this.state.specialization.includes("Mongo DB")}
               onChange={this.handleSpecialization}
             ></input>
             <label>Mongo DB</label>
           </div>
-
+          <div>
+            <label>Github</label>
+            <input
+              type="text"
+              name="github"
+              value={this.state.github}
+              onChange={this.handleChange}
+            ></input>
+          </div>
+          <div>
+            <label>Codewars</label>
+            <input
+              type="text"
+              name="codewars"
+              value={this.state.codewars}
+              onChange={this.handleChange}
+            ></input>
+          </div>
+          <div>
+            <label>Linkedin</label>
+            <input
+              type="text"
+              name="linkedin"
+              value={this.state.linkedin}
+              onChange={this.handleChange}
+            ></input>
+          </div>
           <div>
             {this.state.message && (
               <alert variant="danger">{this.state.message}</alert>
