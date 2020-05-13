@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+export default class NavbarMain extends Component {
 
-const NavbarMain = props => {
-  return (
+  render() {
+    return (
     <div className='navbarMain'>
     <div className='navleft'>
       <div className="logo">
@@ -12,19 +13,16 @@ const NavbarMain = props => {
     <div className="navRight">
     <div className="courses">
         <div>
-          <Link to='/'>Web Dev</Link>
+          <Link onClick={this.props.handleCourse} id="webdev" to='/'>Web Dev</Link>
         </div>
         <div>
-          <Link to='/'>UX/UI</Link>
+          <Link onClick={this.props.handleCourse} id="uxui" to='/'>UX/UI</Link>
         </div>
         <div>
-          <Link to='/'>Data</Link>
+          <Link onClick={this.props.handleCourse} id="data" to='/'>Data</Link>
         </div>
       </div>
       </div>
     </div>
-  )
+    )}
 }
-
-
-export default NavbarMain;
