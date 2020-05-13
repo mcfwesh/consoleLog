@@ -166,6 +166,141 @@ h2 {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  min-width: 40vw;
+  min-width: 35vw;
   margin-left: 2vw;
+}
+
+.overlay-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10vh;
+}
+
+.square {
+  position: relative;
+  min-width: 700px;
+  min-height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square span:nth-child(1){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: rgba(41, 161, 241, 0.5);
+  border-radius: 39% 54% 57% 29% / 41% 47% 58% 59%;
+  transition: 0.5s;
+  animation: animate 7s linear infinite;
+  z-index: -1;
+}
+
+.square span:nth-child(2){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: rgba(41, 161, 241, 0.6);
+  border-radius: 39% 54% 57% 29% / 41% 47% 58% 59%;
+  transition: 0.5s;
+  animation: animate 9s linear infinite;
+  z-index: -1;
+}
+
+.square span:nth-child(3){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: rgba(41, 161, 241, 0.8);
+  border-radius: 39% 54% 47% 29% / 41% 47% 58% 59%;
+  transition: 0.5s;
+  animation: animate2 10s linear infinite;
+  z-index: -1;
+}
+
+
+@keyframes animate {
+  0%{
+    transform: rotate(0deg)
+  }
+  100%{
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes animate2 {
+  0%{
+    transform: rotate(360deg)
+  }
+  100%{
+    transform: rotate(0deg)
+  }
+}
+
+.content{
+  color: white;
+}
+
+.loginContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginContainer h2{
+margin-bottom: 10vh;
+font-size: 3em;
+color: white;
+}
+
+.inputBox {
+  min-height: 3vh;
+  width: 15vw;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  border-bottom: 2px solid #fff; }
+
+.inputBox input {
+  font-size: 16px;
+  color: white;
+  border: none;
+  outline: none;
+  background: none;
+  width: 15vw;
+  position: relative; }
+
+.inputBox input::placeholder{
+ color: white
+}
+
+.inputBox input:focus {
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  width: 15vw; }
+
+@keyframes example {
+  0% {
+    left: 0px;
+    top: 0px; }
+  25% {
+    left: 200px;
+    top: 0px; }
+  100% {
+    left: 0px;
+    top: 0px; } 
 }
