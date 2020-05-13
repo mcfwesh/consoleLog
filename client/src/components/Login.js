@@ -41,33 +41,46 @@ export default class Login extends Component {
   render() {
     return (
       <>
+      <div className="overlay-login">
+      <div class="square">
+        <span></span>
+        <span></span>
+        <span></span>
+        <form onSubmit={this.handleSubmit}>
+        <div className="loginContainer">
         <h2>Login</h2>
-        <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Label htmlFor='username'>Username: </Form.Label>
-            <Form.Control
+            <div className="inputBox">
+            <input
               type='text'
               name='username'
+              placeholder="Email"
               value={this.state.username}
               onChange={this.handleChange}
               id='username'
             />
+            </div>
           </Form.Group>
           <Form.Group>
-            <Form.Label htmlFor='password'>Password: </Form.Label>
-            <Form.Control
+            <div className="inputBox">
+            <input
               type='password'
               name='password'
+              placeholder="Password"
               value={this.state.password}
               onChange={this.handleChange}
               id='password'
             />
+            </div>
           </Form.Group>
           {this.state.message && (
             <Alert variant='danger'>{this.state.message}</Alert>
           )}
           <Button type='submit'>Login</Button>
-        </Form>
+          </div>
+        </form>
+        </div>
+      </div>
       </>
     );
   }

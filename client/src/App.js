@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import Projects from './components/Projects';
 import NavbarMain from './components/NavbarMain';
 import Navbar from './components/Navbar';
@@ -50,7 +50,7 @@ class App extends React.Component {
             else return <Redirect to='/' />
           }}
         /> */}
-
+<Switch>
         <ProtectedRoute
           exact
           path="/projects"
@@ -73,7 +73,7 @@ class App extends React.Component {
         />
         <Home />
         <Route exact path="/users/:id" component={UserDetails} />
-
+</Switch>
       </div>
     );
   }
