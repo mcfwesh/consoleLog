@@ -1,17 +1,18 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
-import { Route, Redirect } from "react-router-dom";
-import Projects from "./components/Projects";
-import NavbarMain from "./components/NavbarMain";
-import Navbar from "./components/Navbar";
-import ProjectDetails from "./components/ProjectDetails";
-import TaskDetails from "./components/TaskDetails";
-import Signup from "./components/Signup";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Login from "./components/Login";
+import React from 'react';
+import './App.css';
+import { Route, Redirect } from 'react-router-dom';
+import Projects from './components/Projects';
+import NavbarMain from './components/NavbarMain';
+import Navbar from './components/Navbar';
+import ProjectDetails from './components/ProjectDetails';
+import TaskDetails from './components/TaskDetails';
+import Signup from './components/Signup';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './components/Login';
+import Home from './components/Home';
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
+
 
 class App extends React.Component {
   state = {
@@ -70,7 +71,9 @@ class App extends React.Component {
           path="/login"
           render={(props) => <Login setUser={this.setUser} {...props} />}
         />
+        <Home />
         <Route exact path="/users/:id" component={UserDetails} />
+
       </div>
     );
   }
