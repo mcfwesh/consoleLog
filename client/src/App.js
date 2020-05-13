@@ -1,33 +1,40 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import { Route, Redirect } from 'react-router-dom';
-import Projects from './components/Projects';
-import NavbarMain from './components/NavbarMain';
-import Navbar from './components/Navbar';
-import ProjectDetails from './components/ProjectDetails';
-import TaskDetails from './components/TaskDetails';
-import Signup from './components/Signup';
-import ProtectedRoute from './components/ProtectedRoute';
-import Login from './components/Login';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import { Route, Redirect } from "react-router-dom";
+import Projects from "./components/Projects";
+import NavbarMain from "./components/NavbarMain";
+import Navbar from "./components/Navbar";
+import ProjectDetails from "./components/ProjectDetails";
+import TaskDetails from "./components/TaskDetails";
+import Signup from "./components/Signup";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./components/Login";
+import Users from "./components/Users";
+import UserDetails from "./components/UserDetails";
 
 class App extends React.Component {
-
   state = {
     user: this.props.user,
-    course: ""
-  }
+    course: "",
+  };
 
-  setUser = user => {
+  setUser = (user) => {
     this.setState({
-      user: user
-    })
-  }
+      user: user,
+    });
+  };
+
+  handleCourse = (event) => {
+    this.setState({
+      course: event.target.id,
+    });
+  };
 
   render() {
     return (
       <div className="App">
-        <NavbarMain course={this.state.course}/>
+        <NavbarMain handleCourse={this.handleCourse} />
         <Navbar user={this.state.user} setUser={this.setUser} />
 
         {/* <Route
@@ -42,28 +49,28 @@ class App extends React.Component {
             else return <Redirect to='/' />
           }}
         /> */}
+
         <ProtectedRoute
-          exact path='/projects'
+          exact
+          path="/projects"
           // additional='some additional prop'
           user={this.state.user}
           component={Projects}
         />
+        <Route exact path="/projects/:id" component={ProjectDetails} />
+        <Route exact path="/tasks/:id" component={TaskDetails} />
         <Route
-          exact path='/projects/:id'
-          component={ProjectDetails}
+          exact
+          path="/signup"
+          render={(props) => <Signup setUser={this.setUser} {...props} />}
         />
+        <Route exact path="/users" component={Users} />
         <Route
-          exact path='/tasks/:id'
-          component={TaskDetails}
+          exact
+          path="/login"
+          render={(props) => <Login setUser={this.setUser} {...props} />}
         />
-        <Route
-          exact path='/signup'
-          render={props => <Signup setUser={this.setUser} {...props} />}
-        />
-        <Route
-          exact path='/login'
-          render={props => <Login setUser={this.setUser} {...props} />}
-        />
+        <Route exact path="/users/:id" component={UserDetails} />
       </div>
     );
   }
