@@ -27,15 +27,15 @@ export default class Signup extends Component {
     const name = event.target.name;
     if (event.target.checked) {
       if (!this.state.specialization.includes(name)) {
-        console.log("hiertrue");
+        //console.log("hiertrue");
         this.setState({
           specialization: [...this.state.specialization, name],
         });
       }
     } else {
-      console.log(this.state.specialization);
-      console.log("name", name);
-      console.log(this.state.specialization.indexOf(name));
+      //console.log(this.state.specialization);
+      //console.log("name", name);
+      //console.log(this.state.specialization.indexOf(name));
       let crazy = [...this.state.specialization];
       crazy.splice(this.state.specialization.indexOf(name), 1);
       this.setState({
@@ -54,7 +54,6 @@ export default class Signup extends Component {
       surname,
       role,
       description,
-      frontend,
       specialization,
     } = this.state;
     console.log(this.state.specialization);
@@ -65,7 +64,6 @@ export default class Signup extends Component {
       surname,
       role,
       description,
-      frontend,
       specialization
     ).then((data) => {
       console.log(data);
@@ -157,6 +155,8 @@ export default class Signup extends Component {
             </select>
           </div>
           <div>
+            <label>Spezialization:</label>
+            <br></br>
             <input
               type="checkbox"
               name="Frontend"
@@ -170,6 +170,43 @@ export default class Signup extends Component {
               onChange={this.handleSpecialization}
             ></input>
             <label>Backend</label>
+            <input
+              type="checkbox"
+              name="CSS"
+              onChange={this.handleSpecialization}
+            ></input>
+            <label>CSS</label>
+            <input
+              type="checkbox"
+              name="React"
+              onChange={this.handleSpecialization}
+            ></input>
+            <label>React</label>
+            <br></br>
+            <input
+              type="checkbox"
+              name="Bootstrap"
+              onChange={this.handleSpecialization}
+            ></input>
+            <label>Bootstrap</label>
+            <input
+              type="checkbox"
+              name="Managment"
+              onChange={this.handleSpecialization}
+            ></input>
+            <label>Managment</label>
+            <input
+              type="checkbox"
+              name="API"
+              onChange={this.handleSpecialization}
+            ></input>
+            <label>API</label>
+            <input
+              type="checkbox"
+              name="Mongo DB"
+              onChange={this.handleSpecialization}
+            ></input>
+            <label>Mongo DB</label>
           </div>
 
           <div>

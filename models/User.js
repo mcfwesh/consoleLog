@@ -9,7 +9,7 @@ const userSchema = new Schema(
     surname: String,
     role: String,
     description: String,
-    specialization: [String],
+    specialization: { type: Array },
     picture: String,
     github: String,
     codewars: String,
