@@ -72,3 +72,93 @@ h2 {
 .projects-container > * {
   flex: 1;
 }
+
+/* Navbar Stuff */
+
+.navbarMain {
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  min-height: 5vh;
+  font-family: monospace;
+}
+
+.navLeft {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  min-width: 15vw;
+}
+
+.logo {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+}
+
+.logo img {
+  height: 15vh;
+}
+
+.navRight {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  min-width: 20vw;
+}
+
+.courses {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+}
+
+.courses a {
+  color: white;
+}
+
+.navbar {
+  background-color: rgb(41, 161, 241);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  min-height: 5vh;
+  font-family: monospace;
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  min-width: 50vw;
+  font-size: 2em;
+}
+
+.navbar-left a {
+  color:white;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  min-width: 20vw;
+  font-size: 2em;
+}
+
+.navbar-right a {
+  color:white;
+}
