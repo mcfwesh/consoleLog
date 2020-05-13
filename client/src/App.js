@@ -24,10 +24,16 @@ class App extends React.Component {
     })
   }
 
+  handleCourse = (event) => {
+    this.setState({
+      course: event.target.id,
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <NavbarMain course={this.state.course}/>
+        <NavbarMain handleCourse={this.handleCourse}/>
         <Navbar user={this.state.user} setUser={this.setUser} />
 
         {/* <Route
