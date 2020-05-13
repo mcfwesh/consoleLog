@@ -14,6 +14,7 @@ router.post("/signup", (req, res) => {
     role,
     description,
     specialization,
+    imageUrl,
   } = req.body;
 
   if (!password || password.length < 4) {
@@ -42,6 +43,7 @@ router.post("/signup", (req, res) => {
         role: role,
         description: description,
         specialization: specialization,
+        imageUrl: imageUrl,
       }).then((dbUser) => {
         console.log(dbUser);
         req.login(dbUser, (err) => {
