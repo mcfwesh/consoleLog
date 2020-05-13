@@ -140,6 +140,26 @@ export default class Signup extends Component {
           ></input>
           <label>Data</label>
           <div>
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+              placeholder="your name"
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="surname">surname</label>
+            <input
+              type="text"
+              name="surname"
+              value={this.state.surname}
+              onChange={this.handleChange}
+              placeholder="your surname"
+            ></input>
+          </div>
+          <div>
             <label htmlFor="username">Mail: </label>
             <input
               type="email"
@@ -147,6 +167,7 @@ export default class Signup extends Component {
               value={this.state.username}
               onChange={this.handleChange}
               id="username"
+              placeholder="email@gmail.com"
             />
           </div>
           <div>
@@ -157,37 +178,23 @@ export default class Signup extends Component {
               value={this.state.password}
               onChange={this.handleChange}
               id="password"
+              placeholder="****"
             />
           </div>
+
           <div>
-            <label htmlFor="name">name</label>
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="surname">surname</label>
-            <input
-              type="text"
-              name="surname"
-              value={this.state.surname}
-              onChange={this.handleChange}
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="description">description</label>
-            <input
-              type="text"
+            <label htmlFor="description">Description</label>
+            <textarea
+              type="textarea"
               name="description"
               value={this.state.description}
               onChange={this.handleChange}
-            ></input>
+              placeholder="A short description of you, focus it to companies that might like to hire you 😊"
+              style={({ width: "300px" }, { height: "100px" })}
+            ></textarea>
           </div>
           <div>
-            <label htmlFor="name">role</label>
+            <label htmlFor="name">Role</label>
             <select
               name="role"
               value={this.state.role}
@@ -263,35 +270,40 @@ export default class Signup extends Component {
             <label>Mongo DB</label>
           </div>
           <div>
-            <label>Github</label>
+            <label>Github id</label>
             <input
               type="text"
               name="github"
               value={this.state.github}
               onChange={this.handleChange}
+              placeholder="Git Hub Profile"
             ></input>
           </div>
           <div>
-            <label>Codewars</label>
+            <label>Codewars id</label>
             <input
               type="text"
               name="codewars"
               value={this.state.codewars}
               onChange={this.handleChange}
+              placeholder="Code Wars Profile"
             ></input>
           </div>
           <div>
-            <label>Linkedin</label>
+            <label>Linkedin id</label>
             <input
               type="text"
               name="linkedin"
               value={this.state.linkedin}
               onChange={this.handleChange}
+              placeholder="Linkedin User"
             ></input>
           </div>
           <div>
             {this.state.message && (
-              <alert variant="danger">{this.state.message}</alert>
+              <alert variant="danger" style={{ color: "red" }}>
+                {this.state.message}
+              </alert>
             )}
           </div>
           <div>
