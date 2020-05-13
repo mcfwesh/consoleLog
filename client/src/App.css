@@ -1,45 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.App-link {
-  color: #09d3ac;
-}
 
 form {
   max-width: 50vw;
@@ -125,6 +83,7 @@ h2 {
 
 .courses a {
   color: white;
+  text-decoration: none;
 }
 
 .navbar {
@@ -148,6 +107,7 @@ h2 {
 
 .navbar-left a {
   color:white;
+  text-decoration: none;
 }
 
 .navbar-right {
@@ -161,4 +121,51 @@ h2 {
 
 .navbar-right a {
   color:white;
+  text-decoration: none;
+}
+
+.homeContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.overlay-top {
+  height: 35vh;
+  width: 60vw;
+}
+
+.ironBanner {
+  margin: 2vh;
+  background-image: url("https://i.ibb.co/HY6VNCj/iron-Banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 60vw;
+}
+
+.overlay-bottom {
+  margin-top: 2vh;
+  min-height: 40vh;
+  width: 60vw;
+}
+
+.card {
+  margin: 2vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.cardImg img {
+  height: 20vh;
+  width: 20vw;
+}
+
+.cardBody {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  min-width: 40vw;
+  margin-left: 2vw;
 }

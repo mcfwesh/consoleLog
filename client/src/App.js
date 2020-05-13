@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { Route, Redirect } from 'react-router-dom';
 import Projects from './components/Projects';
@@ -10,6 +9,7 @@ import TaskDetails from './components/TaskDetails';
 import Signup from './components/Signup';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
+import Home from './components/Home';
 
 class App extends React.Component {
 
@@ -70,6 +70,7 @@ class App extends React.Component {
           exact path='/login'
           render={props => <Login setUser={this.setUser} {...props} />}
         />
+        <Home />
       </div>
     );
   }
