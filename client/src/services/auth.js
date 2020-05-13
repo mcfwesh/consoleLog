@@ -8,7 +8,11 @@ const signup = (
   role,
   description,
   specialization,
-  imageUrl
+  imageUrl,
+  github,
+  codewars,
+  linkedin,
+  classroom,
 ) => {
   return axios
     .post("/api/auth/signup", {
@@ -20,6 +24,10 @@ const signup = (
       description,
       specialization,
       imageUrl,
+      github,
+      codewars,
+      linkedin,
+      classroom,
     })
     .then((response) => {
       console.log(response);

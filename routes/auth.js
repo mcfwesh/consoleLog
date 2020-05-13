@@ -3,9 +3,31 @@ const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
+const teacherWD = [
+  { name: "Jan", mail: "Jan@ironhack.com", linkedin: "www.linkedin.com" },
+  {
+    name: "Markus",
+    mail: "Markus@ironhack.com",
+    linkedin: "www.linkedin.com",
+  },
+  {
+    name: "Andre",
+    mail: "Andre@ironhack.com",
+    linkedin: "www.linkedin.com",
+  },
+  {
+    name: "Jeff",
+    mail: "Jeff@ironhack.com",
+    linkedin: "www.linkedin.com",
+  },
+  {
+    name: "Alfonso",
+    mail: "Alfonso@ironhack.com",
+    linkedin: "www.linkedin.com",
+  },
+];
 
 router.post("/signup", (req, res) => {
-  console.log(req.body);
   const {
     username,
     password,
@@ -15,7 +37,12 @@ router.post("/signup", (req, res) => {
     description,
     specialization,
     imageUrl,
+    github,
+    codewars,
+    linkedin,
+    classroom,
   } = req.body;
+  let teacher = [];
 
   if (!password || password.length < 4) {
     return res
@@ -35,6 +62,10 @@ router.post("/signup", (req, res) => {
       const salt = bcrypt.genSaltSync();
       const hash = bcrypt.hashSync(password, salt);
 
+      if (classroom === "Web Dev") {
+        teacher = teacherWD;
+      }
+
       return User.create({
         username: username,
         password: hash,
@@ -44,6 +75,12 @@ router.post("/signup", (req, res) => {
         description: description,
         specialization: specialization,
         imageUrl: imageUrl,
+        github: github,
+        codewars: codewars,
+        linkedin: linkedin,
+        classroom: classroom,
+        teachers: teacher,
+        // teachers: teachers,
       }).then((dbUser) => {
         console.log(dbUser);
         req.login(dbUser, (err) => {

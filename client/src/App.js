@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { Route, Redirect } from 'react-router-dom';
 import Projects from './components/Projects';
+import NavbarMain from './components/NavbarMain';
 import Navbar from './components/Navbar';
 import ProjectDetails from './components/ProjectDetails';
 import TaskDetails from './components/TaskDetails';
@@ -13,7 +14,8 @@ import Login from './components/Login';
 class App extends React.Component {
 
   state = {
-    user: this.props.user
+    user: this.props.user,
+    course: ""
   }
 
   setUser = user => {
@@ -25,6 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <NavbarMain course={this.state.course}/>
         <Navbar user={this.state.user} setUser={this.setUser} />
 
         {/* <Route
