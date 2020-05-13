@@ -252,7 +252,7 @@ export default class Signup extends Component {
             </select>
           </div>
           <div>
-            <label>Spezialization (Max 2 options):</label>
+            <label>Spezialization :</label>
             <br></br>
             <input
               type="checkbox"
