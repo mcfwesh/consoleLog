@@ -12,7 +12,7 @@ const signup = (
   github,
   codewars,
   linkedin,
-  classroom,
+  classroom
 ) => {
   return axios
     .post("/api/auth/signup", {
