@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { signup } from "../services/auth";
+import { signup, handleUpload, saveNewThing } from "../services/auth";
 
 export default class Signup extends Component {
   state = {
@@ -10,6 +10,8 @@ export default class Signup extends Component {
     message: "",
     role: "Student",
     specialization: [],
+    imageUrl: "",
+    uploadOn: false,
     github: "",
     codewars: "",
     linkedin: "",
@@ -56,6 +58,28 @@ export default class Signup extends Component {
     }
   };
 
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+
+    const uploadData = new FormData();
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new thing in '/api/things/create' POST route
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    this.setState({ uploadOn: true });
+    handleUpload(uploadData)
+      .then((response) => {
+        // console.log('response is: ', response);
+        console.log(response.secure_url);
+
+        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+        this.setState({ imageUrl: response.secure_url, uploadOn: false });
+      })
+      .catch((err) => {
+        console.log("Error while uploading the file: ", err);
+      });
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -67,12 +91,14 @@ export default class Signup extends Component {
       role,
       description,
       specialization,
+      imageUrl,
       github,
       codewars,
       linkedin,
       classroom,
     } = this.state;
     //console.log(this.state.specialization);
+    if (this.state.uploadOn) return;
     signup(
       username,
       password,
@@ -81,6 +107,7 @@ export default class Signup extends Component {
       role,
       description,
       specialization,
+      imageUrl,
       github,
       codewars,
       linkedin,
@@ -97,6 +124,7 @@ export default class Signup extends Component {
           role: "Student",
           description: "",
           specialization: [],
+          imageUrl,
           github: "",
           codewars: "",
           linkedin: "",
@@ -109,6 +137,21 @@ export default class Signup extends Component {
       }
     });
   };
+
+  // handleSubmitImage = (e) => {
+  //   e.preventDefault();
+
+  //if (this.state.uploadOn) return; // do nothing if the file is still being uploaded
+
+  //   saveNewThing(this.state)
+  //     .then((res) => {
+  //       console.log("added: ", res);
+  //       // here you would redirect to some other page
+  //     })
+  //     .catch((err) => {
+  //       console.log("Error while adding the thing: ", err);
+  //     });
+  // };
 
   render() {
     //console.log(this.state.classroom);
@@ -269,6 +312,9 @@ export default class Signup extends Component {
             ></input>
             <label>Mongo DB</label>
           </div>
+          <div id="image-uploads">
+            <input type="file" onChange={(e) => this.handleFileUpload(e)} />
+          </div>
           <div>
             <label>Github id</label>
             <input
@@ -307,7 +353,9 @@ export default class Signup extends Component {
             )}
           </div>
           <div>
-            <button type="submit">Signup</button>
+            <button type="submit" disabled={this.state.uploadOn}>
+              Signup
+            </button>
           </div>
         </form>
       </>

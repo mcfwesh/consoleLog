@@ -10,7 +10,7 @@ const userSchema = new Schema(
     role: String,
     description: String,
     specialization: { type: Array },
-    picture: String,
+    imageUrl: String,
     github: String,
     codewars: String,
     linkedin: String,
