@@ -6,6 +6,7 @@ export default class Users extends Component {
   state = {
     users: [],
     specialization: [],
+    filteredUsers: [],
   };
 
   componentDidMount = () => {
@@ -16,34 +17,39 @@ export default class Users extends Component {
   handleSpecialization = (event) => {
     const name = event.target.name;
     //console.log(name);
+    let newSpezialization;
     if (event.target.checked) {
       if (!this.state.specialization.includes(name)) {
-        this.setState({
-          specialization: [...this.state.specialization, name],
-        });
+        newSpezialization = [...this.state.specialization, name];
       }
     } else {
       let crazy = [...this.state.specialization];
       crazy.splice(this.state.specialization.indexOf(name), 1);
-      this.setState({
-        specialization: crazy,
+      newSpezialization = crazy;
+    }
+
+    if (!newSpezialization.length) {
+      return this.setState({
+        filteredUsers: this.state.users,
+        specialization: newSpezialization,
       });
     }
-    let dioni = [...this.state.users].filter((filteredUser) => {
-      return (
-        JSON.stringify(filteredUser.specialization) ===
-        JSON.stringify(this.state.specialization)
-      );
-    });
+
+    let newUsers = [];
+    for (let i = 0; i < newSpezialization.length; i++) {
+      const currente = newSpezialization[i];
+      let filteredUser = this.state.users.filter((user) => {
+        return user.specialization.includes(currente);
+      });
+      newUsers = [...newUsers, ...filteredUser];
+    }
+
+    let makeunique = [...new Set(newUsers.map(JSON.stringify))].map(JSON.parse);
 
     this.setState({
-      users: dioni,
+      specialization: newSpezialization,
+      filteredUsers: makeunique,
     });
-
-    // this.setState({ value }, () => {
-    //   console.log("Value is:", this.state.value);
-    //   console.log(filteredUser.specialization, dioni);
-    // });
   };
 
   getData = () => {
@@ -53,6 +59,7 @@ export default class Users extends Component {
         console.log(response);
         this.setState({
           users: response.data,
+          filteredUsers: response.data,
         });
       })
       .catch((err) => {
@@ -61,8 +68,9 @@ export default class Users extends Component {
   };
 
   render() {
-    console.log("State", this.state.specialization);
-    //console.log(this.state.users);
+    //console.log("State", this.state.specialization);
+    // console.log("State, ", this.state);
+
     return (
       <div>
         <div>
@@ -127,7 +135,7 @@ export default class Users extends Component {
           <label>Mongo DB</label>
         </div>
 
-        <UsersList users={this.state.users} />
+        <UsersList users={this.state.filteredUsers} />
       </div>
     );
   }
