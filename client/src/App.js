@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
+import Panel from "./components/Panel";
 
 
 class App extends React.Component {
@@ -66,6 +67,7 @@ class App extends React.Component {
           render={(props) => <Signup setUser={this.setUser} {...props} />}
         />
         <Route exact path="/users" component={Users} />
+        <Route exact path="/panel" component={Panel} />
         <Route
           exact
           path="/login"
