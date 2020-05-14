@@ -25,6 +25,9 @@ const Navbar = (props) => {
         <div>
           <Link to="/">Alumni</Link>
         </div>
+        <div>
+          <Link to="/projects">Projects</Link>
+        </div>
       </div>
       <div className="navbar-right">
         {props.user ? (
