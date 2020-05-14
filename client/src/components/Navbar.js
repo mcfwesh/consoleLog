@@ -1,45 +1,56 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { Navbar as Nav } from 'react-bootstrap';
-import { logout } from '../services/auth';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Navbar as Nav } from "react-bootstrap";
+import { logout } from "../services/auth";
 
-const handleLogout = props => {
+const handleLogout = (props) => {
   logout().then(() => {
     props.setUser(null);
   });
-}
+};
 
-const Navbar = props => {
+const Navbar = (props) => {
   return (
-    <Nav className='nav justify-content-end' bg='primary'>
-      {props.user && <Nav.Brand>Welcome, {props.user.username}</Nav.Brand>}
-      <Nav.Brand>
-        <Link to='/'>Home</Link>
-      </Nav.Brand>
-      {props.user ? (
-        <>
-          <Nav.Brand>
-            <Link to='/projects'>Projects</Link>
-          </Nav.Brand>
-          <Nav.Brand>
-            <Link to='/' onClick={() => handleLogout(props)}>
-              Logout
-            </Link>
-          </Nav.Brand>
-        </>
-      ) : (
+    <div className="navbar">
+      <div className="navbar-left">
+        <div>
+          <Link to="/users">Users</Link>
+        </div>
+        <div>
+          <Link to="/">Jobs</Link>
+        </div>
+        <div>
+          <Link to="/">Notes</Link>
+        </div>
+        <div>
+          <Link to="/">Alumni</Link>
+        </div>
+      </div>
+      <div className="navbar-right">
+        {props.user ? (
           <>
-            <Nav.Brand>
-              <Link to='/signup'>Signup</Link>
-            </Nav.Brand>
-            <Nav.Brand>
-              <Link to='/login'>Login</Link>
-            </Nav.Brand>
+            {/* <Nav.Brand>
+            <Link to='/projects'>Projects</Link>
+          </Nav.Brand> */}
+            <div>
+              <Link to="/" onClick={() => handleLogout(props)}>
+                Logout
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <Link to="/signup">Signup</Link>
+            </div>
+            <div>
+              <Link to="/login">Login</Link>
+            </div>
           </>
         )}
-    </Nav>
-  )
-}
-
+      </div>
+    </div>
+  );
+};
 
 export default Navbar;

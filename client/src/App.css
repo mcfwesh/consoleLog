@@ -1,49 +1,8 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.App-link {
-  color: #09d3ac;
-}
 
 form {
   max-width: 50vw;
   margin: 0 auto;
+  font-family: monospace;
 }
 
 button {
@@ -71,4 +30,302 @@ h2 {
 
 .projects-container > * {
   flex: 1;
+}
+
+/* Navbar Stuff */
+
+.navbarMain {
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  min-height: 5vh;
+  font-family: monospace;
+}
+
+.navLeft {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  min-width: 15vw;
+}
+
+.logo {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+}
+
+.logo img {
+  height: 15vh;
+}
+
+.navRight {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  min-width: 20vw;
+}
+
+.courses {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+}
+
+.courses a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: rgb(41, 161, 241);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  min-height: 5vh;
+  font-family: monospace;
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  min-width: 50vw;
+  font-size: 2em;
+}
+
+.navbar-left a {
+  color:white;
+  text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  min-width: 20vw;
+  font-size: 2em;
+}
+
+.navbar-right a {
+  color:white;
+  text-decoration: none;
+}
+
+.homeContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.overlay-top {
+  height: 35vh;
+  width: 60vw;
+}
+
+.ironBanner {
+  margin: 2vh;
+  background-image: url("https://i.ibb.co/HY6VNCj/iron-Banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 60vw;
+}
+
+.overlay-bottom {
+  margin-top: 2vh;
+  min-height: 40vh;
+  width: 60vw;
+}
+
+.card {
+  margin: 2vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.cardImg img {
+  height: 20vh;
+  width: 20vw;
+}
+
+.cardBody {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  min-width: 35vw;
+  margin-left: 2vw;
+}
+
+.overlay-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10vh;
+}
+
+.square {
+  position: relative;
+  min-width: 700px;
+  min-height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square span:nth-child(1){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: rgba(41, 161, 241, 0.5);
+  border-radius: 39% 54% 57% 29% / 41% 47% 58% 59%;
+  transition: 0.5s;
+  animation: animate 7s linear infinite;
+  z-index: -1;
+}
+
+.square span:nth-child(2){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: rgba(41, 161, 241, 0.6);
+  border-radius: 39% 54% 57% 29% / 41% 47% 58% 59%;
+  transition: 0.5s;
+  animation: animate 9s linear infinite;
+  z-index: -1;
+}
+
+.square span:nth-child(3){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: rgba(41, 161, 241, 0.8);
+  border-radius: 39% 54% 47% 29% / 41% 47% 58% 59%;
+  transition: 0.5s;
+  animation: animate2 10s linear infinite;
+  z-index: -1;
+}
+
+
+@keyframes animate {
+  0%{
+    transform: rotate(0deg)
+  }
+  100%{
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes animate2 {
+  0%{
+    transform: rotate(360deg)
+  }
+  100%{
+    transform: rotate(0deg)
+  }
+}
+
+.content{
+  color: white;
+}
+
+.loginContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginContainer h2{
+margin-bottom: 10vh;
+font-size: 3em;
+color: white;
+}
+
+.inputBox {
+  min-height: 3vh;
+  width: 15vw;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  border-bottom: 2px solid #fff; }
+
+.inputBox input {
+  font-size: 16px;
+  color: white;
+  border: none;
+  outline: none;
+  background: none;
+  width: 15vw;
+  position: relative; }
+
+.inputBox input::placeholder{
+ color: white
+}
+
+.inputBox input:focus {
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  width: 15vw; }
+
+@keyframes slide {
+  0% {
+    left: 0px;
+    top: 0px; }
+  25% {
+    left: 250px;
+    top: 0px; }
+  100% {
+    left: 0px;
+    top: 0px; } 
+}
+
+.overlay-panel {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.overlay-panel-cards{
+  margin: 10vh;
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.overlay-panel-card{
+  border: 1px solid black;
+  height: 15vh;
+  width: 7vw;
+  margin: 5vh;
 }
