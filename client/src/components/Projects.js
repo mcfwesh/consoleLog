@@ -1,32 +1,30 @@
-import React, { Component } from 'react'
-import axios from 'axios';
-import ProjectList from './ProjectList';
-import AddProject from './AddProject';
-
+import React, { Component } from "react";
+import axios from "axios";
+import ProjectList from "./ProjectList";
+import AddProject from "./AddProject";
 
 export default class Projects extends Component {
-
   state = {
-    projects: []
-  }
+    projects: [],
+  };
 
   componentDidMount = () => {
     this.getData();
-  }
+  };
 
   getData = () => {
     axios
-      .get('/api/projects')
-      .then(response => {
+      .get("/api/projects")
+      .then((response) => {
         console.log(response);
         this.setState({
-          projects: response.data
-        })
+          projects: response.data,
+        });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
-      })
-  }
+      });
+  };
 
   render() {
     return (
@@ -34,6 +32,6 @@ export default class Projects extends Component {
         <AddProject getData={this.getData} />
         <ProjectList projects={this.state.projects} />
       </div>
-    )
+    );
   }
 }

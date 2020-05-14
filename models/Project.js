@@ -1,18 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const projectSchema = new Schema({
   title: String,
+  number: String,
   description: String,
-  owner: { type: Schema.Types.ObjectId, ref: 'User' },
-  tasks: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Task'
-    }
-  ]
+  imageUrl: String,
+  github: String,
+  heroku: String,
+  users: [{ type: Schema.Types.ObjectId, ref: "User" }],
 });
 
-const Project = model('Project', projectSchema);
+const Project = model("Project", projectSchema);
 
 module.exports = Project;
