@@ -72,7 +72,7 @@ export default class Users extends Component {
     // console.log("State, ", this.state);
 
     return (
-      <div>
+      <div className="overlay-user">
         <div>
           <label>Spezialization (Max 2 options):</label>
           <br></br>
