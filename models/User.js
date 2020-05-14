@@ -15,6 +15,7 @@ const userSchema = new Schema(
     codewars: String,
     linkedin: String,
     teachers: [Object],
+    projects: [{ type: Schema.Types.ObjectId, ref: "Project" }],
     // teachers: [{ name: String, mail: String, linkedin: String }],
     classroom: String,
   },
