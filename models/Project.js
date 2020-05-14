@@ -8,7 +8,7 @@ const projectSchema = new Schema({
   imageUrl: String,
   github: String,
   heroku: String,
-  users: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  contributors: [{ type: Schema.Types.ObjectId, ref: "User" }],
 });
 
 const Project = model("Project", projectSchema);

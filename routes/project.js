@@ -30,8 +30,8 @@ router.post("/", (req, res) => {
   const number = req.body.number;
   const github = req.body.github;
   const heroku = req.body.heroku;
+  const contributors = req.body.contributors;
   //const user = req.user._id;
-  const users = [];
 
   Project.create({
     title,
@@ -40,9 +40,11 @@ router.post("/", (req, res) => {
     number,
     github,
     heroku,
-    users,
+    contributors,
   })
     .then((project) => {
+      console.log(project);
+
       res.status(201).json(project);
     })
     .catch((err) => {
@@ -52,7 +54,7 @@ router.post("/", (req, res) => {
 
 router.get("/", (req, res) => {
   Project.find()
-    .populate("users")
+    .populate("contributors")
     .then((projects) => {
       res.status(200).json(projects);
     })
@@ -64,7 +66,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   // check if req.params.id is valid, if not respond with a 4xx status code
   Project.findById(req.params.id)
-    .populate("users")
+    .populate("contributors")
     .then((project) => {
       if (!project) {
         res.status(404).json(project);

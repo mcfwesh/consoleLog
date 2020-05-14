@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
+import { project, handleUpload, saveNewThing } from "../services/auth";
 
 export default class AddProject extends Component {
   state = {
@@ -10,20 +11,65 @@ export default class AddProject extends Component {
     imageUrl: "",
     github: "",
     heroku: "",
+    contributors: [],
+    contributorsList: null,
+    contributorsName: [],
   };
 
-  handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+  componentDidMount() {
+    axios.get("/api/users").then(({ data }) => {
+      this.setState({
+        contributorsList: data,
+      });
+    });
+  }
 
+  handleChange = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
     this.setState({
       [name]: value,
     });
+    //console.log(name);
+    //console.log(this.state);
+  };
+
+  handleSelect = (event) => {
+    console.log(event.target.key);
+    const name = document.getElementById(event.target.value).innerText;
+    const target = event.target;
+    const value = target.value;
+    this.setState({
+      contributors: [...this.state.contributors, value],
+      contributorsName: [...this.state.contributorsName, name],
+    });
+  };
+
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+
+    const uploadData = new FormData();
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new thing in '/api/things/create' POST route
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    this.setState({ uploadOn: true });
+    handleUpload(uploadData)
+      .then((response) => {
+        // console.log('response is: ', response);
+        console.log(response.secure_url);
+
+        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+        this.setState({ imageUrl: response.secure_url, uploadOn: false });
+      })
+      .catch((err) => {
+        console.log("Error while uploading the file: ", err);
+      });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-
     axios
       .post("/api/projects", {
         title: this.state.title,
@@ -32,6 +78,7 @@ export default class AddProject extends Component {
         imageUrl: this.state.imageUrl,
         github: this.state.github,
         heroku: this.state.heroku,
+        contributors: this.state.contributors,
       })
       .then(() => {
         this.setState({
@@ -41,6 +88,7 @@ export default class AddProject extends Component {
           imageUrl: "",
           github: "",
           heroku: "",
+          contributors: "",
         });
         // update state in Projects by executing getData()
         this.props.getData();
@@ -51,6 +99,8 @@ export default class AddProject extends Component {
   };
 
   render() {
+    console.log(this.state.contributors);
+
     return (
       <Form onSubmit={this.handleSubmit}>
         {/* all groups (label + input) are grouped in a Form.Group */}
@@ -88,13 +138,9 @@ export default class AddProject extends Component {
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="imageUrl">ImageUrl: </Form.Label>
-          <Form.Control
-            type="text"
-            name="imageUrl"
-            id="imageUrl"
-            value={this.state.imageUrl}
-            onChange={this.handleChange}
-          />
+          <div id="image-uploads">
+            <input type="file" onChange={(e) => this.handleFileUpload(e)} />
+          </div>
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="github">github: </Form.Label>
@@ -116,6 +162,31 @@ export default class AddProject extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
+
+        {/* <Form.Group>
+          <Form.Label htmlFor="names">contributors: </Form.Label>
+          <Form.Control
+            type="text"
+            name="names"
+            id="names"
+            value={this.state.names}
+            onChange={this.handleChange}
+          />
+        </Form.Group> */}
+        {this.state.contributorsName &&
+          this.state.contributorsName.map((name) => {
+            return <p>{name}</p>;
+          })}
+        <select name="contributors" onChange={this.handleSelect}>
+          {this.state.contributorsList &&
+            this.state.contributorsList.map((contrib) => {
+              return (
+                <option id={contrib._id} value={contrib._id} key={contrib._id}>
+                  {contrib.name}
+                </option>
+              );
+            })}
+        </select>
 
         <Button type="submit">Add Project</Button>
       </Form>
