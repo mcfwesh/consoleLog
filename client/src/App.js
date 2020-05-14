@@ -13,6 +13,7 @@ import Home from "./components/Home";
 import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
 import Panel from "./components/Panel";
+import Notes from "./components/Notes";
 
 class App extends React.Component {
   state = {
@@ -74,6 +75,7 @@ class App extends React.Component {
           />
           <Route exact path="/users" component={Users} />
           <Route exact path="/panel" component={Panel} />
+          <Route exact path="/notes" component={Notes} />
           <Route
             exact
             path="/login"
