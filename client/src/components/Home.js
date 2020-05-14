@@ -8,6 +8,7 @@ export default class Home extends Component {
     <div className='homeContainer'>
         <div className="overlay-top">
             <div className="ironBanner">
+            <img src="https://i.ibb.co/T4JsC2y/avtandil2.png" alt="ironBanner"/>
             </div>
         </div>
         <div className="overlay-bottom">

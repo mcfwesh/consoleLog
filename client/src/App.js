@@ -79,8 +79,8 @@ class App extends React.Component {
             path="/login"
             render={(props) => <Login setUser={this.setUser} {...props} />}
           />
-          <Home />
           <Route exact path="/users/:id" component={UserDetails} />
+          <Home />
         </Switch>
       </div>
     );
