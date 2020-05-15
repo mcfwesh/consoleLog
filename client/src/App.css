@@ -430,9 +430,9 @@ h2 {
   width: 100%;
 }
 
-.overlay-panel-cards {
-  min-width: 30vw;
-  max-width: 60vw;
+.overlay-panel-cards{
+  min-width: 40vw;
+  max-width: 65vw;
   height: 70vh;
   display: flex;
   justify-content: space-between;
@@ -446,8 +446,8 @@ h2 {
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 250px;
-  margin: 7vh;
+  width:200px;
+  margin:7vh;
 }
 
 .panel-img {
@@ -476,21 +476,37 @@ h2 {
 .overlay-users {
   display: flex;
   justify-content: space-between;
-  flex-flow: row wrap;
-  height: 80vh;
+  flex-flow:row wrap;
+  /* height: 80vh; */
   width: 80vw;
 }
 
 .overlay-userlist {
   display: flex;
   justify-content: center;
-  flex-flow: row wrap;
-  height: 80vh;
+  flex-flow:row wrap;
+  /* height: 80vh; */
 }
 
 .userCard {
   width: 35vw;
-  border: 1px solid black;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userCardImg img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.userCardBody {
+  width: 25vw;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .mtk1 {
