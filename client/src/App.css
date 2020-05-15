@@ -494,9 +494,9 @@ h2 {
 }
 
 .mtk1 {
-  /* color: rgb(24, 189, 254) !important; */
+  color: rgb(24, 189, 254) !important;
 }
 
-#root > div > div.react-monaco-editor-container {
+.margin-auto {
   margin: auto;
 }
