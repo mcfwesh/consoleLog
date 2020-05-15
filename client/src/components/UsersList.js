@@ -14,10 +14,7 @@ const UsersList = (props) => {
               <Link to={`/users/${user._id}`}>
                 <img src={user.imageUrl} style={{ width: "150px" }} />
               </Link>
-              <Link to={`/users/${user._id}`}>
-                {user.name}
-                {user.surname}
-              </Link>
+              <Link to={`/users/${user._id}`}>{user.name}</Link>
               <p>{user.description}</p>
               {user.specialization.map((spezi) => {
                 return <p>{spezi}</p>;

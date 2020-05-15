@@ -21,6 +21,7 @@ export default class UserDetails extends Component {
     linkedin: "",
     classroom: "Web Dev",
     teachers: [],
+    projects: [],
     // title: "",
     // description: "",
     // editForm: false,
@@ -111,6 +112,21 @@ export default class UserDetails extends Component {
   };
 
   componentDidMount = () => {
+    const id = this.props.match.params.id;
+    console.log("banana", id);
+
+    axios
+      .get(`/api/projects/`)
+      .then(({ data }) => {
+        console.log("projects", data);
+        this.setState({
+          projects: [...this.state.projects, data.projects],
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     this.getData();
 
     function onClick() {
@@ -143,7 +159,7 @@ export default class UserDetails extends Component {
         <h1>NATE IS THE BOSS</h1>
         <p key={this.state.name}>
           <img src={this.state.imageUrl} />
-          {this.state.name}
+          {this.state.name} <br />
           {this.state.surname}
           {this.state.description}
           {this.state.specialization.map((spe) => {
@@ -162,6 +178,7 @@ export default class UserDetails extends Component {
               </div>
             );
           })}
+          <p>Projects: {this.state.projects}</p>
         </p>
         {/* <h1>{this.state.user.name}</h1>
         <p>{this.state.project.description}</p>

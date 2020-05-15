@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Project = require("../models/Project");
 const Task = require("../models/Task");
+const User = require("../models/User");
 
 // post route using async await
 /*
@@ -31,7 +32,8 @@ router.post("/", (req, res) => {
   const github = req.body.github;
   const heroku = req.body.heroku;
   const contributors = req.body.contributors;
-  //const user = req.user._id;
+  const userId = req.user._id;
+  console.log(userId);
 
   Project.create({
     title,
@@ -41,11 +43,15 @@ router.post("/", (req, res) => {
     github,
     heroku,
     contributors,
+    user: userId,
   })
     .then((project) => {
       console.log(project);
-
-      res.status(201).json(project);
+      User.findByIdAndUpdate(userId, { $push: { projects: project.id } }).then(
+        (project) => {
+          res.status(201).json(project);
+        }
+      );
     })
     .catch((err) => {
       res.json(err);
@@ -55,6 +61,7 @@ router.post("/", (req, res) => {
 router.get("/", (req, res) => {
   Project.find()
     .populate("contributors")
+    .populate("user")
     .then((projects) => {
       res.status(200).json(projects);
     })
@@ -67,6 +74,7 @@ router.get("/:id", (req, res) => {
   // check if req.params.id is valid, if not respond with a 4xx status code
   Project.findById(req.params.id)
     .populate("contributors")
+    .populate("user")
     .then((project) => {
       if (!project) {
         res.status(404).json(project);
