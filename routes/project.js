@@ -47,11 +47,11 @@ router.post("/", (req, res) => {
   })
     .then((project) => {
       console.log(project);
-      User.findByIdAndUpdate(userId, { $push: { projects: project.id } }).then(
-        (project) => {
-          res.status(201).json(project);
-        }
-      );
+      User.findByIdAndUpdate(userId, {
+        $push: { projects: project.id },
+      }).then((project) => {
+        res.status(201).json(project);
+      });
     })
     .catch((err) => {
       res.json(err);

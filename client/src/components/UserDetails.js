@@ -159,25 +159,41 @@ export default class UserDetails extends Component {
       // <TaskList tasks={this.state.project.tasks} /> }
       <div>
         <div id="nate">
-          <p key={this.state.name}>
+          <div key={this.state.name}>
             <img src={this.state.imageUrl} style={{ width: "120px" }} />
 
-            {this.state.name}
-            {this.state.surname}
-            {this.state.description}
+            <h2>
+              {this.state.name} {this.state.surname}
+            </h2>
+            <p>{this.state.description}</p>
+
             {this.state.specialization.map((spe) => {
-              return <li>{spe}</li>;
+              return (
+                <div>
+                  <h3>Tech Stacks</h3>
+                  <li>{spe}</li>
+                </div>
+              );
             })}
-            {this.state.github}
-            {this.state.linkedin}
+            <p>Github: {this.state.github}</p>
+            <p>Linkedin: {this.state.linkedin}</p>
             <br></br>
-            {this.state.codewars}
-            <p>
-              Projects:{" "}
+            <p>Codewars: {this.state.codewars} </p>
+            <div>
+              <h2>Projects:</h2>
               {this.state.projects.map((name) => (
-                <p>{name.description}</p>
+                <div>
+                  <h4>{name.title}</h4>
+                  <p>{name.description}</p>
+                  <p>Project Category: {name.number}</p>
+                  <div>
+                    <img src={name.imageUrl} />
+                  </div>
+                  <a href={name.github}>Github repo</a> <br />
+                  <a href={name.heroku}>Play Game</a>
+                </div>
               ))}
-            </p>
+            </div>
             <table>
               <tr>
                 <th>Teacher</th>
@@ -194,7 +210,7 @@ export default class UserDetails extends Component {
                 );
               })}
             </table>
-          </p>
+          </div>
         </div>
         <a id="clickbind" href="#">
           Export PDF

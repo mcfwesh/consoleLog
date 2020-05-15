@@ -135,8 +135,8 @@ export default class Users extends Component {
           <label>Mongo DB</label>
         </div>
         <div className="overlay-userlist">
-      <UsersList users={this.state.filteredUsers} />
-      </div>
+          <UsersList users={this.state.filteredUsers} />
+        </div>
       </div>
     );
   }

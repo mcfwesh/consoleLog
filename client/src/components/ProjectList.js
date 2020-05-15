@@ -10,9 +10,8 @@ const ProjectList = (props) => {
         return (
           <div key={project._id}>
             <img src={project.imageUrl} style={{ width: "150px" }} alt="" />
-            <h3>
-              <Link to={`/projects/${project._id}`}>{project.title}</Link>
-            </h3>
+            <h3>{project.title}</h3>
+            <p>Project Category: {project.number}</p>
             <p>Contributors:</p>
             <ul>
               {project.contributors.map((contrib) => (
