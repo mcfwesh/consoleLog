@@ -74,65 +74,96 @@ export default class Users extends Component {
     return (
       <div className="overlay-user">
         <div className="overlay-user-filter">
-          <label>Spezialization (Max 2 options):</label>
-          <br></br>
+        {/* <ul class="ks-cboxtags">
+      <li><input type="checkbox" id="checkboxTwo" value="Cotton Candy" checked><label for="checkboxTwo">Cotton Candy</label></input></li>
+      <li><input type="checkbox" id="checkboxThree" value="Rarity" checked><label for="checkboxThree">Rarity</label></input></li>
+      <li><input type="checkbox" id="checkboxFour" value="Moondancer"><label for="checkboxFour">Moondancer</label></input></li>
+      <li><input type="checkbox" id="checkboxFive" value="Surprise"><label for="checkboxFive">Surprise</label></input></li>
+      <li><input type="checkbox" id="checkboxSix" value="Twilight Sparkle" checked><label for="checkboxSix">TwilightSparkle</label></input></li>
+      <li><input type="checkbox" id="checkboxSeven" value="Fluttershy"><label for="checkboxSeven">Fluttershy</label></input></li>
+      <li><input type="checkbox" id="checkboxEight" value="Derpy Hooves"><label for="checkboxEight">Derpy Hooves</label></input></li>
+      <li><input type="checkbox" id="checkboxNine" value="Princess Celestia"><label for="checkboxNine">Princess
+                      Celestia</label></input></li>
+      <li><input type="checkbox" id="checkboxTen" value="Gusty"><label for="checkboxTen">Gusty</label></input></li>
+      <li class="ks-selected"><input type="checkbox" id="checkboxEleven" value="Discord"><label for="checkboxEleven">Discord</label></input></li>
+      <li><input type="checkbox" id="checkboxTwelve" value="Clover"><label for="checkboxTwelve">Clover</label></input></li>
+      <li><input type="checkbox" id="checkboxThirteen" value="Baby Moondancer"><label for="checkboxThirteen">Baby
+                      Moondancer</label></input></li>
+      <li><input type="checkbox" id="checkboxFourteen" value="Medley"><label for="checkboxFourteen">Medley</label></input></li>
+      <li><input type="checkbox" id="checkboxFifteen" value="Firefly"><label for="checkboxFifteen">Firefly</label></input></li>
+    </ul> */}
+          <ul className="ks-cboxtags">
+          <li>
           <input
+            id="checkboxOne"
             type="checkbox"
             name="Frontend"
             checked={this.state.specialization.includes("Frontend")}
             onChange={this.handleSpecialization}
-          ></input>
-          <label>Frontend</label>
+          ></input><label for="checkboxOne">Frontend</label></li>
+          <li>
           <input
+            id="checkboxTwo"
             type="checkbox"
             name="Backend"
             checked={this.state.specialization.includes("Backend")}
             onChange={this.handleSpecialization}
-          ></input>
-          <label>Backend</label>
+          ></input><label for="checkboxTwo">Backend</label></li>
+          <li>
           <input
+            id="checkboxThree"
             type="checkbox"
             name="CSS"
             checked={this.state.specialization.includes("CSS")}
             onChange={this.handleSpecialization}
-          ></input>
-          <label>CSS</label>
+          ></input><label for="checkboxThree">CSS</label></li>
+          <li>
           <input
+            id="checkboxFour"
             type="checkbox"
             name="React"
             checked={this.state.specialization.includes("React")}
             onChange={this.handleSpecialization}
-          ></input>
-          <label>React</label>
+          ></input><label for="checkboxFour">React</label></li>
+          
           <br></br>
+          <li>
           <input
+            id="checkboxFive"
             type="checkbox"
             name="Bootstrap"
             checked={this.state.specialization.includes("Bootstrap")}
             onChange={this.handleSpecialization}
           ></input>
-          <label>Bootstrap</label>
+          <label for="checkboxFive">Bootstrap</label>
+          </li>
+          <li>
           <input
+            id="checkboxSix"
             type="checkbox"
             name="Managment"
             checked={this.state.specialization.includes("Managment")}
             onChange={this.handleSpecialization}
           ></input>
-          <label>Managment</label>
+          <label for="checkboxSix">Managment</label></li>
+          <li>
           <input
+            id="checkboxSeven"
             type="checkbox"
             name="API"
             checked={this.state.specialization.includes("API")}
             onChange={this.handleSpecialization}
           ></input>
-          <label>API</label>
+          <label for="checkboxSeven">API</label></li>
+<li>
           <input
+            id="checkboxEight"
             type="checkbox"
             name="Mongo DB"
             checked={this.state.specialization.includes("Mongo DB")}
             onChange={this.handleSpecialization}
           ></input>
-          <label>Mongo DB</label>
+          <label for="checkboxEight">Mongo DB</label></li></ul>
         </div>
         <div className="overlay-userlist">
       <UsersList users={this.state.filteredUsers} />
