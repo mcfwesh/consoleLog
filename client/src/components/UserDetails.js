@@ -26,9 +26,35 @@ export default class UserDetails extends Component {
     // error: null,
   };
 
-  getData = () => {
+  getProject = () => {
     const id = this.props.match.params.id;
-    //console.log(id);
+    console.log("the id", id);
+    axios
+      .get(`/api/projects/`)
+      .then((response) => {
+        //console.log("projects", response.data[1].contributors[0]._id);
+        // console.log(
+        //   "projects map 1",
+        //   response.data.filter((student) =>
+        //     student.contributors.map((userid) => userid._id).includes(id)
+        //   ),
+        //   id,
+        //   response.data
+        // );
+        let projectusers = response.data.filter((student) =>
+          student.contributors.map((userid) => userid._id).includes(id)
+        );
+        console.log(projectusers);
+        this.getData(projectusers);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  getData = (projectusers) => {
+    const id = this.props.match.params.id;
+    console.log(projectusers);
     axios
       .get(`/api/users/${id}`)
       .then((response) => {
@@ -47,6 +73,7 @@ export default class UserDetails extends Component {
           linkedin: response.data.linkedin,
           classroom: response.data.classroom,
           teachers: response.data.teachers,
+          projects: projectusers,
         });
       })
       .catch((err) => {
@@ -84,19 +111,8 @@ export default class UserDetails extends Component {
     const id = this.props.match.params.id;
     console.log("banana", id);
 
-    axios
-      .get(`/api/projects/`)
-      .then(({ data }) => {
-        console.log("projects", data);
-        this.setState({
-          projects: [...this.state.projects, data.projects],
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    this.getData();
+    this.getProject();
+    //this.getData();
 
     function generatePDF() {
       const element = document.getElementById("nate");
@@ -115,6 +131,7 @@ export default class UserDetails extends Component {
   };
 
   render() {
+    console.log(this.state.projects);
     return (
       // { <h1>{this.state.user.name}</h1>
       // <p>{this.state.project.description}</p>
@@ -155,7 +172,12 @@ export default class UserDetails extends Component {
             {this.state.linkedin}
             <br></br>
             {this.state.codewars}
-            <p>Projects: {this.state.projects}</p>
+            <p>
+              Projects:{" "}
+              {this.state.projects.map((name) => (
+                <p>{name.description}</p>
+              ))}
+            </p>
             <table>
               <tr>
                 <th>Teacher</th>
