@@ -3,27 +3,31 @@ import { Link, Switch } from "react-router-dom";
 
 const UsersList = (props) => {
   return (
-    <div>
-      <h1>User List</h1>
-      {props.users.length > 0 && <h2>Users:</h2>}
+    <div className="overlay-users">
+      {props.users.length > 0}
 
       {props.users.map((user) => {
         return (
-          <div key={user._id}>
-            <h3>
+          <div className="userCard" key={user._id}>
               <Link to={`/users/${user._id}`}>
+              <div>
                 <img src={user.imageUrl} style={{ width: "150px" }} />
+                </div>
               </Link>
-              <Link to={`/users/${user._id}`}>{user.name}</Link>
+              <div>
+              <Link to={`/users/${user._id}`}>
+                {user.name}
+                {user.surname}
+              </Link>
               <p>{user.description}</p>
               {user.specialization.map((spezi) => {
                 return <p>{spezi}</p>;
               })}
-            </h3>
+              </div>
           </div>
         );
       })}
-    </div>
+      </div>
   );
 };
 

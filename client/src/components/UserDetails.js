@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-// import { Button } from 'react-bootstrap';
-// import EditProject from './EditProject';
-// import AddTask from './AddTask';
-// import TaskList from './TaskList';
 import axios from "axios";
-import jsPDF from "jspdf";
+import html2pdf from "html2pdf.js";
 
 export default class UserDetails extends Component {
   state = {
@@ -16,6 +12,7 @@ export default class UserDetails extends Component {
     specialization: [],
     imageUrl: "",
     uploadOn: false,
+    description: "",
     github: "",
     codewars: "",
     linkedin: "",
@@ -29,35 +26,6 @@ export default class UserDetails extends Component {
     // error: null,
   };
 
-  //   handleChange = (event) => {
-  //     const { name, value } = event.target;
-
-  //     this.setState({
-  //       [name]: value,
-  //     });
-  //   };
-
-  //   handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     const id = this.props.match.params.id;
-  //     axios
-  //       .put(`/api/projects/${id}`, {
-  //         title: this.state.title,
-  //         description: this.state.description,
-  //       })
-  //       .then((response) => {
-  //         this.setState({
-  //           project: response.data,
-  //           title: response.data.title,
-  //           description: response.data.description,
-  //           editForm: false,
-  //         });
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   };
-
   getData = () => {
     const id = this.props.match.params.id;
     //console.log(id);
@@ -70,6 +38,7 @@ export default class UserDetails extends Component {
           name: response.data.name,
           surname: response.data.surname,
           role: response.data.role,
+          description: response.data.description,
           specialization: response.data.specialization,
           imageUrl: response.data.imageUrl,
           uploadOn: false,
@@ -129,57 +98,24 @@ export default class UserDetails extends Component {
 
     this.getData();
 
-    function onClick() {
-      var pdf = new jsPDF("p", "pt", "letter");
-      pdf.canvas.height = 72 * 11;
-      pdf.canvas.width = 72 * 8.5;
+    function generatePDF() {
+      const element = document.getElementById("nate");
+      console.log(element);
 
-      pdf.fromHTML(document.querySelector(".nate"));
-      console.log(document.querySelector(".nate"));
-
-      pdf.save("test.pdf");
+      var opt = {
+        margin: 2,
+        image: { type: "jpg", quality: 0.95 },
+        html2canvas: { dpi: 100, letterRendering: true, useCORS: true },
+        jsPDF: { unit: "pt", format: "letter", orientation: "portrait" },
+      };
+      html2pdf().from(element).set(opt).save();
     }
     var element = document.getElementById("clickbind");
-    element.addEventListener("click", onClick);
+    element.addEventListener("click", generatePDF);
   };
 
   render() {
-    // console.log(this.state.taskForm);
-    // if (this.state.error) return <div>{this.state.error}</div>;
-    // if (!this.state.project) return <></>;
-
-    // let allowedToDelete = false;
-    // const user = this.props.user;
-    // const owner = this.state.project.owner;
-
-    // if (user && user._id === owner) allowedToDelete = true;
-
     return (
-      <div class="nate">
-        <h1>NATE IS THE BOSS</h1>
-        <p key={this.state.name}>
-          <img src={this.state.imageUrl} />
-          {this.state.name} <br />
-          {this.state.surname}
-          {this.state.description}
-          {this.state.specialization.map((spe) => {
-            return <li>{spe}</li>;
-          })}
-          {this.state.github}
-          {this.state.linkedin}
-          <br></br>
-          {this.state.codewars}
-          {this.state.teachers.map((spe) => {
-            return (
-              <div>
-                <li>{spe.name}</li>
-                <li>{spe.mail}</li>
-                <li>{spe.linkedin}</li>
-              </div>
-            );
-          })}
-          <p>Projects: {this.state.projects}</p>
-        </p>
         {/* <h1>{this.state.user.name}</h1>
         <p>{this.state.project.description}</p>
         {allowedToDelete && (
@@ -204,11 +140,44 @@ export default class UserDetails extends Component {
           />
         )}
         <TaskList tasks={this.state.project.tasks} /> */}
+      <div>
+        <div id="nate">
+          <p key={this.state.name}>
+            <img src={this.state.imageUrl} style={{ width: "120px" }} />
 
+            {this.state.name}
+            {this.state.surname}
+            {this.state.description}
+            {this.state.specialization.map((spe) => {
+              return <li>{spe}</li>;
+            })}
+            {this.state.github}
+            {this.state.linkedin}
+            <br></br>
+            {this.state.codewars}
+<p>Projects: {this.state.projects}</p>
+            <table>
+              <tr>
+                <th>Teacher</th>
+                <th>Mail</th>
+                <th>Linkedin</th>
+              </tr>
+              {this.state.teachers.map((spe) => {
+                return (
+                  <tr>
+                    <td>{spe.name}</td>
+                    <td>{spe.mail}</td>
+                    <td>{spe.linkedin}</td>
+                  </tr>
+                );
+              })}
+            </table>
+
+          </p>
+        </div>
         <a id="clickbind" href="#">
           Export PDF
         </a>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
       </div>
     );
   }

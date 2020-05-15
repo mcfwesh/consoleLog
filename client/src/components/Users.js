@@ -73,7 +73,7 @@ export default class Users extends Component {
 
     return (
       <div className="overlay-user">
-        <div>
+        <div className="overlay-user-filter">
           <label>Spezialization (Max 2 options):</label>
           <br></br>
           <input
@@ -134,8 +134,9 @@ export default class Users extends Component {
           ></input>
           <label>Mongo DB</label>
         </div>
-
-        <UsersList users={this.state.filteredUsers} />
+        <div className="overlay-userlist">
+      <UsersList users={this.state.filteredUsers} />
+      </div>
       </div>
     );
   }
