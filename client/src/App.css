@@ -430,7 +430,7 @@ h2 {
   width: 100%;
 }
 
-.overlay-panel-cards{
+.overlay-panel-cards {
   min-width: 40vw;
   max-width: 65vw;
   height: 70vh;
@@ -446,8 +446,8 @@ h2 {
   justify-content: center;
   align-items: center;
   height: auto;
-  width:200px;
-  margin:7vh;
+  width: 200px;
+  margin: 7vh;
 }
 
 .panel-img {
@@ -476,7 +476,7 @@ h2 {
 .overlay-users {
   display: flex;
   justify-content: space-between;
-  flex-flow:row wrap;
+  flex-flow: row wrap;
   /* height: 80vh; */
   width: 80vw;
 }
@@ -484,7 +484,7 @@ h2 {
 .overlay-userlist {
   display: flex;
   justify-content: center;
-  flex-flow:row wrap;
+  flex-flow: row wrap;
   /* height: 80vh; */
 }
 
@@ -513,6 +513,7 @@ h2 {
   color: rgb(24, 189, 254) !important;
 }
 
-.margin-auto {
+.react-monaco-editor-container {
   margin: auto;
+  margin-top: 20px;
 }
