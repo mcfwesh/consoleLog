@@ -9,19 +9,27 @@ const UsersList = (props) => {
       {props.users.map((user) => {
         return (
           <div className="userCard" key={user._id}>
+          <div className="userCardRed">
               <Link to={`/users/${user._id}`}>
               <div className="userCardImg">
                 <img src={user.imageUrl} />
                 </div>
               </Link>
               <div className="userCardBody">
-              <Link to={`/users/${user._id}`}>
-              <h2>{user.name} {user.surname}</h2>
-              </Link>
-              <p>{user.description}</p>
+                <div className="userCardBodyTitle">
+                  <Link to={`/users/${user._id}`}>
+                  <h2>{user.name} {user.surname}</h2>
+                  </Link>
+                </div>
+                <div className="userCardDesctiption">
+                  <p>{user.description}</p>
+                </div>
+                <div className="userCarSpecialization">
               {user.specialization.map((spezi) => {
                 return <p>{spezi}</p>;
               })}
+                </div>
+              </div>
               </div>
           </div>
         );
