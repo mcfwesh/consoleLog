@@ -18,6 +18,12 @@ export default class UserDetails extends Component {
     linkedin: "",
     classroom: "Web Dev",
     teachers: [],
+    projects: [],
+    // title: "",
+    // description: "",
+    // editForm: false,
+    // taskForm: false,
+    // error: null,
   };
 
   getData = () => {
@@ -75,6 +81,21 @@ export default class UserDetails extends Component {
   };
 
   componentDidMount = () => {
+    const id = this.props.match.params.id;
+    console.log("banana", id);
+
+    axios
+      .get(`/api/projects/`)
+      .then(({ data }) => {
+        console.log("projects", data);
+        this.setState({
+          projects: [...this.state.projects, data.projects],
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     this.getData();
 
     function generatePDF() {
@@ -95,6 +116,30 @@ export default class UserDetails extends Component {
 
   render() {
     return (
+        {/* <h1>{this.state.user.name}</h1>
+        <p>{this.state.project.description}</p>
+        {allowedToDelete && (
+          <Button variant="danger" onClick={this.deleteProject}>
+            Delete this project
+          </Button>
+        )} */}
+        {/* <Button onClick={this.toggleEditForm}>Show edit form</Button>
+        <Button onClick={this.toggleTaskForm}>Show task form</Button>
+        {this.state.editForm && (
+          <EditProject
+            {...this.state}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+        )}
+        {this.state.taskForm && (
+          <AddTask
+            projectId={this.state.project._id}
+            getData={this.getData}
+            hideForm={() => this.setState({ taskForm: false })}
+          />
+        )}
+        <TaskList tasks={this.state.project.tasks} /> */}
       <div>
         <div id="nate">
           <p key={this.state.name}>
@@ -110,6 +155,7 @@ export default class UserDetails extends Component {
             {this.state.linkedin}
             <br></br>
             {this.state.codewars}
+<p>Projects: {this.state.projects}</p>
             <table>
               <tr>
                 <th>Teacher</th>
@@ -126,6 +172,7 @@ export default class UserDetails extends Component {
                 );
               })}
             </table>
+
           </p>
         </div>
         <a id="clickbind" href="#">
