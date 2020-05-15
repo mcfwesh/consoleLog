@@ -126,7 +126,7 @@ export default class AddProject extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label htmlFor="number">Number: </Form.Label>
           <Form.Control
             type="text"
@@ -135,7 +135,13 @@ export default class AddProject extends Component {
             value={this.state.number}
             onChange={this.handleChange}
           />
-        </Form.Group>
+        </Form.Group> */}
+        <select name="number" id="number" onChange={this.handleChange}>
+          <option value="">Select Project</option>
+          <option value="Project 1">Project 1</option>
+          <option value="Project 2">Project 2</option>
+          <option value="Project 3">Project 3</option>
+        </select>
         <Form.Group>
           <Form.Label htmlFor="imageUrl">ImageUrl: </Form.Label>
           <div id="image-uploads">
@@ -162,17 +168,6 @@ export default class AddProject extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-
-        {/* <Form.Group>
-          <Form.Label htmlFor="names">contributors: </Form.Label>
-          <Form.Control
-            type="text"
-            name="names"
-            id="names"
-            value={this.state.names}
-            onChange={this.handleChange}
-          />
-        </Form.Group> */}
         {this.state.contributorsName &&
           this.state.contributorsName.map((name) => {
             return <p>{name}</p>;
