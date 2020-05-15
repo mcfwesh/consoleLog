@@ -133,7 +133,7 @@ export default class Signup extends Component {
       } else {
         // everything is fine -> log the user in
         this.props.setUser(data);
-        this.props.history.push("/projects");
+        this.props.history.push("/users");
       }
     });
   };

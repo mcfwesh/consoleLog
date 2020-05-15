@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route, Redirect, Switch } from "react-router-dom";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import { project, handleUpload, saveNewThing } from "../services/auth";

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import ProjectList from "./ProjectList";
 import AddProject from "./AddProject";
+import { Link, Route, Redirect, Switch } from "react-router-dom";
 
 export default class Projects extends Component {
   state = {
@@ -29,7 +30,8 @@ export default class Projects extends Component {
   render() {
     return (
       <div className="projects-container">
-        <AddProject getData={this.getData} />
+        <Link to="/addprojects">add project</Link>
+
         <ProjectList projects={this.state.projects} />
       </div>
     );

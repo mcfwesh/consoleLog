@@ -89,7 +89,7 @@ router.get("/:id", (req, res) => {
 
 router.put("/:id", (req, res) => {
   const { title, description } = req.body;
-
+  console.log(req.params, req.body);
   Project.findByIdAndUpdate(
     req.params.id,
     { title, description },
@@ -97,6 +97,7 @@ router.put("/:id", (req, res) => {
     { new: true }
   )
     .then((project) => {
+      console.log(project);
       res.status(200).json(project);
     })
     .catch((err) => {
