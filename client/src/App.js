@@ -14,6 +14,8 @@ import Users from "./components/Users";
 import UserDetails from "./components/UserDetails";
 import Panel from "./components/Panel";
 import Notes from "./components/Notes";
+import AddProject from "./components/AddProject";
+import EditProject from "./components/EditProject";
 
 class App extends React.Component {
   state = {
@@ -67,6 +69,8 @@ class App extends React.Component {
             component={Projects}
           />
           <Route exact path="/projects/:id" component={ProjectDetails} />
+          <Route exact path="/addprojects" component={AddProject} />
+          <Route exact path="/editproject/:id" component={EditProject} />
           <Route exact path="/tasks/:id" component={TaskDetails} />
           <Route
             exact
