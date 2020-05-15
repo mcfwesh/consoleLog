@@ -60,6 +60,36 @@ const logout = () => {
     });
 };
 
+const project = (
+  title,
+  description,
+  imageUrl,
+  number,
+  github,
+  heroku,
+  names,
+  users
+) => {
+  return axios
+    .post("/api/projects", {
+      title,
+      description,
+      imageUrl,
+      number,
+      github,
+      heroku,
+      names,
+      users,
+    })
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((err) => {
+      return err.response.data;
+    });
+};
+
 const handleUpload = (theFile) => {
   // console.log('file in service: ', theFile)
   return axios
@@ -76,4 +106,4 @@ const saveNewThing = (newThing) => {
     .catch((err) => err.response.data);
 };
 
-export { signup, login, logout, handleUpload, saveNewThing };
+export { signup, login, logout, project, handleUpload, saveNewThing };

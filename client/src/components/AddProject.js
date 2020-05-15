@@ -178,6 +178,7 @@ export default class AddProject extends Component {
             return <p>{name}</p>;
           })}
         <select name="contributors" onChange={this.handleSelect}>
+          <option value="">Select a contributor</option>
           {this.state.contributorsList &&
             this.state.contributorsList.map((contrib) => {
               return (
