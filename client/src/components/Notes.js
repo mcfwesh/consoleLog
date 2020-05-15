@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import MonacoEditor from "react-monaco-editor";
+import axios from "axios";
 // import * as monaco from "monaco-editor";
 
 // monaco.editor.create(document.getElementById("container"), {
@@ -9,38 +10,77 @@ import MonacoEditor from "react-monaco-editor";
 // });
 
 class Notes extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      code: "// type your code...",
-    };
-  }
+  state = {
+    code: " ",
+  };
+
   editorDidMount(editor, monaco) {
     console.log("editorDidMount", editor);
     editor.focus();
   }
-  onChange(newValue, e) {
-    console.log("onChange", newValue, e);
-  }
+
+  getData = () => {
+    console.log("nate is the master of the universe");
+    axios
+      .get("/api/notes")
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          code: response.data[0].notes,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  handleSubmit = (event, newValue) => {
+    event.preventDefault();
+    const { code } = this.state;
+    console.log(code);
+    axios
+      .post("/api/notes", {
+        notes: code,
+      })
+      .then(() => {
+        this.getData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  componentDidMount = () => {
+    this.getData();
+  };
+
+  onChange = (newValue, e) => {
+    console.log(newValue);
+    this.setState({
+      code: newValue,
+    });
+  };
   render() {
     const code = this.state.code;
     const options = {
       selectOnLineNumbers: true,
     };
+    console.log(code[0].notes);
     return (
       <div>
-        <br></br>
-        <MonacoEditor
-          class="margin-auto"
-          width="80%"
-          height="800"
-          language="javascript"
-          theme="vs-dark"
-          value={code}
-          options={options}
-          onChange={this.onChange}
-          editorDidMount={this.editorDidMount}
-        />
+        <form onSubmit={this.handleSubmit}>
+          <MonacoEditor
+            class="margin-auto"
+            width="80%"
+            height="600"
+            language="javascript"
+            theme="vs-dark"
+            value={code}
+            options={options}
+            onChange={this.onChange}
+            editorDidMount={this.editorDidMount}
+          />
+          <button type="submit">Save</button>
+        </form>
       </div>
     );
   }
