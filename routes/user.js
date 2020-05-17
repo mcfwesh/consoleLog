@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
+const axios = require("axios");
 
 router.get("/", (req, res) => {
   User.find()
@@ -39,6 +40,40 @@ router.delete("/:id", (req, res) => {
     })
     .catch((err) => {
       res.json(err);
+    });
+});
+
+router.get("/codewars/:name", (req, res) => {
+  const userCodeCodeWars = req.params.name;
+  console.log(userCodeCodeWars);
+
+  // axios({
+  //   url: `https://www.codewars.com/api/v1/users/${userCodeCodeWars}`,
+  //   method: "get",
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //   },
+  // })
+  //   .then((response) => {
+  //     console.log(response.data);
+  //     res.json(response.data);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  axios({
+    url: `https://www.codewars.com/api/v1/users/${userCodeCodeWars}/code-challenges/completed?page=0`,
+    method: "get",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  })
+    .then((response) => {
+      console.log(response.data);
+      res.json(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 });
 
