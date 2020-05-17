@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import ProjectDetails from "../components/ProjectDetails";
 
 class ProjectList extends Component {
   deleteProject = (projectID) => {
-    const id = this.props.projects.map((project) => project._id);
-    console.log(id.map((id) => id));
+    // const id = this.props.projects.map((project) => project._id);
+    // console.log(id.map((id) => id));
 
     axios
       .delete(`/api/projects/${projectID}`)
       .then((response) => {
-        //this.props.history.push("/projects");
-        this.forceUpdate();
+        this.props.history.push("/projects");
       })
       .catch((err) => {
         console.log(err);
@@ -53,7 +53,7 @@ class ProjectList extends Component {
                 contrib._id.includes(this.props.user._id) ? (
                   <>
                     <Link to={`/editproject/${project._id}`}>Edit</Link>
-                    <button onClick={this.deleteProject(project._id)}>
+                    <button onClick={() => this.deleteProject(project._id)}>
                       Delete
                     </button>
                   </>
