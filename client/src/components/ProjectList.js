@@ -44,14 +44,17 @@ class ProjectList extends Component {
     //   let projectusers = this.filter((student) =>
     //   student.contributors.map((userid) => userid._id).includes(id)
     // );
-    const contribIDs = this.props.projects.map((project) =>
-      project.contributors
-        .map((contrib) => contrib._id)
-        .includes(this.props.user._id)
-    );
+    // const contribIDs = this.props.projects.map((project) =>
+    //   project.contributors
+    //     .map((contrib) => contrib._id)
+    //     .includes(this.props.user._id)
+    // );
 
     // console.log(this.props.projects.map((project) => project._id));
-    console.log(this.state.project1);
+
+    // project.contributors.map((contrib) =>
+    //   console.log(contrib._id.includes(this.props.user._id))
+    // );
 
     return (
       <div>
@@ -107,6 +110,7 @@ class ProjectList extends Component {
             return true;
           })
           .map((project) => {
+            console.log(project);
             return (
               <div key={project._id}>
                 <img src={project.imageUrl} style={{ width: "150px" }} alt="" />
