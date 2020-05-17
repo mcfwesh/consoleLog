@@ -646,28 +646,81 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .overlaySingleUser{
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: blue;
   min-height: 90vh;
 }
 
 .userMainInfo{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  background-color: red;
   width: 60vw;
+  min-height: 50vh;
 }
 
-.userMainInfoOne{
+.userMainInfoBoxOne{
+  width: 50vw;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: flex-start;
 }
 
-.userMainInfoTwo{
-  
+.mainBoxOne img{
+  border-radius: 50%;
+  border: 5px solid #33c3ff;
+}
+
+.mainBoxTwo{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 1em;
+  min-width: 30vw;
+}
+
+.mainBoxTwo h2 {
+  font-size: 3em;
+}
+
+.mainBoxTwo p {
+  font-size: 1em;
+}
+
+.mainBoxTwoSpecial{
+  width: 15vw !important;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mainBoxTwoSpecial > p {
+  margin-right: 1vw;
+}
+
+.mainBoxTwo > div {
+  width: 25vw;
+  display: flex;
+  text-align: flex-start;
+}
+
+
+.userMainInfoBoxTwo{
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userMainInfoBoxTwo img{
+width: 3vw
+}
+
+.userMainInfoBoxTwo > div {
+  min-width: 10vw;
+  max-width: 10vw;
 }
 
 .codeWarsInfo{
