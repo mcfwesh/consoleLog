@@ -463,7 +463,6 @@ h2 {
 .overlay-user {
   display: flex;
   justify-content: flex-start;
-  text-align: center;
   flex-direction: column;
   height: 100vh;
   width: 100%;
@@ -560,46 +559,39 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .userCard {
   width: 30vw;
-  height: 21vh;
+  height: 20vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 2vh;
-  padding: 2vh;
   border-radius: 5%;
-}
-
-.userCard:hover {
-
+  font-family: monospace;
 }
 
 .userCardRed {
   width: 35vw;
-  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5vh;
   border-radius: 5%;
 }
 
 
-/* .userCardRed:hover {
-  animation: card 2s normal forwards;
-  transition: width 2s;
-  height: 20vh;
+.userCardRed:hover {
+  animation: card .5s normal forwards;
+  position: absolute;
+  transition: 2s;
 }
 
 @keyframes card {
   0% {
     background: linear-gradient(#5cceff, #0eb4fc);
-    width: 0%;
+    width: 30vw;
   }
   100% {
     background: linear-gradient(#5cceff, #0eb4fc);
-    width: 100%;
+    width:40vw;
   }
-} */
+}
 
 .userCardImg{
 
@@ -613,22 +605,34 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 .userCardBody {
   width: 20vw;
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
   margin: 2vh;
   font-size: 1em;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .userCardBodyTitle h2 {
-  width: 30vw;
-  height: 7vh;
+  width: auto;
+  height: 1vh;
   font-size: 2em;
 }
 
 .userCardBodyTitle a{
   text-decoration: none;
   color: black;
+}
+
+.userCardDesctiption{
+  font-style: italic;
+  height: 5vh;
+}
+
+.userCarSpecialization{
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
 
 .mtk1 {

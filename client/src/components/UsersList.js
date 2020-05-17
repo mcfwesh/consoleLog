@@ -25,14 +25,14 @@ const UsersList = (props) => {
                   <p>{user.description}</p>
                 </div>
                 <div className="userCarSpecialization">
-              {user.specialization.map((spezi) => {
+              <p>Specialization: </p> {user.specialization.map((spezi) => {
                 return <p>{spezi}</p>;
               })}
-                </div>
+              </div>
               </div>
               </div>
           </div>
-        );
+        )
       })}
       </div>
   );
