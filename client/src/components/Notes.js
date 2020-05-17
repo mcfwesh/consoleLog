@@ -60,6 +60,7 @@ class Notes extends React.Component {
     });
   };
   render() {
+    console.log("this are the this.props", this.props);
     const code = this.state.code;
     const options = {
       selectOnLineNumbers: true,

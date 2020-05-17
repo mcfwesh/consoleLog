@@ -37,6 +37,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log("this is the user", this.state.user._id);
     return (
       <div className="App">
         <NavbarMain handleCourse={this.handleCourse} />
@@ -55,11 +56,19 @@ class App extends React.Component {
           }}
         /> */}
         <Switch>
+          <Route
+            exact
+            path="/users/:id"
+            render={(props) => (
+              <UserDetails user={this.state.user} {...props} />
+            )}
+          />
           <ProtectedRoute
             exact
             path="/projects"
             // additional='some additional prop'
             user={this.state.user}
+            identifcation={this.state.user}
             component={Projects}
           />
           <Route
@@ -67,6 +76,7 @@ class App extends React.Component {
             path="/projects"
             // additional='some additional prop'
             user={this.state.user}
+            identifcation={this.state.user}
             component={Projects}
           />
           <Route exact path="/projects/:id" component={ProjectDetails} />
@@ -84,15 +94,22 @@ class App extends React.Component {
             path="/signup"
             render={(props) => <Signup setUser={this.setUser} {...props} />}
           />
-          <Route exact path="/users" myuser={this.state.user} component={Users} />
+
+          <Route
+            exact
+            path="/users"
+            identifcation={this.state.user}
+            component={Users}
+          />
+
           <Route exact path="/panel" component={Panel} />
-          <Route exact path="/notes" component={Notes} />
+          <Route exact path="/notes" user={this.state.user} component={Notes} />
           <Route
             exact
             path="/login"
             render={(props) => <Login setUser={this.setUser} {...props} />}
           />
-          <Route exact path="/users/:id" myuser={this.state.user} component={UserDetails} />
+
           <Home />
         </Switch>
       </div>
