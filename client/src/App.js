@@ -17,6 +17,7 @@ import Panel from "./components/Panel";
 import Notes from "./components/Notes";
 import AddProject from "./components/AddProject";
 import EditProject from "./components/EditProject";
+import EditUsers from "./components/EditUsers";
 
 class App extends React.Component {
   state = {
@@ -52,6 +53,10 @@ class App extends React.Component {
             )}
           />
 
+          <Route exact path="/edituser/:id" component={EditUsers} />
+          <ProtectedRoute
+
+
           <Route
             exact
             path="/projects"
@@ -60,6 +65,7 @@ class App extends React.Component {
             }}
           />
           {/* <ProtectedRoute
+
             exact
             path="/projects"
             // additional='some additional prop'
