@@ -38,24 +38,12 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("this is the user", this.state.user._id);
+    //console.log("this is the user", this.state.user._id);
     return (
       <div className="App">
         <NavbarMain handleCourse={this.handleCourse} />
         <Navbar user={this.state.user} setUser={this.setUser} />
 
-        {/* <Route
-          exact path='/projects'
-          component={Projects}
-        /> */}
-        {/* this route is now protected */}
-        {/* <Route
-          exact path='/projects'
-          render={props => {
-            if (this.state.user) return <Projects {...props} />
-            else return <Redirect to='/' />
-          }}
-        /> */}
         <Switch>
           <Route
             exact
@@ -64,23 +52,35 @@ class App extends React.Component {
               <UserDetails user={this.state.user} {...props} />
             )}
           />
+
           <Route exact path="/edituser/:id" component={EditUsers} />
           <ProtectedRoute
-            exact
-            path="/projects"
-            // additional='some additional prop'
-            user={this.state.user}
-            identifcation={this.state.user}
-            component={Projects}
-          />
+
+
           <Route
             exact
             path="/projects"
+            render={(props) => {
+              return <Projects user={this.state.user} {...props} />;
+            }}
+          />
+          {/* <ProtectedRoute
+
+            exact
+            path="/projects"
             // additional='some additional prop'
             user={this.state.user}
             identifcation={this.state.user}
             component={Projects}
-          />
+          /> */}
+          {/* <Route
+            exact
+            path="/projects"
+            //additional='some additional prop'
+            user={this.state.user}
+            //identifcation={this.state.user}
+            component={Projects}
+          /> */}
           <Route exact path="/projects/:id" component={ProjectDetails} />
 
           <ProtectedRoute
@@ -89,6 +89,7 @@ class App extends React.Component {
             user={this.state.user}
             component={AddProject}
           />
+
           <Route exact path="/editproject/:id" component={EditProject} />
           <Route exact path="/tasks/:id" component={TaskDetails} />
           <Route
@@ -105,7 +106,11 @@ class App extends React.Component {
           />
 
           <Route exact path="/panel" component={Panel} />
-          <Route exact path="/notes" user={this.state.user} component={Notes} />
+          <Route
+            exact
+            path="/notes"
+            render={(props) => <Notes user={this.state.user} {...props} />}
+          />
           <Route
             exact
             path="/login"
