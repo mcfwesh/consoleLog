@@ -53,9 +53,16 @@ class App extends React.Component {
             )}
           />
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Route exact path="/edituser/:id" component={EditUsers} />
           <ProtectedRoute
 =======
+=======
+
+          <Route exact path="/edituser/:id" component={EditUsers} />
+          <ProtectedRoute
+
+>>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
 
           <Route
             exact
@@ -65,7 +72,11 @@ class App extends React.Component {
             }}
           />
           {/* <ProtectedRoute
+<<<<<<< HEAD
 >>>>>>> 78147e53ce4b32fb33186e827f838f251756853a
+=======
+
+>>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
             exact
             path="/projects"
             // additional='some additional prop'

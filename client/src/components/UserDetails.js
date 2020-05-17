@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import html2pdf from "html2pdf.js";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import EditUsers from "./EditUsers";
 =======
 import Notes from "./Notes";
 >>>>>>> 78147e53ce4b32fb33186e827f838f251756853a
+=======
+import EditUsers from "./EditUsers";
+import Notes from "./Notes";
+
+>>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
 
 export default class UserDetails extends Component {
   state = {
@@ -138,6 +144,9 @@ export default class UserDetails extends Component {
     element.addEventListener("click", generatePDF);
   };
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
 
   deleteProject = (userID) => {
     // const id = this.props.projects.map((project) => project._id);
@@ -154,8 +163,11 @@ export default class UserDetails extends Component {
       });
   };
 
+<<<<<<< HEAD
 =======
 >>>>>>> 78147e53ce4b32fb33186e827f838f251756853a
+=======
+>>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
   render() {
     console.log("this is the props", this.props.user._id);
     console.log("this is the profile", this.props.match.params.id);
@@ -175,6 +187,7 @@ export default class UserDetails extends Component {
         <div id="nate">
           <div className="overlaySingleUser" key={this.state.name}>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div className="userMainInfo">
               <div className="userMainInfoBoxOne">
                 <img src={this.state.imageUrl} style={{ width: "120px" }} />
@@ -192,6 +205,9 @@ export default class UserDetails extends Component {
                   );
                 })}
 =======
+=======
+
+>>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
           <div className="userMainInfo">
             <div className="userMainInfoBoxOne">
               <div className="mainBoxOne">
@@ -217,7 +233,11 @@ export default class UserDetails extends Component {
                   })}
                   </div>
                 </div>
+<<<<<<< HEAD
 >>>>>>> 78147e53ce4b32fb33186e827f838f251756853a
+=======
+
+>>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
               </div>
               <div className="userMainInfoBoxTwo">
                 <div><img src="https://i.ibb.co/8NLSrWX/github.png" alt="github"/><p>{this.state.github}</p></div>
