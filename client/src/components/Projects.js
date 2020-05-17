@@ -27,6 +27,7 @@ export default class Projects extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="projects-container">
         <Link to="/addprojects">add project</Link>

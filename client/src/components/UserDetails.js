@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import html2pdf from "html2pdf.js";
 
@@ -28,7 +29,7 @@ export default class UserDetails extends Component {
 
   getProject = () => {
     const id = this.props.match.params.id;
-    console.log("the id", id);
+    //console.log("the id", id);
     axios
       .get(`/api/projects/`)
       .then((response) => {
@@ -44,7 +45,7 @@ export default class UserDetails extends Component {
         let projectusers = response.data.filter((student) =>
           student.contributors.map((userid) => userid._id).includes(id)
         );
-        console.log(projectusers);
+        //console.log(projectusers);
         this.getData(projectusers);
       })
       .catch((err) => {
@@ -54,7 +55,7 @@ export default class UserDetails extends Component {
 
   getData = (projectusers) => {
     const id = this.props.match.params.id;
-    console.log(projectusers);
+    //console.log(projectusers);
     axios
       .get(`/api/users/${id}`)
       .then((response) => {
@@ -108,8 +109,9 @@ export default class UserDetails extends Component {
   };
 
   componentDidMount = () => {
+    console.log(this.props);
     const id = this.props.match.params.id;
-    console.log("banana", id);
+    // console.log("banana", id);
 
     this.getProject();
     //this.getData();
@@ -131,33 +133,22 @@ export default class UserDetails extends Component {
   };
 
   render() {
-    console.log(this.state.projects);
+    console.log("this is the props", this.props.user._id);
+    console.log("this is the profile", this.props.match.params.id);
     return (
-      // { <h1>{this.state.user.name}</h1>
-      // <p>{this.state.project.description}</p>
-      // {allowedToDelete && (
-      //   <Button variant="danger" onClick={this.deleteProject}>
-      //     Delete this project
-      //   </Button>
-      // )} }
-      // { <Button onClick={this.toggleEditForm}>Show edit form</Button>
-      // <Button onClick={this.toggleTaskForm}>Show task form</Button>
-      // {this.state.editForm && (
-      //   <EditProject
-      //     {...this.state}
-      //     handleChange={this.handleChange}
-      //     handleSubmit={this.handleSubmit}
-      //   />
-      // )}
-      // {this.state.taskForm && (
-      //   <AddTask
-      //     projectId={this.state.project._id}
-      //     getData={this.getData}
-      //     hideForm={() => this.setState({ taskForm: false })}
-      //   />
-      // )}
-      // <TaskList tasks={this.state.project.tasks} /> }
       <div>
+        {this.props.user._id == this.props.match.params.id ? (
+          <>
+            {/* <Link to={`/editproject/${project._id}`}>Edit</Link>
+            <button onClick={() => this.deleteProject(project._id)}>
+              Delete
+            </button> */}
+            <button>Edit profile</button>
+            <button>Delete profile</button>
+          </>
+        ) : (
+          <></>
+        )}
         <div id="nate">
           <div key={this.state.name}>
             <img src={this.state.imageUrl} style={{ width: "120px" }} />

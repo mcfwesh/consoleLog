@@ -10,6 +10,7 @@ const handleLogout = (props) => {
 };
 
 const Navbar = (props) => {
+  console.log("this are the props", props.user._id);
   return (
     <div className="navbar">
       <div className="navbar-left">
@@ -23,9 +24,6 @@ const Navbar = (props) => {
           <Link to="/notes">Notes</Link>
         </div>
         <div>
-          <Link to="/">Alumni</Link>
-        </div>
-        <div>
           <Link to="/projects">Projects</Link>
         </div>
       </div>
@@ -36,6 +34,7 @@ const Navbar = (props) => {
             <Link to='/projects'>Projects</Link>
           </Nav.Brand> */}
             <div>
+              <Link to={`/users/${props.user._id}`}>My account</Link>
               <Link to="/" onClick={() => handleLogout(props)}>
                 Logout
               </Link>
