@@ -10,6 +10,7 @@ export default class Projects extends Component {
   };
 
   componentDidMount = () => {
+    console.log(this.props.user)
     this.getData();
   };
 

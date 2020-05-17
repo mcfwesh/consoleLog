@@ -77,7 +77,7 @@ class App extends React.Component {
             path="/signup"
             render={(props) => <Signup setUser={this.setUser} {...props} />}
           />
-          <Route exact path="/users" component={Users} />
+          <Route exact path="/users" myuser={this.state.user} component={Users} />
           <Route exact path="/panel" component={Panel} />
           <Route exact path="/notes" component={Notes} />
           <Route
@@ -85,7 +85,7 @@ class App extends React.Component {
             path="/login"
             render={(props) => <Login setUser={this.setUser} {...props} />}
           />
-          <Route exact path="/users/:id" component={UserDetails} />
+          <Route exact path="/users/:id" myuser={this.state.user} component={UserDetails} />
           <Home />
         </Switch>
       </div>
