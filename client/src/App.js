@@ -55,18 +55,18 @@ class App extends React.Component {
           }}
         /> */}
         <Switch>
-          {/* <ProtectedRoute
+          <ProtectedRoute
             exact
             path="/projects"
             // additional='some additional prop'
             user={this.state.user}
             component={Projects}
-          /> */}
+          />
           <Route
             exact
             path="/projects"
             // additional='some additional prop'
-            //user={this.state.user}
+            user={this.state.user}
             component={Projects}
           />
           <Route exact path="/projects/:id" component={ProjectDetails} />
