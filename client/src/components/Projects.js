@@ -28,10 +28,11 @@ export default class Projects extends Component {
 
   render() {
     return (
-      <div className="projects-container">
-        <Link to="/addprojects">add project</Link>
-        <ProjectList projects={this.state.projects} user={this.props.user} />
-      </div>
+      <>
+        <div className="projects-container">
+          <ProjectList projects={this.state.projects} user={this.props.user} />
+        </div>
+      </>
     );
   }
 }

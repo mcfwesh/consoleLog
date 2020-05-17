@@ -8,7 +8,7 @@ export default class AddProject extends Component {
   state = {
     title: "",
     description: "",
-    number: "",
+    number: "Any",
     imageUrl: "",
     github: "",
     heroku: "",
@@ -71,6 +71,7 @@ export default class AddProject extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    if (this.state.uploadOn) return;
     axios
       .post("/api/projects", {
         title: this.state.title,
@@ -92,6 +93,7 @@ export default class AddProject extends Component {
           contributors: "",
         });
         // update state in Projects by executing getData()
+        this.props.history.push("/projects");
         this.props.getData();
       })
       .catch((err) => {
@@ -100,8 +102,6 @@ export default class AddProject extends Component {
   };
 
   render() {
-    console.log(this.state.contributors);
-
     return (
       <Form onSubmit={this.handleSubmit}>
         {/* all groups (label + input) are grouped in a Form.Group */}
@@ -127,21 +127,16 @@ export default class AddProject extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label htmlFor="number">Number: </Form.Label>
-          <Form.Control
-            type="text"
-            name="number"
-            id="number"
-            value={this.state.number}
-            onChange={this.handleChange}
-          />
-        </Form.Group> */}
-        <select name="number" id="number" onChange={this.handleChange}>
-          <option value="">Select Project</option>
-          <option value="Project 1">Project 1</option>
-          <option value="Project 2">Project 2</option>
-          <option value="Project 3">Project 3</option>
+        <select
+          value={this.state.number}
+          name="number"
+          id="number"
+          onChange={this.handleChange}
+        >
+          <option value="Any">Any Project</option>
+          <option value="1">Project 1</option>
+          <option value="2">Project 2</option>
+          <option value="3">Project 3</option>
         </select>
         <Form.Group>
           <Form.Label htmlFor="imageUrl">ImageUrl: </Form.Label>
@@ -185,7 +180,9 @@ export default class AddProject extends Component {
             })}
         </select>
 
-        <Button type="submit">Add Project</Button>
+        <Button type="submit" disabled={this.state.uploadOn}>
+          Add Project
+        </Button>
       </Form>
     );
   }

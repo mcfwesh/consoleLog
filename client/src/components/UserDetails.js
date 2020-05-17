@@ -181,18 +181,22 @@ export default class UserDetails extends Component {
             <p>Codewars: {this.state.codewars} </p>
             <div>
               <h2>Projects:</h2>
-              {this.state.projects.map((name) => (
-                <div>
-                  <h4>{name.title}</h4>
-                  <p>{name.description}</p>
-                  <p>Project Category: {name.number}</p>
+              {this.state.projects
+                .sort((a, b) =>
+                  a.number.localeCompare(b.number, undefined, { numeric: true })
+                )
+                .map((name) => (
                   <div>
-                    <img src={name.imageUrl} />
+                    <h4>{name.title}</h4>
+                    <p>{name.description}</p>
+                    <p>Project Category: {name.number}</p>
+                    <div>
+                      <img src={name.imageUrl} />
+                    </div>
+                    <a href={name.github}>Github repo</a> <br />
+                    <a href={name.heroku}>Play Game</a>
                   </div>
-                  <a href={name.github}>Github repo</a> <br />
-                  <a href={name.heroku}>Play Game</a>
-                </div>
-              ))}
+                ))}
             </div>
             <table>
               <tr>
