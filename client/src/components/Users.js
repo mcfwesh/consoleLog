@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import UsersList from "./UsersList";
+import Notes from "./Notes";
 
 export default class Users extends Component {
   state = {
@@ -13,7 +14,6 @@ export default class Users extends Component {
     this.getData();
 
     //console.log("componenet did mount", this.state.specialization);
-
   };
 
   handleSpecialization = (event) => {
@@ -160,7 +160,10 @@ export default class Users extends Component {
           </ul>
         </div>
         <div className="overlay-userlist">
-          <UsersList myuser={this.props.myuser} users={this.state.filteredUsers} />
+          <UsersList
+            myuser={this.props.myuser}
+            users={this.state.filteredUsers}
+          />
         </div>
       </div>
     );
