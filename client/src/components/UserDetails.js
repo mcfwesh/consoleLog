@@ -2,18 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import html2pdf from "html2pdf.js";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import EditUsers from "./EditUsers";
-=======
-import Notes from "./Notes";
->>>>>>> 78147e53ce4b32fb33186e827f838f251756853a
-=======
 import EditUsers from "./EditUsers";
 import Notes from "./Notes";
-
->>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
-
 export default class UserDetails extends Component {
   state = {
     username: "",
@@ -37,7 +27,6 @@ export default class UserDetails extends Component {
     // taskForm: false,
     // error: null,
   };
-
   getProject = () => {
     const id = this.props.match.params.id;
     //console.log("the id", id);
@@ -63,10 +52,8 @@ export default class UserDetails extends Component {
         console.log(err);
       });
   };
-
   getData = (projectusers) => {
     const id = this.props.match.params.id;
-
     console.log(this.props.myuser);
     axios
       .get(`/api/users/${id}`)
@@ -95,7 +82,6 @@ export default class UserDetails extends Component {
         }
       });
   };
-
   deleteProject = () => {
     const id = this.props.match.params.id;
     axios
@@ -107,31 +93,25 @@ export default class UserDetails extends Component {
         console.log(err);
       });
   };
-
   toggleEditForm = () => {
     this.setState({
       editForm: !this.state.editForm,
     });
   };
-
   toggleTaskForm = () => {
     this.setState({
       taskForm: !this.state.taskForm,
     });
   };
-
   componentDidMount = () => {
     console.log(this.props);
     const id = this.props.match.params.id;
     // console.log("banana", id);
-
     this.getProject();
     //this.getData();
-
     function generatePDF() {
       const element = document.getElementById("nate");
       console.log(element);
-
       var opt = {
         margin: 2,
         image: { type: "jpg", quality: 0.95 },
@@ -143,11 +123,6 @@ export default class UserDetails extends Component {
     var element = document.getElementById("clickbind");
     element.addEventListener("click", generatePDF);
   };
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
-
   deleteProject = (userID) => {
     // const id = this.props.projects.map((project) => project._id);
     // console.log(id.map((id) => id));
@@ -162,16 +137,9 @@ export default class UserDetails extends Component {
         console.log(err);
       });
   };
-
-<<<<<<< HEAD
-=======
->>>>>>> 78147e53ce4b32fb33186e827f838f251756853a
-=======
->>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
   render() {
     console.log("this is the props", this.props.user._id);
     console.log("this is the profile", this.props.match.params.id);
-
     return (
       <div>
         {this.props.user._id == this.props.match.params.id ? (
@@ -186,62 +154,39 @@ export default class UserDetails extends Component {
         )}
         <div id="nate">
           <div className="overlaySingleUser" key={this.state.name}>
-<<<<<<< HEAD
-<<<<<<< HEAD
             <div className="userMainInfo">
               <div className="userMainInfoBoxOne">
-                <img src={this.state.imageUrl} style={{ width: "120px" }} />
-
-                <h2>
-                  {this.state.name} {this.state.surname}
-                </h2>
-                <p>{this.state.description}</p>
-                <h3>Tech Stacks</h3>
-                {this.state.specialization.map((spe) => {
-                  return (
-                    <div>
-                      <li>{spe}</li>
-                    </div>
-                  );
-                })}
-=======
-=======
-
->>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
-          <div className="userMainInfo">
-            <div className="userMainInfoBoxOne">
-              <div className="mainBoxOne">
-              <img src={this.state.imageUrl} style={{ width: "200px" }} />
-              </div>
+                <div className="mainBoxOne">
+                  <img src={this.state.imageUrl} style={{ width: "200px" }} />
+                </div>
                 <div className="mainBoxTwo">
-                <div>
-                  <h2>
-                    {this.state.name} {this.state.surname}
-                  </h2>
+                  <div>
+                    <h2>
+                      {this.state.name} {this.state.surname}
+                    </h2>
                   </div>
                   <div>
-                  <p>{this.state.description}</p>
+                    <p>{this.state.description}</p>
                   </div>
                   <div className="mainBoxTwoSpecial">
-                  <p><b>Specialization: </b></p>
-                  {this.state.specialization.map((spe) => {
-                    return (
-                      <p>
-                        {spe}
-                      </p>
-                    );
-                  })}
+                    <p>
+                      <b>Specialization: </b>
+                    </p>
+                    {this.state.specialization.map((spe) => {
+                      return <p>{spe}</p>;
+                    })}
                   </div>
                 </div>
-<<<<<<< HEAD
->>>>>>> 78147e53ce4b32fb33186e827f838f251756853a
-=======
-
->>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
               </div>
               <div className="userMainInfoBoxTwo">
-                <div><img src="https://i.ibb.co/8NLSrWX/github.png" alt="github"/><p>{this.state.github}</p></div>
-                <div><img src="https://i.ibb.co/nLKVXQ2/li.png" alt="linkedin"/><p>{this.state.linkedin}</p></div>
+                <div>
+                  <img src="https://i.ibb.co/8NLSrWX/github.png" alt="github" />
+                  <p>{this.state.github}</p>
+                </div>
+                <div>
+                  <img src="https://i.ibb.co/nLKVXQ2/li.png" alt="linkedin" />
+                  <p>{this.state.linkedin}</p>
+                </div>
               </div>
             </div>
             <div className="codeWarsInfo">
