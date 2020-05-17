@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import html2pdf from "html2pdf.js";
+import Notes from "./Notes";
 
 export default class UserDetails extends Component {
   state = {
@@ -28,7 +29,6 @@ export default class UserDetails extends Component {
   };
 
   getProject = () => {
-
     const id = this.props.match.params.id;
     //console.log("the id", id);
     axios
@@ -58,7 +58,7 @@ export default class UserDetails extends Component {
     const id = this.props.match.params.id;
 
     console.log(this.props.myuser);
-      axios
+    axios
       .get(`/api/users/${id}`)
       .then((response) => {
         //console.log("this is respons", response.data);
@@ -134,7 +134,6 @@ export default class UserDetails extends Component {
     element.addEventListener("click", generatePDF);
   };
   render() {
-
     console.log("this is the props", this.props.user._id);
     console.log("this is the profile", this.props.match.params.id);
 
@@ -186,7 +185,7 @@ export default class UserDetails extends Component {
               </div>
             </div>
             <div className="codeWarsInfo">
-            <p>Codewars: {this.state.codewars} </p>
+              <p>Codewars: {this.state.codewars} </p>
             </div>
             <div className="userProjectView">
               <h2>Projects:</h2>
@@ -208,24 +207,24 @@ export default class UserDetails extends Component {
                 ))}
             </div>
             <div className="userTeachers">
-            <table>
-              <tr>
-                <th>Teacher</th>
-                <th>Mail</th>
-                <th>Linkedin</th>
-              </tr>
-              {this.state.teachers.map((spe) => {
-                return (
-                  <tr>
-                    <td>{spe.name}</td>
-                    <td>{spe.mail}</td>
-                    <td>{spe.linkedin}</td>
-                  </tr>
-                );
-              })}
-            </table>
+              <table>
+                <tr>
+                  <th>Teacher</th>
+                  <th>Mail</th>
+                  <th>Linkedin</th>
+                </tr>
+                {this.state.teachers.map((spe) => {
+                  return (
+                    <tr>
+                      <td>{spe.name}</td>
+                      <td>{spe.mail}</td>
+                      <td>{spe.linkedin}</td>
+                    </tr>
+                  );
+                })}
+              </table>
             </div>
-            </div>
+          </div>
         </div>
         <a id="clickbind" href="#">
           Export PDF

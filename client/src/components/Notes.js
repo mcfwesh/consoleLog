@@ -61,6 +61,7 @@ class Notes extends React.Component {
   };
   render() {
     console.log("this are the this.props", this.props);
+
     const code = this.state.code;
     const options = {
       selectOnLineNumbers: true,
@@ -80,7 +81,7 @@ class Notes extends React.Component {
             onChange={this.onChange}
             editorDidMount={this.editorDidMount}
           />
-          <button type="submit">Save</button>
+          {this.props.user._id && <button type="submit">Save</button>}
         </form>
       </div>
     );
