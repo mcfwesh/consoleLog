@@ -7,9 +7,10 @@ import axios from "axios";
 
 export default class ProjectDetails extends Component {
   state = {
-    //project: null,
+    project: null,
     title: "",
     description: "",
+    github: "",
     editForm: false,
     taskForm: false,
     error: null,
@@ -30,12 +31,14 @@ export default class ProjectDetails extends Component {
       .put(`/api/projects/${id}`, {
         title: this.state.title,
         description: this.state.description,
+        github: this.state.github,
       })
       .then((response) => {
         this.setState({
-          //project: response.data,
+          project: response.data,
           title: response.data.title,
           description: response.data.description,
+          github: response.data.github,
           editForm: false,
         });
       })
@@ -53,9 +56,10 @@ export default class ProjectDetails extends Component {
         console.log(response);
 
         this.setState({
-          // project: response.data,
+          project: response.data,
           title: response.data.title,
           description: response.data.description,
+          github: response.data.github,
         });
       })
       .catch((err) => {

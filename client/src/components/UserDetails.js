@@ -28,6 +28,7 @@ export default class UserDetails extends Component {
   };
 
   getProject = () => {
+
     const id = this.props.match.params.id;
     //console.log("the id", id);
     axios
@@ -55,8 +56,9 @@ export default class UserDetails extends Component {
 
   getData = (projectusers) => {
     const id = this.props.match.params.id;
-    //console.log(projectusers);
-    axios
+
+    console.log(this.props.myuser);
+      axios
       .get(`/api/users/${id}`)
       .then((response) => {
         //console.log("this is respons", response.data);
@@ -131,10 +133,11 @@ export default class UserDetails extends Component {
     var element = document.getElementById("clickbind");
     element.addEventListener("click", generatePDF);
   };
-
   render() {
+
     console.log("this is the props", this.props.user._id);
     console.log("this is the profile", this.props.match.params.id);
+
     return (
       <div>
         {this.props.user._id == this.props.match.params.id ? (
@@ -150,41 +153,52 @@ export default class UserDetails extends Component {
           <></>
         )}
         <div id="nate">
-          <div key={this.state.name}>
-            <img src={this.state.imageUrl} style={{ width: "120px" }} />
+          <div className="overlaySingleUser" key={this.state.name}>
+          <div className="userMainInfo">
+            <div className="userMainInfoBoxOne">
+              <img src={this.state.imageUrl} style={{ width: "120px" }} />
 
-            <h2>
-              {this.state.name} {this.state.surname}
-            </h2>
-            <p>{this.state.description}</p>
-
-            {this.state.specialization.map((spe) => {
-              return (
-                <div>
-                  <h3>Tech Stacks</h3>
-                  <li>{spe}</li>
-                </div>
-              );
-            })}
-            <p>Github: {this.state.github}</p>
-            <p>Linkedin: {this.state.linkedin}</p>
-            <br></br>
-            <p>Codewars: {this.state.codewars} </p>
-            <div>
-              <h2>Projects:</h2>
-              {this.state.projects.map((name) => (
-                <div>
-                  <h4>{name.title}</h4>
-                  <p>{name.description}</p>
-                  <p>Project Category: {name.number}</p>
+              <h2>
+                {this.state.name} {this.state.surname}
+              </h2>
+              <p>{this.state.description}</p>
+                    <h3>Tech Stacks</h3>
+              {this.state.specialization.map((spe) => {
+                return (
                   <div>
-                    <img src={name.imageUrl} />
+                    <li>{spe}</li>
                   </div>
-                  <a href={name.github}>Github repo</a> <br />
-                  <a href={name.heroku}>Play Game</a>
-                </div>
-              ))}
+                );
+              })}
+              </div>
+              <div className="userMainInfoBoxTwo">
+                <p>Github: {this.state.github}</p>
+                <p>Linkedin: {this.state.linkedin}</p>
+              </div>
             </div>
+            <div className="codeWarsInfo">
+            <p>Codewars: {this.state.codewars} </p>
+            </div>
+            <div className="userProjectView">
+              <h2>Projects:</h2>
+              {this.state.projects
+                .sort((a, b) =>
+                  a.number.localeCompare(b.number, undefined, { numeric: true })
+                )
+                .map((name) => (
+                  <div>
+                    <h4>{name.title}</h4>
+                    <p>{name.description}</p>
+                    <p>Project Category: {name.number}</p>
+                    <div>
+                      <img src={name.imageUrl} />
+                    </div>
+                    <a href={name.github}>Github repo</a> <br />
+                    <a href={name.heroku}>Play Game</a>
+                  </div>
+                ))}
+            </div>
+            <div className="userTeachers">
             <table>
               <tr>
                 <th>Teacher</th>
@@ -201,7 +215,8 @@ export default class UserDetails extends Component {
                 );
               })}
             </table>
-          </div>
+            </div>
+            </div>
         </div>
         <a id="clickbind" href="#">
           Export PDF

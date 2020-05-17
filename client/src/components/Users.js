@@ -11,7 +11,9 @@ export default class Users extends Component {
 
   componentDidMount = () => {
     this.getData();
+
     //console.log("componenet did mount", this.state.specialization);
+
   };
 
   handleSpecialization = (event) => {
@@ -158,7 +160,7 @@ export default class Users extends Component {
           </ul>
         </div>
         <div className="overlay-userlist">
-          <UsersList users={this.state.filteredUsers} />
+          <UsersList myuser={this.props.myuser} users={this.state.filteredUsers} />
         </div>
       </div>
     );

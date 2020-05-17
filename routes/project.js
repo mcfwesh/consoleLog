@@ -88,11 +88,11 @@ router.get("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, imageUrl, number, github, heroku } = req.body;
   console.log(req.params, req.body);
   Project.findByIdAndUpdate(
     req.params.id,
-    { title, description },
+    { title, description, imageUrl, number, github, heroku },
     // { new: true } ensures that we are getting the updated document in the .then callback
     { new: true }
   )

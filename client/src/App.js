@@ -5,6 +5,7 @@ import Projects from "./components/Projects";
 import NavbarMain from "./components/NavbarMain";
 import Navbar from "./components/Navbar";
 import ProjectDetails from "./components/ProjectDetails";
+import ProjectList from "./components/ProjectList";
 import TaskDetails from "./components/TaskDetails";
 import Signup from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -79,7 +80,13 @@ class App extends React.Component {
             component={Projects}
           />
           <Route exact path="/projects/:id" component={ProjectDetails} />
-          <Route exact path="/addprojects" component={AddProject} />
+
+          <ProtectedRoute
+            exact
+            path="/addprojects"
+            user={this.state.user}
+            component={AddProject}
+          />
           <Route exact path="/editproject/:id" component={EditProject} />
           <Route exact path="/tasks/:id" component={TaskDetails} />
           <Route
@@ -87,12 +94,14 @@ class App extends React.Component {
             path="/signup"
             render={(props) => <Signup setUser={this.setUser} {...props} />}
           />
+
           <Route
             exact
             path="/users"
             identifcation={this.state.user}
             component={Users}
           />
+
           <Route exact path="/panel" component={Panel} />
           <Route exact path="/notes" user={this.state.user} component={Notes} />
           <Route
