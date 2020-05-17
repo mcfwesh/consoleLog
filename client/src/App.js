@@ -52,17 +52,9 @@ class App extends React.Component {
               <UserDetails user={this.state.user} {...props} />
             )}
           />
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <Route exact path="/edituser/:id" component={EditUsers} />
-          <ProtectedRoute
-=======
-=======
 
           <Route exact path="/edituser/:id" component={EditUsers} />
-          <ProtectedRoute
-
->>>>>>> 5a338bf8d377cda4d41371f05738f73784d1b1fb
+          <ProtectedRoute></ProtectedRoute>
 
           <Route
             exact
