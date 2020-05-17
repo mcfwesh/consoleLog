@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import html2pdf from "html2pdf.js";
+import EditUsers from "./EditUsers";
 
 export default class UserDetails extends Component {
   state = {
@@ -28,7 +29,6 @@ export default class UserDetails extends Component {
   };
 
   getProject = () => {
-
     const id = this.props.match.params.id;
     //console.log("the id", id);
     axios
@@ -58,7 +58,7 @@ export default class UserDetails extends Component {
     const id = this.props.match.params.id;
 
     console.log(this.props.myuser);
-      axios
+    axios
       .get(`/api/users/${id}`)
       .then((response) => {
         //console.log("this is respons", response.data);
@@ -133,8 +133,23 @@ export default class UserDetails extends Component {
     var element = document.getElementById("clickbind");
     element.addEventListener("click", generatePDF);
   };
-  render() {
 
+  deleteProject = (userID) => {
+    // const id = this.props.projects.map((project) => project._id);
+    // console.log(id.map((id) => id));
+    console.log(userID);
+    axios
+      .delete(`/api/users/${userID}`)
+      .then((response) => {
+        // this.props.history.go("/");
+        window.location = "/";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  render() {
     console.log("this is the props", this.props.user._id);
     console.log("this is the profile", this.props.match.params.id);
 
@@ -142,34 +157,32 @@ export default class UserDetails extends Component {
       <div>
         {this.props.user._id == this.props.match.params.id ? (
           <>
-            {/* <Link to={`/editproject/${project._id}`}>Edit</Link>
-            <button onClick={() => this.deleteProject(project._id)}>
+            <Link to={`/edituser/${this.props.user._id}`}>Edit</Link>
+            <button onClick={() => this.deleteProject(this.props.user._id)}>
               Delete
-            </button> */}
-            <button>Edit profile</button>
-            <button>Delete profile</button>
+            </button>
           </>
         ) : (
           <></>
         )}
         <div id="nate">
           <div className="overlaySingleUser" key={this.state.name}>
-          <div className="userMainInfo">
-            <div className="userMainInfoBoxOne">
-              <img src={this.state.imageUrl} style={{ width: "120px" }} />
+            <div className="userMainInfo">
+              <div className="userMainInfoBoxOne">
+                <img src={this.state.imageUrl} style={{ width: "120px" }} />
 
-              <h2>
-                {this.state.name} {this.state.surname}
-              </h2>
-              <p>{this.state.description}</p>
-                    <h3>Tech Stacks</h3>
-              {this.state.specialization.map((spe) => {
-                return (
-                  <div>
-                    <li>{spe}</li>
-                  </div>
-                );
-              })}
+                <h2>
+                  {this.state.name} {this.state.surname}
+                </h2>
+                <p>{this.state.description}</p>
+                <h3>Tech Stacks</h3>
+                {this.state.specialization.map((spe) => {
+                  return (
+                    <div>
+                      <li>{spe}</li>
+                    </div>
+                  );
+                })}
               </div>
               <div className="userMainInfoBoxTwo">
                 <p>Github: {this.state.github}</p>
@@ -177,7 +190,7 @@ export default class UserDetails extends Component {
               </div>
             </div>
             <div className="codeWarsInfo">
-            <p>Codewars: {this.state.codewars} </p>
+              <p>Codewars: {this.state.codewars} </p>
             </div>
             <div className="userProjectView">
               <h2>Projects:</h2>
@@ -199,24 +212,24 @@ export default class UserDetails extends Component {
                 ))}
             </div>
             <div className="userTeachers">
-            <table>
-              <tr>
-                <th>Teacher</th>
-                <th>Mail</th>
-                <th>Linkedin</th>
-              </tr>
-              {this.state.teachers.map((spe) => {
-                return (
-                  <tr>
-                    <td>{spe.name}</td>
-                    <td>{spe.mail}</td>
-                    <td>{spe.linkedin}</td>
-                  </tr>
-                );
-              })}
-            </table>
+              <table>
+                <tr>
+                  <th>Teacher</th>
+                  <th>Mail</th>
+                  <th>Linkedin</th>
+                </tr>
+                {this.state.teachers.map((spe) => {
+                  return (
+                    <tr>
+                      <td>{spe.name}</td>
+                      <td>{spe.mail}</td>
+                      <td>{spe.linkedin}</td>
+                    </tr>
+                  );
+                })}
+              </table>
             </div>
-            </div>
+          </div>
         </div>
         <a id="clickbind" href="#">
           Export PDF

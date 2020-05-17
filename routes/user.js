@@ -29,4 +29,17 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+  console.log("this is req", req.params.id);
+  User.findByIdAndDelete(req.params.id)
+    .then((project) => {
+      //console.log("this is project", project);
+
+      res.status(200).json({ message: "ok" });
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
