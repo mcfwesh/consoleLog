@@ -4,11 +4,10 @@ import EditProject from "./EditProject";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 import axios from "axios";
-import ProjectList from "./ProjectList";
 
 export default class ProjectDetails extends Component {
   state = {
-    project: null,
+    //project: null,
     title: "",
     description: "",
     editForm: false,
@@ -34,7 +33,7 @@ export default class ProjectDetails extends Component {
       })
       .then((response) => {
         this.setState({
-          project: response.data,
+          //project: response.data,
           title: response.data.title,
           description: response.data.description,
           editForm: false,
@@ -51,8 +50,10 @@ export default class ProjectDetails extends Component {
     axios
       .get(`/api/projects/${id}`)
       .then((response) => {
+        console.log(response);
+
         this.setState({
-          project: response.data,
+          // project: response.data,
           title: response.data.title,
           description: response.data.description,
         });
@@ -103,10 +104,11 @@ export default class ProjectDetails extends Component {
     const user = this.props.user;
     const owner = this.state.project.owner;
     if (user && user._id === owner) allowedToDelete = true;
+    console.log(this.state.title);
 
     return (
       <div>
-        <h1>{this.state.project.title}</h1>
+        <h1>{this.state.title}</h1>
         <p>{this.state.project.description}</p>
         {allowedToDelete && (
           <Button variant="danger" onClick={this.deleteProject}>
