@@ -110,6 +110,7 @@ router.delete("/:id", (req, res) => {
   Project.findByIdAndDelete(req.params.id)
     .then((project) => {
       // Deletes all the documents in the Task collection where the value for the `_id` field is present in the `project.tasks` array
+
       return Task.deleteMany({ _id: { $in: project.tasks } }).then(() => {
         res.status(200).json({ message: "ok" });
       });

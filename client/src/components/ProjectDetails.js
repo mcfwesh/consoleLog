@@ -1,96 +1,103 @@
-import React, { Component } from 'react'
-import { Button } from 'react-bootstrap';
-import EditProject from './EditProject';
-import AddTask from './AddTask';
-import TaskList from './TaskList';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Button } from "react-bootstrap";
+import EditProject from "./EditProject";
+import AddTask from "./AddTask";
+import TaskList from "./TaskList";
+import axios from "axios";
+import ProjectList from "./ProjectList";
 
 export default class ProjectDetails extends Component {
-
   state = {
     project: null,
-    title: '',
-    description: '',
+    title: "",
+    description: "",
     editForm: false,
     taskForm: false,
-    error: null
-  }
+    error: null,
+  };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
 
     this.setState({
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const id = this.props.match.params.id;
-    axios.put(`/api/projects/${id}`, {
-      title: this.state.title,
-      description: this.state.description
-    })
-      .then(response => {
+    axios
+      .put(`/api/projects/${id}`, {
+        title: this.state.title,
+        description: this.state.description,
+      })
+      .then((response) => {
         this.setState({
           project: response.data,
           title: response.data.title,
           description: response.data.description,
-          editForm: false
-        })
-      }).catch(err => {
-        console.log(err);
+          editForm: false,
+        });
       })
-  }
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   getData = () => {
     const id = this.props.match.params.id;
     console.log(id);
-    axios.get(`/api/projects/${id}`)
-      .then(response => {
+    axios
+      .get(`/api/projects/${id}`)
+      .then((response) => {
         this.setState({
           project: response.data,
           title: response.data.title,
-          description: response.data.description
+          description: response.data.description,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.response.status === 404) {
-          this.setState({ error: 'Not found' })
+          this.setState({ error: "Not found" });
         }
-      })
-  }
+      });
+  };
 
   deleteProject = () => {
     const id = this.props.match.params.id;
-    axios.delete(`/api/projects/${id}`)
+    console.log(id);
+
+    axios
+      .delete(`/api/projects/${id}`)
       .then(() => {
-        this.props.history.push('/projects');
-      }).catch(err => {
-        console.log(err);
+        this.props.history.push("/projects");
       })
-  }
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   toggleEditForm = () => {
     this.setState({
-      editForm: !this.state.editForm
+      editForm: !this.state.editForm,
     });
-  }
+  };
 
   toggleTaskForm = () => {
     this.setState({
-      taskForm: !this.state.taskForm
+      taskForm: !this.state.taskForm,
     });
-  }
+  };
 
   componentDidMount = () => {
     this.getData();
-  }
+  };
 
   render() {
     console.log(this.state.taskForm);
-    if (this.state.error) return <div>{this.state.error}</div>
-    if (!this.state.project) return (<></>)
+    if (this.state.error) return <div>{this.state.error}</div>;
+    if (!this.state.project) return <></>;
 
     let allowedToDelete = false;
     const user = this.props.user;
@@ -102,7 +109,7 @@ export default class ProjectDetails extends Component {
         <h1>{this.state.project.title}</h1>
         <p>{this.state.project.description}</p>
         {allowedToDelete && (
-          <Button variant='danger' onClick={this.deleteProject}>
+          <Button variant="danger" onClick={this.deleteProject}>
             Delete this project
           </Button>
         )}
@@ -124,6 +131,6 @@ export default class ProjectDetails extends Component {
         )}
         <TaskList tasks={this.state.project.tasks} />
       </div>
-    )
+    );
   }
 }
