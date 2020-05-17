@@ -54,8 +54,6 @@ class App extends React.Component {
           />
 
           <Route exact path="/edituser/:id" component={EditUsers} />
-          <ProtectedRoute
-
 
           <Route
             exact
