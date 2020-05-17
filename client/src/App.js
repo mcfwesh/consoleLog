@@ -65,7 +65,7 @@ class App extends React.Component {
             exact
             path="/projects"
             // additional='some additional prop'
-            //user={this.state.user}
+            user={this.state.user}
             component={Projects}
           />
           <Route exact path="/projects/:id" component={ProjectDetails} />

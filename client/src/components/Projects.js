@@ -17,7 +17,6 @@ export default class Projects extends Component {
     axios
       .get("/api/projects")
       .then((response) => {
-        console.log(response);
         this.setState({
           projects: response.data,
         });
@@ -31,8 +30,7 @@ export default class Projects extends Component {
     return (
       <div className="projects-container">
         <Link to="/addprojects">add project</Link>
-
-        <ProjectList projects={this.state.projects} />
+        <ProjectList projects={this.state.projects} user={this.props.user} />
       </div>
     );
   }

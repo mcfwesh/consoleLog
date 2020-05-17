@@ -3,18 +3,32 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 class ProjectList extends Component {
-  deleteProject = () => {
+  deleteProject = (projectID) => {
     const id = this.props.projects.map((project) => project._id);
+    console.log(id.map((id) => id));
+
     axios
-      .delete(`/api/projects/${id}`)
-      .then(() => {
-        this.props.history.push("/projects");
+      .delete(`/api/projects/${projectID}`)
+      .then((response) => {
+        //this.props.history.push("/projects");
+        this.forceUpdate();
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
   render() {
+    console.log(this.props);
+    //   let projectusers = this.filter((student) =>
+    //   student.contributors.map((userid) => userid._id).includes(id)
+    // );
+    const contribIDs = this.props.projects.map((project) =>
+      project.contributors
+        .map((contrib) => contrib._id)
+        .includes(this.props.user._id)
+    );
+
     console.log(this.props.projects.map((project) => project._id));
     return (
       <div>
@@ -35,8 +49,18 @@ class ProjectList extends Component {
               <p>Description: {project.description}</p>
               <p>Github repo: {project.github}</p>
               <p>Heroku link:{project.heroku}</p>
-              <Link to={`/editproject/${project._id}`}>Edit</Link>
-              <button onClick={this.deleteProject()}>Delete</button>
+              {project.contributors.map((contrib) =>
+                contrib._id.includes(this.props.user._id) ? (
+                  <>
+                    <Link to={`/editproject/${project._id}`}>Edit</Link>
+                    <button onClick={this.deleteProject(project._id)}>
+                      Delete
+                    </button>
+                  </>
+                ) : (
+                  <></>
+                )
+              )}
             </div>
           );
         })}
