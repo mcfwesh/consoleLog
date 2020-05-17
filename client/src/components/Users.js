@@ -11,6 +11,7 @@ export default class Users extends Component {
 
   componentDidMount = () => {
     this.getData();
+    console.log(this.props.myuser)
     console.log("componenet did mount", this.state.specialization);
   };
 
@@ -145,7 +146,7 @@ export default class Users extends Component {
           <label for="checkboxEight">Mongo DB</label></li></ul>
         </div>
         <div className="overlay-userlist">
-          <UsersList users={this.state.filteredUsers} />
+          <UsersList myuser={this.props.myuser} users={this.state.filteredUsers} />
         </div>
       </div>
     );

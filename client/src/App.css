@@ -643,3 +643,48 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   margin: auto;
   margin-top: 20px;
 }
+
+.overlaySingleUser{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: blue;
+  min-height: 90vh;
+}
+
+.userMainInfo{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
+  width: 60vw;
+}
+
+.userMainInfoOne{
+  display: flex;
+}
+
+.userMainInfoTwo{
+  
+}
+
+.codeWarsInfo{
+  background-color: green;
+  width: 60vw;
+}
+
+.userProjectView {
+  width: 60vw;
+  background-color: yellow;
+}
+
+.userProjectView img {
+  width: 15vw;
+}
+
+.userTeachers {
+  background-color: cyan;
+  width: 60vw;
+}
