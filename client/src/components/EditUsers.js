@@ -32,6 +32,7 @@ export default class extends Component {
           surname: response.data.surname,
           username: response.data.username,
           password: response.data.password,
+          description: response.data.description,
           message: "",
           role: response.data.role,
           specialization: response.data.specialization,
@@ -119,6 +120,8 @@ export default class extends Component {
         surname: this.state.surname,
         github: this.state.github,
         heroku: this.state.heroku,
+        codewars: this.state.codewars,
+        description: this.state.description,
         linkedin: this.state.linkedin,
         username: this.state.username,
         password: this.state.password,
@@ -216,6 +219,17 @@ export default class extends Component {
                 id="password"
                 placeholder="****"
               />
+            </div>
+            <div>
+              <label htmlFor="description">Description</label>
+              <textarea
+                type="textarea"
+                name="description"
+                value={this.state.description}
+                onChange={this.handleChange}
+                placeholder="A short description of you, focus it to companies that might like to hire you 😊"
+                style={({ width: "300px" }, { height: "100px" })}
+              ></textarea>
             </div>
             <div>
               <label htmlFor="name">Role</label>
