@@ -689,7 +689,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   align-items: flex-start;
   font-size: 1em;
   width: 20vw;
-  margin-left:5vh;
+  margin-left: 5vh;
 }
 
 .mainBoxTwo h2 {
@@ -702,7 +702,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
 }
 
 
-.mainBoxTwoSpecial{
+.mainBoxTwoSpecial {
   min-width: 5vw !important;
   display: flex;
   justify-content: center;
@@ -720,7 +720,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   align-items: center;
 }
 
-.mainBoxTwo > div {
+.mainBoxTwo>div {
   min-width: 25vw;
   display: flex;
   text-align: flex-start;
@@ -781,20 +781,21 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   min-height: 15vh;
   text-align: center;
 }
+
 .cwLogo img {
   min-width: 15vw;
 }
 
 
 
-.codeWarsBoxTwo{
+.codeWarsBoxTwo {
   min-width: 20vw;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.lastKatas{
+.lastKatas {
   display: flex;
   flex-direction: column;
 }
@@ -818,34 +819,36 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   width: 70vw;
 }
 
-.projectImg{
+.projectImg {
   display: flex;
   width: 20vw;
 }
 
-.projectImg img{
+.projectImg img {
   width: 25vw;
 }
 
-.projectBody{
+.projectBody {
   flex-direction: column;
   width: 24vw;
 }
-.projectLinks{
+
+.projectLinks {
   display: flex;
   align-items: center;
   min-width: 17vw;
 }
+
 .projectLinks img {
   width: 2vw;
 }
 
 .projectLinks a {
- display: flex;
- align-items: center;
- text-decoration: none;
- color: black;
- margin-right: 1vw;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  margin-right: 1vw;
 }
 
 .userTeachers {
@@ -857,7 +860,9 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   grid-template-columns: repeat(4, 1fr);
   list-style-type: none;
   grid-gap: 2rem;
-.teachersHeader{
+}
+
+.teachersHeader {
   background-color: #33c3ff;
   height: 10vh;
   display: flex;
@@ -866,7 +871,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   border-radius: 10px;
   color: white;
 }
-.teacherBox{
+
+.teacherBox {
   height: 8vh;
   width: 60vw;
   display: flex;
@@ -874,13 +880,13 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   align-items: center;
 }
 
-.teacherBox span{
+.teacherBox span {
   width: 12vw;
   display: flex;
   align-items: center;
 }
 
-.teacherBox > span > img{
+.teacherBox>span>img {
   width: 2vw;
   margin-right: 2vw;
 }
