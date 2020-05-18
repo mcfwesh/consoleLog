@@ -21,7 +21,7 @@ export default class UserDetails extends Component {
     classroom: "Web Dev",
     teachers: [],
     projects: [],
-    honor: [],
+    honor: null,
     // title: "",
     // description: "",
     // editForm: false,
@@ -90,9 +90,9 @@ export default class UserDetails extends Component {
     console.log(CW);
     axios.get(`/api/users/codewars/${CW}`).then((response) => {
       let katas = response.data;
-      let nateBoss = JSON.stringify(katas.data.slice(0,3))
+      let nateBoss = katas.data.slice(0, 3);
       this.setState({
-        honor: nateBoss
+        honor: nateBoss,
       });
     });
   };
@@ -153,9 +153,15 @@ export default class UserDetails extends Component {
       });
   };
   render() {
-    console.log(this.state.honor);
+    // let kata = "";
+    // for (let s of this.state.honor) {
+    //   console.log(s.name;
+    // }
+    // console.log(kata);
+
     // console.log("this is the props", this.props.user._id);
     // console.log("this is the profile", this.props.match.params.id);
+    if (!this.state.honor) return <></>;
     return (
       <div>
         {this.props.user._id == this.props.match.params.id ? (
@@ -207,14 +213,16 @@ export default class UserDetails extends Component {
             </div>
             <div className="codeWarsInfo">
               <p>Codewars: {this.state.codewars} </p>
-              <p>honor: {this.state.honor.map((kata) =>{
-                return <p>{kata.name}</p>
-              })}</p>
+              <p>
+                honor:
+                {this.state.honor.map((kata) => {
+                  return <p>{kata.name}</p>;
+                })}
+              </p>
               <img
                 src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
                 alt="nate"
               />
-
             </div>
             <div className="userProjectView">
               <h2>Projects:</h2>
