@@ -27,6 +27,51 @@ export default class extends Component {
       });
   };
 
+  handleChange = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+  handleSubmit = (event) => {
+    console.log(event);
+    event.preventDefault();
+    if (this.state.uploadOn) return;
+    axios
+      .put(`/api/projects/${this.props.match.params.id}`, {
+        title: this.state.name,
+        description: this.surname,
+        // number: this.state.number,
+        // imageUrl: this.state.imageUrl,
+        // github: this.state.github,
+        // heroku: this.state.heroku,
+        // contributors: this.state.contributors,
+      })
+      .then(() => {
+        // this.setState({
+        //   title: "",
+        //   description: "",
+        //   // number: "",
+        //   // imageUrl: "",
+        //   // github: "",
+        //   // heroku: "",
+        //   // contributors: "",
+        // });
+        // update state in Projects by executing getData()
+        this.getData();
+        this.props.history.push("/projects");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  componentDidMount = () => {
+    this.getData();
+  };
+
   render() {
     return (
       <div>
@@ -34,6 +79,7 @@ export default class extends Component {
 
         <div>
           <h2>Title:</h2>
+          <Form onSubmit={this.handleSubmit}></Form>
           <Form.Control
             type="text"
             name="title"
