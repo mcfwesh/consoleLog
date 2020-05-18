@@ -31,6 +31,9 @@ const Navbar = (props) => {
         <div>
           <Link to="/projects">Projects</Link>
         </div>
+        <div>
+          <Link to="/face">face</Link>
+        </div>
       </div>
       <div className="navbar-right">
         {props.user ? (

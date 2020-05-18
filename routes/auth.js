@@ -26,7 +26,7 @@ const teacherWD = [
     linkedin: "www.linkedin.com",
   },
 ];
-
+//dioni pendiente to revision
 // router.post("/:id", (req, res) => {
 //   // console.log("req.body", req.body.oldpassword);
 //   // console.log("req.params", req.user.password);
