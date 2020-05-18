@@ -18,6 +18,7 @@ import Notes from "./components/Notes";
 import AddProject from "./components/AddProject";
 import EditProject from "./components/EditProject";
 import EditUsers from "./components/EditUsers";
+import Jobs from "./components/Jobs";
 
 class App extends React.Component {
   state = {
@@ -118,6 +119,7 @@ class App extends React.Component {
             path="/login"
             render={(props) => <Login setUser={this.setUser} {...props} />}
           />
+          <Route exact path="/jobs" render={(props) => <Jobs {...props} />} />
 
           <Home />
         </Switch>
