@@ -27,6 +27,44 @@ const teacherWD = [
   },
 ];
 
+// router.post("/:id", (req, res) => {
+//   // console.log("req.body", req.body.oldpassword);
+//   // console.log("req.params", req.user.password);
+//   // console.log(
+//   //   "This is checking password",
+//   //   bcrypt.compareSync(req.body.oldpassword, req.user.password)
+//   // );
+//   const oldpassword = req.body.oldpassword;
+//   const password = req.body.password;
+//   const username = req.params.id;
+//   console.log("this is username", req.params.id);
+
+//   if (!password || password.length < 4) {
+//     return res
+//       .status(400)
+//       .json({ message: "Your password must be 4 char. min." });
+//   }
+//   if (bcrypt.compareSync(oldpassword, req.user.password)) {
+//     const salt = bcrypt.genSaltSync();
+//     const hash = bcrypt.hashSync(password, salt);
+//     User.findByIdAndUpdate(username, { password: hash }, { new: true })
+//       .then((found) => {
+//         if (found) {
+//           return res
+//             .status(400)
+//             .json({ message: "This mail is already taken" });
+//         }
+
+//         const salt = bcrypt.genSaltSync();
+//         const hash = bcrypt.hashSync(password, salt);
+//       })
+//       .catch((err) => {
+//         res.json(err);
+//       });
+//   }
+//   res.json({});
+// });
+
 router.post("/signup", (req, res) => {
   const {
     username,

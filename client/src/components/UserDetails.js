@@ -16,7 +16,7 @@ export default class UserDetails extends Component {
     uploadOn: false,
     description: "",
     github: "",
-    codewars: "",
+    codewars: [""],
     linkedin: "",
     classroom: "Web Dev",
     teachers: [],
@@ -90,8 +90,15 @@ export default class UserDetails extends Component {
     //console.log("this is CW", CW);
     axios.get(`/api/users/codewars/${CW}`).then((response) => {
       let katas = response.data;
+      let nateBoss = [];
+      console.log(Array.isArray(katas.data));
+      if (Array.isArray(katas.data)) {
+        nateBoss = [...katas.data.slice(0, 3)];
+      }
+
       // let nateBoss = JSON.stringify(katas.data.slice(0, 3));
-      let nateBoss = [...katas.data.slice(0, 3)];
+      //let nateBoss = [...katas.data.slice(0, 3)];
+
       this.setState({
         honor: nateBoss,
       });
@@ -160,7 +167,8 @@ export default class UserDetails extends Component {
       <div>
         {this.props.user._id == this.props.match.params.id ? (
           <>
-            <Link to={`/edituser/${this.props.user._id}`}>Edit</Link>
+            <Link to={`/edituser/${this.props.user._id}`}>Edit profile</Link>
+            <Link to={`/editpass/${this.props.user._id}`}>Change password</Link>
             <button onClick={() => this.deleteProject(this.props.user._id)}>
               Delete
             </button>
@@ -222,76 +230,100 @@ export default class UserDetails extends Component {
               </div>
             </div>
             <div className="codeWarsInfo">
-            <div className="codeWarsOverlay">
-              <div className="codeWarsImages">
-              <div className="cwLogo">
-              <img src="https://i.ibb.co/bd3Lqgf/codewarspng.png" alt="cwLogo" />
-              </div>
-              <div className="cwBanner">
-              <img
-                src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
-                alt="nate"
-              />
-              </div>
-              </div>
-              <div className="codeWarsMainBox">
-              <div className="codeWarsBoxTwo">
-              <div>
-                  <p>Last three katas </p>
-              </div>
-              <div className="lastKatas">
-                {this.state.honor
-                  ? this.state.honor.map((kata) => {
-                      return <p>{kata.name}</p>;
-                    })
-                  : null}
+              <div className="codeWarsOverlay">
+                <div className="codeWarsImages">
+                  <div className="cwLogo">
+                    <img
+                      src="https://i.ibb.co/bd3Lqgf/codewarspng.png"
+                      alt="cwLogo"
+                    />
+                  </div>
+                  <div className="cwBanner">
+                    <img
+                      src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
+                      alt="nate"
+                    />
+                  </div>
+                </div>
+                <div className="codeWarsMainBox">
+                  <div className="codeWarsBoxTwo">
+                    <div>
+                      <p>Last three katas </p>
+                    </div>
+                    <div className="lastKatas">
+                      {this.state.honor
+                        ? this.state.honor.map((kata) => {
+                            return <p>{kata.name}</p>;
+                          })
+                        : null}
+                    </div>
+                  </div>
                 </div>
               </div>
-              </div>
-            </div>
             </div>
             <div className="userProjectView">
-            <div className="projectHeader">
-            <h1>Projects</h1>
-            </div>
+              <div className="projectHeader">
+                <h1>Projects</h1>
+              </div>
               {this.state.projects
                 .sort((a, b) =>
                   a.number.localeCompare(b.number, undefined, { numeric: true })
                 )
                 .map((name) => (
                   <div className="project">
-                  <div className="projectImg">
+                    <div className="projectImg">
                       <img src={name.imageUrl} />
                     </div>
                     <div className="projectBody">
-                    <div>
-                    <h2>{name.title}</h2>
-                    </div>
-                    <div>
-                    <p>{name.description}</p>
-                    <p>Project Category: {name.number}</p>
-                    </div>
-                    <div className="projectLinks">
-                    <a href={name.heroku}><img src="https://i.ibb.co/bLDW3YD/webbrowserprojects.png" alt="web" />Visit the App</a>
-                    <a href={name.github}><img src="https://i.ibb.co/0fjMyMW/githubproject.png" alt="github" />Github Repo</a>
-                    </div>
+                      <div>
+                        <h2>{name.title}</h2>
+                      </div>
+                      <div>
+                        <p>{name.description}</p>
+                        <p>Project Category: {name.number}</p>
+                      </div>
+                      <div className="projectLinks">
+                        <a href={name.heroku}>
+                          <img
+                            src="https://i.ibb.co/bLDW3YD/webbrowserprojects.png"
+                            alt="web"
+                          />
+                          Visit the App
+                        </a>
+                        <a href={name.github}>
+                          <img
+                            src="https://i.ibb.co/0fjMyMW/githubproject.png"
+                            alt="github"
+                          />
+                          Github Repo
+                        </a>
+                      </div>
                     </div>
                   </div>
                 ))}
             </div>
             <div className="userTeachers">
-            <div className="teachersHeader">
-              <h1>Teachers</h1>
-            </div>
-                {this.state.teachers.map((spe) => {
-                  return (
-                    <div className="teacherBox">
-                      <span>{spe.name}</span>
-                      <span><img src="https://i.ibb.co/ssgRjGn/mail.png" alt="mail" />{spe.mail}</span>
-                      <span><img src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png" alt="linkedin" />{spe.linkedin}</span>
-                      </div>
-                  );
-                })}
+              <div className="teachersHeader">
+                <h1>Teachers</h1>
+              </div>
+              {this.state.teachers.map((spe) => {
+                return (
+                  <div className="teacherBox">
+                    <span>{spe.name}</span>
+                    <span>
+                      <img src="https://i.ibb.co/ssgRjGn/mail.png" alt="mail" />
+                      {spe.mail}
+                    </span>
+                    <span>
+                      <img
+                        src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png"
+                        alt="linkedin"
+                      />
+                      {spe.linkedin}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
