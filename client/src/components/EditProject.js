@@ -16,11 +16,11 @@ export default class EditProject extends Component {
 
   getData = (projectusers) => {
     const id = this.props.match.params.id;
-    console.log(projectusers);
+    //console.log(projectusers);
     axios
       .get(`/api/projects/${id}`)
       .then((response) => {
-        console.log("this is respons", response.data);
+        //console.log("this is respons", response.data);
         this.setState({
           title: response.data.title,
           description: response.data.description,
@@ -69,7 +69,7 @@ export default class EditProject extends Component {
   };
 
   handleSubmit = (event) => {
-    console.log(event);
+    //console.log(event);
     event.preventDefault();
     if (this.state.uploadOn) return;
     axios
@@ -106,9 +106,9 @@ export default class EditProject extends Component {
   };
 
   render() {
-    console.log(this.props.match.params.id);
+    //console.log(this.props.match.params.id);
 
-    console.log(this.state.github);
+    //console.log(this.state.github);
 
     return (
       <div>
