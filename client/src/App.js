@@ -22,7 +22,7 @@ import EditUsers from "./components/EditUsers";
 class App extends React.Component {
   state = {
     user: this.props.user,
-    course: "",
+    course: "Web Dev",
   };
 
   setUser = (user) => {
@@ -39,10 +39,15 @@ class App extends React.Component {
 
   render() {
     //console.log("this is the user", this.state.user._id);
+    //console.log("banana APPJS", this.state.course);
     return (
       <div className="App">
         <NavbarMain handleCourse={this.handleCourse} />
-        <Navbar user={this.state.user} setUser={this.setUser} />
+        <Navbar
+          course={this.state.course}
+          user={this.state.user}
+          setUser={this.setUser}
+        />
 
         <Switch>
           <Route
@@ -99,8 +104,7 @@ class App extends React.Component {
           <Route
             exact
             path="/users"
-            identifcation={this.state.user}
-            component={Users}
+            render={(props) => <Users course={this.state.course} {...props} />}
           />
 
           <Route exact path="/panel" component={Panel} />

@@ -87,7 +87,7 @@ export default class UserDetails extends Component {
   };
 
   getCodeWars = (CW) => {
-    console.log("this is CW", CW);
+    //console.log("this is CW", CW);
     axios.get(`/api/users/codewars/${CW}`).then((response) => {
       let katas = response.data;
       // let nateBoss = JSON.stringify(katas.data.slice(0, 3));
@@ -121,14 +121,14 @@ export default class UserDetails extends Component {
   };
   componentDidMount = () => {
     this.getProject();
-    console.log(this.props);
+    //console.log(this.props);
     const id = this.props.match.params.id;
     // console.log("banana", id);
     this.getProject();
     //this.getData();
     function generatePDF() {
       const element = document.getElementById("nate");
-      console.log(element);
+      //console.log(element);
       var opt = {
         margin: 2,
         image: { type: "jpg", quality: 0.95 },
@@ -155,7 +155,7 @@ export default class UserDetails extends Component {
       });
   };
   render() {
-    console.log(this.state.honor);
+    //console.log(this.state.honor);
     return (
       <div>
         {this.props.user._id == this.props.match.params.id ? (
@@ -192,33 +192,51 @@ export default class UserDetails extends Component {
                       return <p>{spe}</p>;
                     })}
                   </div>
-                </div>
-              </div>
-              <div className="userMainInfoBoxTwo">
-                <div>
-                  <img src="https://i.ibb.co/8NLSrWX/github.png" alt="github" />
-                  <p>{this.state.github}</p>
-                </div>
-                <div>
-                  <img src="https://i.ibb.co/nLKVXQ2/li.png" alt="linkedin" />
-                  <p>{this.state.linkedin}</p>
+                  <div className="userMainInfoBoxTwo">
+                    <div>
+                      <a href={`https://github.com/${this.state.github}`}>
+                        <img
+                          src="https://i.ibb.co/8NLSrWX/github.png"
+                          alt="github"
+                        />
+                      </a>
+                      <a href={`https://github.com/${this.state.github}`}>
+                        <p>{this.state.github}</p>
+                      </a>
+                    </div>
+                    <div>
+                      <a href={this.state.linkedin}>
+                        <img
+                          src="https://i.ibb.co/nLKVXQ2/li.png"
+                          alt="linkedin"
+                        />
+                      </a>
+                      <a href={this.state.linkedin}>
+                        <p>
+                          {this.state.name} {this.state.surname}
+                        </p>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="codeWarsInfo">
-              <p>Codewars: {this.state.codewars} </p>
-              <p>
-                {this.state.honor
-                  ? this.state.honor.map((kata) => {
-                      return <p>{kata.name}</p>;
-                    })
-                  : null}
-              </p>
-
-              <img
-                src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
-                alt="nate"
-              />
+              <div className="codeWarsBoxOne">
+                <img
+                  src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
+                  alt="nate"
+                />
+              </div>
+              <div className="codeWarsBoxTwo">
+                <p>
+                  {this.state.honor
+                    ? this.state.honor.map((kata) => {
+                        return <p>{kata.name}</p>;
+                      })
+                    : null}
+                </p>
+              </div>
             </div>
             <div className="userProjectView">
               <h2>Projects:</h2>
