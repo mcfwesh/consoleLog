@@ -20,6 +20,7 @@ import EditProject from "./components/EditProject";
 import EditUsers from "./components/EditUsers";
 import EditPassword from "./components/EditPassword";
 import Jobs from "./components/Jobs";
+import Face from "./components/Face";
 
 class App extends React.Component {
   state = {
@@ -95,7 +96,7 @@ class App extends React.Component {
             user={this.state.user}
             component={AddProject}
           />
-
+          <Route exact path="/face" component={Face} />
           <Route exact path="/editproject/:id" component={EditProject} />
           <Route exact path="/tasks/:id" component={TaskDetails} />
           <Route
