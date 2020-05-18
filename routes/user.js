@@ -42,25 +42,52 @@ router.delete("/:id", (req, res) => {
       res.json(err);
     });
 });
+router.put("/:id", (req, res) => {
+  const {
+    username,
+    password,
+    name,
+    surname,
+    role,
+    description,
+    specialization,
+    imageUrl,
+    github,
+    codewars,
+    linkedin,
+    classroom,
+  } = req.body;
+  console.log("this is req", req.body, req.params);
+  User.findByIdAndUpdate(
+    req.params.id,
+    {
+      username,
+      password,
+      name,
+      surname,
+      role,
+      description,
+      specialization,
+      imageUrl,
+      github,
+      codewars,
+      linkedin,
+      classroom,
+    },
+    { new: true }
+  )
+    .then((pro) => {
+      res.status(200).json(pro);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 router.get("/codewars/:name", (req, res) => {
   const userCodeCodeWars = req.params.name;
   console.log(userCodeCodeWars);
 
-  // axios({
-  //   url: `https://www.codewars.com/api/v1/users/${userCodeCodeWars}`,
-  //   method: "get",
-  //   headers: {
-  //     "Access-Control-Allow-Origin": "*",
-  //   },
-  // })
-  //   .then((response) => {
-  //     console.log(response.data);
-  //     res.json(response.data);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
   axios({
     url: `https://www.codewars.com/api/v1/users/${userCodeCodeWars}/code-challenges/completed?page=0`,
     method: "get",
