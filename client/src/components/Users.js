@@ -161,6 +161,7 @@ export default class Users extends Component {
         </div>
         <div className="overlay-userlist">
           <UsersList
+            courses={this.props.course}
             myuser={this.props.myuser}
             users={this.state.filteredUsers}
           />

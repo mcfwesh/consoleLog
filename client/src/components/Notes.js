@@ -81,7 +81,7 @@ class Notes extends React.Component {
             onChange={this.onChange}
             editorDidMount={this.editorDidMount}
           />
-          {this.props.user._id && <button type="submit">Save</button>}
+          {this.props.user?._id && <button type="submit">Save</button>}
         </form>
       </div>
     );
