@@ -156,32 +156,43 @@ export default class Signup extends Component {
   render() {
     //console.log(this.state.classroom);
     return (
-      <>
-        <h2>Signup</h2>
+      <div className="signup-overlay">
+        <div className="signup-sections">
         <form onSubmit={this.handleSubmit}>
-          <label>Classroom:</label>
-          <br></br>
+        <div className="sectionOne">
+        <ul className="ks-cboxtags">
+            <li>
           <input
+            id="checkboxOne"
             type="checkbox"
             name="Web Dev"
             checked={this.state.classroom.includes("Web Dev")}
             onChange={this.handleClassroom}
-          ></input>
-          <label>Web Dev</label>
+          />
+          <label for="checkboxOne">Web Dev</label>
+          </li>
+          <li>
           <input
+          id="checkboxTwo"
             type="checkbox"
             name="UX/UI"
             checked={this.state.classroom.includes("UX/UI")}
             onChange={this.handleClassroom}
           ></input>
-          <label>UX/UI</label>
+          <label for="checkboxTwo">UX/UI</label>
+          </li>
+          <li>
           <input
+          id="checkboxThree"
             type="checkbox"
             name="Data"
             checked={this.state.classroom.includes("Data")}
             onChange={this.handleClassroom}
           ></input>
-          <label>Data</label>
+          <label for="checkboxThree">Data</label>
+          </li>
+            </ul>
+          </div>
           <div>
             <label htmlFor="name">Name</label>
             <input
@@ -236,6 +247,7 @@ export default class Signup extends Component {
               style={({ width: "300px" }, { height: "100px" })}
             ></textarea>
           </div>
+          <div className="sectionTwo">
           <div>
             <label htmlFor="name">Role</label>
             <select
@@ -352,13 +364,27 @@ export default class Signup extends Component {
               </alert>
             )}
           </div>
+          </div>
           <div>
             <button type="submit" disabled={this.state.uploadOn}>
               Signup
             </button>
           </div>
         </form>
-      </>
+        </div>
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+      </div>
     );
   }
 }
