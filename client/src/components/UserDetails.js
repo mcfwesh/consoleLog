@@ -206,58 +206,76 @@ export default class UserDetails extends Component {
                 </div>
               </div>
             <div className="codeWarsInfo">
-            <div className="codeWarsBoxOne">
+            <div className="codeWarsOverlay">
+              <div className="codeWarsImages">
+              <div className="cwLogo">
+              <img src="https://i.ibb.co/bd3Lqgf/codewarspng.png" alt="cwLogo" />
+              </div>
+              <div className="cwBanner">
               <img
                 src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
                 alt="nate"
               />
               </div>
+              </div>
+              <div className="codeWarsMainBox">
               <div className="codeWarsBoxTwo">
-              <p>
+              <div>
+                  <p>Last three katas </p>
+              </div>
+              <div className="lastKatas">
                 {this.state.honor
                   ? this.state.honor.map((kata) => {
                       return <p>{kata.name}</p>;
                     })
                   : null}
-              </p>
+                </div>
+              </div>
               </div>
             </div>
+            </div>
             <div className="userProjectView">
-              <h2>Projects:</h2>
+            <div className="projectHeader">
+            <h1>Projects</h1>
+            </div>
               {this.state.projects
                 .sort((a, b) =>
                   a.number.localeCompare(b.number, undefined, { numeric: true })
                 )
                 .map((name) => (
-                  <div>
-                    <h4>{name.title}</h4>
-                    <p>{name.description}</p>
-                    <p>Project Category: {name.number}</p>
-                    <div>
+                  <div className="project">
+                  <div className="projectImg">
                       <img src={name.imageUrl} />
                     </div>
-                    <a href={name.github}>Github repo</a> <br />
-                    <a href={name.heroku}>Play Game</a>
+                    <div className="projectBody">
+                    <div>
+                    <h2>{name.title}</h2>
+                    </div>
+                    <div>
+                    <p>{name.description}</p>
+                    <p>Project Category: {name.number}</p>
+                    </div>
+                    <div className="projectLinks">
+                    <a href={name.heroku}><img src="https://i.ibb.co/bLDW3YD/webbrowserprojects.png" alt="web" />Visit the App</a>
+                    <a href={name.github}><img src="https://i.ibb.co/0fjMyMW/githubproject.png" alt="github" />Github Repo</a>
+                    </div>
+                    </div>
                   </div>
                 ))}
             </div>
             <div className="userTeachers">
-              <table>
-                <tr>
-                  <th>Teacher</th>
-                  <th>Mail</th>
-                  <th>Linkedin</th>
-                </tr>
+            <div className="teachersHeader">
+              <h1>Teachers</h1>
+            </div>
                 {this.state.teachers.map((spe) => {
                   return (
-                    <tr>
-                      <td>{spe.name}</td>
-                      <td>{spe.mail}</td>
-                      <td>{spe.linkedin}</td>
-                    </tr>
+                    <div className="teacherBox">
+                      <span>{spe.name}</span>
+                      <span><img src="https://i.ibb.co/ssgRjGn/mail.png" alt="mail" />{spe.mail}</span>
+                      <span><img src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png" alt="linkedin" />{spe.linkedin}</span>
+                      </div>
                   );
                 })}
-              </table>
             </div>
           </div>
         </div>
