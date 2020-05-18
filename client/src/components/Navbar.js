@@ -11,15 +11,17 @@ const handleLogout = (props) => {
 
 const Navbar = (props) => {
   //console.log("this are the props", props.user._id);
-  console.log(props)
+  console.log(props);
   return (
     <div className="navbar">
       <div className="navbar-left">
         <div>
-          <Link course={props.course} to="/users">Users</Link>
+          <Link course={props.course} to="/users">
+            Users
+          </Link>
         </div>
         <div>
-          <Link to="/">Jobs</Link>
+          <Link to="/jobs">Jobs</Link>
         </div>
         <div>
           <Link to="/notes">Notes</Link>

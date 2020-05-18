@@ -27,7 +27,7 @@ h2 {
   padding: 5vh 5vw;
 }
 
-.projects-container > * {
+.projects-container>* {
   flex: 1;
 }
 
@@ -238,6 +238,7 @@ h2 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -247,6 +248,7 @@ h2 {
   0% {
     transform: rotate(360deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
@@ -345,6 +347,7 @@ h2 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -354,6 +357,7 @@ h2 {
   0% {
     transform: rotate(360deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
@@ -412,10 +416,12 @@ h2 {
     left: 0px;
     top: 0px;
   }
+
   25% {
     left: 250px;
     top: 0px;
   }
+
   100% {
     left: 0px;
     top: 0px;
@@ -477,68 +483,72 @@ h2 {
 /* User Filter Stuff */
 
 ul.ks-cboxtags {
-    list-style: none;
-    padding: 20px;
+  list-style: none;
+  padding: 20px;
 }
-ul.ks-cboxtags li{
+
+ul.ks-cboxtags li {
   display: inline;
-}
-ul.ks-cboxtags li label{
-    display: inline-block;
-    background-color: rgba(255, 255, 255, .9);
-    border: 2px solid rgba(139, 139, 139, .3);
-    color: #adadad;
-    border-radius: 25px;
-    white-space: nowrap;
-    margin: 3px 0px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: all .2s;
 }
 
 ul.ks-cboxtags li label {
-    padding: 8px 12px;
-    cursor: pointer;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, .9);
+  border: 2px solid rgba(139, 139, 139, .3);
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+  padding: 8px 12px;
+  cursor: pointer;
 }
 
 ul.ks-cboxtags li label::before {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 900;
-    font-size: 12px;
-    padding: 2px 6px 2px 2px;
-    content:"✗";
-    transition: transform .3s ease-in-out;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: "✗";
+  transition: transform .3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
-    content: "✓";
-    transform: rotate(-360deg);
-    transition: transform .3s ease-in-out;
+ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+  content: "✓";
+  transform: rotate(-360deg);
+  transition: transform .3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label {
-    border: 2px solid #33c3ff;
-    background-color: #33c3ff;
-    color: #fff;
-    transition: all .3s;
+ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+  border: 2px solid #33c3ff;
+  background-color: #33c3ff;
+  color: #fff;
+  transition: all .3s;
 }
 
 ul.ks-cboxtags li input[type="checkbox"] {
   display: absolute;
 }
+
 ul.ks-cboxtags li input[type="checkbox"] {
   position: absolute;
   opacity: 0;
 }
-ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+
+ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   border: 2px solid #1bdbf8;
 }
 
@@ -587,15 +597,14 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     background: linear-gradient(#5cceff, #0eb4fc);
     width: 30vw;
   }
+
   100% {
     background: linear-gradient(#5cceff, #0eb4fc);
-    width:40vw;
+    width: 40vw;
   }
 }
 
-.userCardImg{
-
-}
+.userCardImg {}
 
 .userCardImg img {
   width: 150px;
@@ -618,17 +627,17 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   font-size: 2em;
 }
 
-.userCardBodyTitle a{
+.userCardBodyTitle a {
   text-decoration: none;
   color: black;
 }
 
-.userCardDesctiption{
+.userCardDesctiption {
   font-style: italic;
   height: 5vh;
 }
 
-.userCarSpecialization{
+.userCarSpecialization {
   width: 15vw;
   display: flex;
   justify-content: space-between;
@@ -644,14 +653,14 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   margin-top: 20px;
 }
 
-.overlaySingleUser{
+.overlaySingleUser {
   display: flex;
   align-items: center;
   flex-direction: column;
   min-height: 90vh;
 }
 
-.userMainInfo{
+.userMainInfo {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -660,7 +669,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   min-height: 40vh;
 }
 
-.userMainInfoBoxOne{
+.userMainInfoBoxOne {
   width: 50vw;
   display: flex;
   flex-direction: row;
@@ -668,12 +677,12 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   text-align: flex-start;
 }
 
-.mainBoxOne img{
+.mainBoxOne img {
   border-radius: 50%;
   border: 5px solid #33c3ff;
 }
 
-.mainBoxTwo{
+.mainBoxTwo {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -684,13 +693,14 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 
 .mainBoxTwo h2 {
-  margin-bottom:0.5vh;
+  margin-bottom: 0.5vh;
   font-size: 3em;
 }
 
 .mainBoxTwo p {
   font-size: 1em;
 }
+
 
 .mainBoxTwoSpecial{
   min-width: 5vw !important;
@@ -703,7 +713,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border-radius: 5px;
 }
 
-.mainBoxTwoSpecial > p {
+.mainBoxTwoSpecial>p {
   margin-right: 1vw;
   display: flex;
   justify-content: flex-start;
@@ -714,11 +724,11 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   min-width: 25vw;
   display: flex;
   text-align: flex-start;
-  
+
 }
 
 
-.userMainInfoBoxTwo{
+.userMainInfoBoxTwo {
   width: 30vw;
   display: flex;
   justify-content: space-between;
@@ -726,12 +736,12 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   margin-bottom: 2vh;
 }
 
-.userMainInfoBoxTwo img{
-width: 3vw;
-margin-right: 1vw;
+.userMainInfoBoxTwo img {
+  width: 3vw;
+  margin-right: 1vw;
 }
 
-.userMainInfoBoxTwo > div {
+.userMainInfoBoxTwo>div {
   min-width: 10vw;
   max-width: 10vw;
   display: flex;
@@ -740,12 +750,12 @@ margin-right: 1vw;
   margin-top: 2vh;
 }
 
-.userMainInfoBoxTwo > div > a{
-text-decoration: none;
-color: black;
+.userMainInfoBoxTwo>div>a {
+  text-decoration: none;
+  color: black;
 }
 
-.codeWarsInfo{
+.codeWarsInfo {
   background-color: #303133e7;
   min-width: 60vw;
   color: white;
@@ -774,6 +784,7 @@ color: black;
 .cwLogo img {
   min-width: 15vw;
 }
+
 
 
 .codeWarsBoxTwo{
@@ -841,6 +852,11 @@ color: black;
   width: 60vw;
 }
 
+.jobs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style-type: none;
+  grid-gap: 2rem;
 .teachersHeader{
   background-color: #33c3ff;
   height: 10vh;
