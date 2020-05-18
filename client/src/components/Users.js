@@ -58,10 +58,15 @@ export default class Users extends Component {
     axios
       .get("/api/users")
       .then((response) => {
+        let boom = response.data.filter(
+          (fil) => fil.classroom == this.props.course
+        );
+
+        //console.log(boom, response);
         //console.log(response);
         this.setState({
-          users: response.data,
-          filteredUsers: response.data,
+          users: boom,
+          filteredUsers: boom,
         });
       })
       .catch((err) => {
@@ -70,95 +75,99 @@ export default class Users extends Component {
   };
 
   render() {
-    console.log(this.props);
+    //console.log("nate Love you", this.props.course);
     return (
       <div className="overlay-user">
-        <div className="overlay-user-filter">
-          <ul className="ks-cboxtags">
-            <li>
-              <input
-                id="checkboxOne"
-                type="checkbox"
-                name="Frontend"
-                checked={this.state.specialization.includes("Frontend")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label for="checkboxOne">Frontend</label>
-            </li>
-            <li>
-              <input
-                id="checkboxTwo"
-                type="checkbox"
-                name="Backend"
-                checked={this.state.specialization.includes("Backend")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label for="checkboxTwo">Backend</label>
-            </li>
-            <li>
-              <input
-                id="checkboxThree"
-                type="checkbox"
-                name="CSS"
-                checked={this.state.specialization.includes("CSS")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label for="checkboxThree">CSS</label>
-            </li>
-            <li>
-              <input
-                id="checkboxFour"
-                type="checkbox"
-                name="React"
-                checked={this.state.specialization.includes("React")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label for="checkboxFour">React</label>
-            </li>
+        {this.props.course == "Web Dev" ? (
+          <div className="overlay-user-filter">
+            <ul className="ks-cboxtags">
+              <li>
+                <input
+                  id="checkboxOne"
+                  type="checkbox"
+                  name="Frontend"
+                  checked={this.state.specialization.includes("Frontend")}
+                  onChange={this.handleSpecialization}
+                ></input>
+                <label for="checkboxOne">Frontend</label>
+              </li>
+              <li>
+                <input
+                  id="checkboxTwo"
+                  type="checkbox"
+                  name="Backend"
+                  checked={this.state.specialization.includes("Backend")}
+                  onChange={this.handleSpecialization}
+                ></input>
+                <label for="checkboxTwo">Backend</label>
+              </li>
+              <li>
+                <input
+                  id="checkboxThree"
+                  type="checkbox"
+                  name="CSS"
+                  checked={this.state.specialization.includes("CSS")}
+                  onChange={this.handleSpecialization}
+                ></input>
+                <label for="checkboxThree">CSS</label>
+              </li>
+              <li>
+                <input
+                  id="checkboxFour"
+                  type="checkbox"
+                  name="React"
+                  checked={this.state.specialization.includes("React")}
+                  onChange={this.handleSpecialization}
+                ></input>
+                <label for="checkboxFour">React</label>
+              </li>
 
-            <br></br>
-            <li>
-              <input
-                id="checkboxFive"
-                type="checkbox"
-                name="Bootstrap"
-                checked={this.state.specialization.includes("Bootstrap")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label for="checkboxFive">Bootstrap</label>
-            </li>
-            <li>
-              <input
-                id="checkboxSix"
-                type="checkbox"
-                name="Managment"
-                checked={this.state.specialization.includes("Managment")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label for="checkboxSix">Managment</label>
-            </li>
-            <li>
-              <input
-                id="checkboxSeven"
-                type="checkbox"
-                name="API"
-                checked={this.state.specialization.includes("API")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label for="checkboxSeven">API</label>
-            </li>
-            <li>
-              <input
-                id="checkboxEight"
-                type="checkbox"
-                name="Mongo DB"
-                checked={this.state.specialization.includes("Mongo DB")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label for="checkboxEight">Mongo DB</label>
-            </li>
-          </ul>
-        </div>
+              <br></br>
+              <li>
+                <input
+                  id="checkboxFive"
+                  type="checkbox"
+                  name="Bootstrap"
+                  checked={this.state.specialization.includes("Bootstrap")}
+                  onChange={this.handleSpecialization}
+                ></input>
+                <label for="checkboxFive">Bootstrap</label>
+              </li>
+              <li>
+                <input
+                  id="checkboxSix"
+                  type="checkbox"
+                  name="Managment"
+                  checked={this.state.specialization.includes("Managment")}
+                  onChange={this.handleSpecialization}
+                ></input>
+                <label for="checkboxSix">Managment</label>
+              </li>
+              <li>
+                <input
+                  id="checkboxSeven"
+                  type="checkbox"
+                  name="API"
+                  checked={this.state.specialization.includes("API")}
+                  onChange={this.handleSpecialization}
+                ></input>
+                <label for="checkboxSeven">API</label>
+              </li>
+              <li>
+                <input
+                  id="checkboxEight"
+                  type="checkbox"
+                  name="Mongo DB"
+                  checked={this.state.specialization.includes("Mongo DB")}
+                  onChange={this.handleSpecialization}
+                ></input>
+                <label for="checkboxEight">Mongo DB</label>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <></>
+        )}
         <div className="overlay-userlist">
           <UsersList
             courses={this.props.course}
