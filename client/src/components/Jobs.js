@@ -59,7 +59,9 @@ class Jobs extends Component {
                 <li>
                   {job.location.area[1]}, {job.location.area[0]}
                 </li>
-                <li>{job.redirect_url}</li>
+                <li>
+                  <a href={`${job.redirect_url}`}>Go to Job</a>
+                </li>
               </ul>
             ))}
       </div>
