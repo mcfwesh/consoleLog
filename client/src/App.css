@@ -857,9 +857,10 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
 
 .jobs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   list-style-type: none;
   grid-gap: 2rem;
+  text-align: center;
 }
 
 .teachersHeader {
