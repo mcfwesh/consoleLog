@@ -18,6 +18,7 @@ import Notes from "./components/Notes";
 import AddProject from "./components/AddProject";
 import EditProject from "./components/EditProject";
 import EditUsers from "./components/EditUsers";
+import EditPassword from "./components/EditPassword";
 import Jobs from "./components/Jobs";
 
 class App extends React.Component {
@@ -60,6 +61,7 @@ class App extends React.Component {
           />
 
           <Route exact path="/edituser/:id" component={EditUsers} />
+          <Route exact path="/editpass/:id" component={EditPassword} />
 
           <Route
             exact
