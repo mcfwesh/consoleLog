@@ -13,6 +13,7 @@ export default class Panel extends Component {
         <span></span>
         <span></span>
         <img src="https://i.ibb.co/N1KGxHZ/476759.png" alt="users"/>
+        <a>User</a>
       </div>
     </div>
     </div>
@@ -23,6 +24,7 @@ export default class Panel extends Component {
         <span></span>
         <span></span>
         <img src="https://i.ibb.co/H4G5fyF/1584961.png" alt="users"/>
+        <a>Jobs</a>
       </div>
       </div>
     </div>
@@ -33,6 +35,7 @@ export default class Panel extends Component {
         <span></span>
         <span></span>
         <img src="https://i.ibb.co/0VCQ43y/1355461.png" alt="users"/>
+        <a>Notes</a>
       </div>
       </div>
     </div>
@@ -43,6 +46,7 @@ export default class Panel extends Component {
         <span></span>
         <span></span>
         <img src="https://i.ibb.co/wsb3zGB/2247603.png" alt="users"/>
+        <a>Projects</a>
       </div>
       </div>
     </div>
@@ -53,6 +57,7 @@ export default class Panel extends Component {
         <span></span>
         <span></span>
         <img src="https://i.ibb.co/c1dLTc0/logo.png" alt="users"/>
+        <a>Logout/Login</a>
       </div>
       </div>
     </div>
@@ -63,6 +68,7 @@ export default class Panel extends Component {
         <span></span>
         <span></span>
         <img src="https://i.ibb.co/Gx4QKw6/login.png" alt="users"/>
+        <a>Register</a>
       </div>
       </div>
     </div>

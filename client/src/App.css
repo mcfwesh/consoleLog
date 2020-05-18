@@ -68,7 +68,7 @@ h2 {
   justify-content: flex-end;
   flex-direction: row;
   align-items: center;
-  min-width: 20vw;
+  width: 50vw;
 }
 
 .courses {
@@ -78,12 +78,19 @@ h2 {
   flex-direction: row;
   align-items: center;
   color: white;
-  font-size: 2em;
+  font-size: 1.5em;
+  margin-right: 1vw;
 }
 
 .courses a {
   color: white;
   text-decoration: none;
+}
+
+.courses > div {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 5vw;
 }
 
 .navbar {
@@ -102,7 +109,7 @@ h2 {
   flex-direction: row;
   align-items: center;
   min-width: 50vw;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .navbar-left a {
@@ -262,7 +269,15 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
+
+.squarePanel a {
+  margin-top: 1vh;
+font-size: 2em;
+}
+
+
 
 .squarePanel span:nth-child(1) {
   position: absolute;
@@ -439,7 +454,7 @@ h2 {
 
 .overlay-panel-cards {
   min-width: 40vw;
-  max-width: 65vw;
+  max-width: 60vw;
   height: 70vh;
   display: flex;
   justify-content: space-between;
@@ -909,17 +924,18 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   left: 0;
   z-index: -1;
   height: 100vh;
-  width: 80vw;
+  width: 90vw;
+  overflow: hidden;
 }
 .bg-bubbles > li {
     position: absolute;
     list-style: none;
     display: block;
+    z-index: -1;
     width: 40px;
     height: 40px;
     background-color: rgba(0,0,0,0.1);
     bottom: -160px;
-
     -webkit-animation: square1 25s infinite;
     animation: square1 25s infinite;
 
@@ -1024,9 +1040,51 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 .signup-overlay{
   display: flex;
   justify-content: center;
-  align-items: center;
+  background-color: rgba(0,0,0,0.2);
+  min-height: 100vh;
 }
 
 .signup-sections{
   display: flex;
+  background-color: white;
+  border-radius: 25px;
+  min-height: 100vh;
+  margin-top: 2vh;
+
+}
+
+.formBox{
+  margin-left: 5vh;
+  margin-right: 5vh;}
+
+.form_field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1.1rem;
+  color: #33c3ff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
+.input-file {
+  position: absolute;
+  top: 0; left: 0;
+  width: 225px;
+  opacity: 0;
+  padding: 14px 0;
+  cursor: pointer;
+}
+
+.fileLabel {
+  background-color: #33c3ff;
+  color: white;
+  border-radius: 15px;
+  padding: 5px;
+  font-size: 2em;
+  cursor: pointer;
 }

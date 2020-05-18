@@ -158,6 +158,7 @@ export default class Signup extends Component {
     return (
       <div className="signup-overlay">
         <div className="signup-sections">
+        <div className="formBox">
         <form onSubmit={this.handleSubmit}>
         <div className="sectionOne">
         <ul className="ks-cboxtags">
@@ -194,28 +195,25 @@ export default class Signup extends Component {
             </ul>
           </div>
           <div>
-            <label htmlFor="name">Name</label>
-            <input
+            <input className="form_field"
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
-              placeholder="your name"
+              placeholder="First Name"
             ></input>
           </div>
           <div>
-            <label htmlFor="surname">surname</label>
-            <input
+            <input className="form_field"
               type="text"
               name="surname"
               value={this.state.surname}
               onChange={this.handleChange}
-              placeholder="your surname"
+              placeholder="Last Name"
             ></input>
           </div>
           <div>
-            <label htmlFor="username">Mail: </label>
-            <input
+            <input className="form_field"
               type="email"
               name="username"
               value={this.state.username}
@@ -225,20 +223,19 @@ export default class Signup extends Component {
             />
           </div>
           <div>
-            <label htmlFor="password">Password: </label>
-            <input
+
+            <input className="form_field"
               type="password"
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
               id="password"
-              placeholder="****"
+              placeholder="Password"
             />
           </div>
 
           <div>
-            <label htmlFor="description">Description</label>
-            <textarea
+            <textarea className="form_field"
               type="textarea"
               name="description"
               value={this.state.description}
@@ -250,7 +247,7 @@ export default class Signup extends Component {
           <div className="sectionTwo">
           <div>
             <label htmlFor="name">Role</label>
-            <select
+            <select className="form_field"
               name="role"
               value={this.state.role}
               onChange={this.handleChange}
@@ -264,97 +261,118 @@ export default class Signup extends Component {
             </select>
           </div>
           <div>
-            <label>Spezialization :</label>
-            <br></br>
+            <label>Spezialization(Max 2)</label>
+            <ul className="ks-cboxtags">
+            <li>
             <input
+            id="checkboxFour"
               type="checkbox"
               name="Frontend"
               checked={this.state.specialization.includes("Frontend")}
               onChange={this.handleSpecialization}
             ></input>
-            <label>Frontend</label>
+            <label for="checkboxFour">Frontend</label></li>
+            <li>
             <input
+            id="checkboxFive"
               type="checkbox"
               name="Backend"
               checked={this.state.specialization.includes("Backend")}
               onChange={this.handleSpecialization}
             ></input>
-            <label>Backend</label>
+            <label for="checkboxFive">Backend</label>
+            </li>
+            <li>
             <input
+            id="checkboxSix"
               type="checkbox"
               name="CSS"
               checked={this.state.specialization.includes("CSS")}
               onChange={this.handleSpecialization}
             ></input>
-            <label>CSS</label>
+            <label for="checkboxSix">CSS</label>
+            </li>
+            <li>
             <input
+            id="checkboxSeven"
               type="checkbox"
               name="React"
               checked={this.state.specialization.includes("React")}
               onChange={this.handleSpecialization}
             ></input>
-            <label>React</label>
-            <br></br>
+            <label for="checkboxSeven">React</label>
+            </li>
+            <li>
             <input
+            id="checkboxEight"
               type="checkbox"
               name="Bootstrap"
               checked={this.state.specialization.includes("Bootstrap")}
               onChange={this.handleSpecialization}
             ></input>
-            <label>Bootstrap</label>
+            <label for="checkboxEight">Bootstrap</label>
+            </li>
+            <li>
             <input
+            id="checkboxNine"
               type="checkbox"
               name="Managment"
               checked={this.state.specialization.includes("Managment")}
               onChange={this.handleSpecialization}
             ></input>
-            <label>Managment</label>
+            <label for="checkboxNine">Managment</label>
+            </li>
+            <li>
             <input
+            id="checkboxTen"
               type="checkbox"
               name="API"
               checked={this.state.specialization.includes("API")}
               onChange={this.handleSpecialization}
             ></input>
-            <label>API</label>
+            <label for="checkboxTen">API</label>
+            </li>
+            <li>
             <input
+            id="checkboxEleven"
               type="checkbox"
               name="Mongo DB"
               checked={this.state.specialization.includes("Mongo DB")}
               onChange={this.handleSpecialization}
             ></input>
-            <label>Mongo DB</label>
+            <label for="checkboxEleven">Mongo DB</label>
+            </li>
+            </ul>
           </div>
           <div id="image-uploads">
-            <input type="file" onChange={(e) => this.handleFileUpload(e)} />
+          <label className="fileLabel" for="file">Choose a file</label>
+            <input id="file" className="input-file" type="file" onChange={(e) => this.handleFileUpload(e)} />
           </div>
           <div>
-            <label>Github id</label>
-            <input
+            <input className="form_field"
               type="text"
               name="github"
               value={this.state.github}
               onChange={this.handleChange}
-              placeholder="Git Hub Profile"
+              placeholder="Git Hub Profile Username"
             ></input>
           </div>
           <div>
-            <label>Codewars id</label>
-            <input
+            <input className="form_field"
               type="text"
               name="codewars"
               value={this.state.codewars}
               onChange={this.handleChange}
-              placeholder="Code Wars Profile"
+              placeholder="Code Wars Profile Username"
             ></input>
           </div>
           <div>
-            <label>Linkedin id</label>
-            <input
+            <input className="form_field"
               type="text"
               name="linkedin"
               value={this.state.linkedin}
               onChange={this.handleChange}
-              placeholder="Linkedin User"
+              placeholder="Linkedin User Url"
             ></input>
           </div>
           <div>
@@ -371,6 +389,7 @@ export default class Signup extends Component {
             </button>
           </div>
         </form>
+        </div>
         </div>
 	<ul class="bg-bubbles">
 		<li></li>
