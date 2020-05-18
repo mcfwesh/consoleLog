@@ -2,7 +2,9 @@ import React from "react";
 import { Link, Switch } from "react-router-dom";
 
 const UsersList = (props) => {
+  console.log(props.course);
   return (
+
     <div className="overlay-users">
       {props.users.length > 0}
 

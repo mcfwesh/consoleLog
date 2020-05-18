@@ -13,13 +13,13 @@ export default class NavbarMain extends Component {
     <div className="navRight">
     <div className="courses">
         <div>
-          <Link onClick={this.props.handleCourse} id="webdev" to='/panel'>Web Dev</Link>
+          <Link onClick={this.props.handleCourse} id="Web Dev" to='/panel'>Web Dev</Link>
         </div>
         <div>
-          <Link onClick={this.props.handleCourse} id="uxui" to='/panel'>UX/UI</Link>
+          <Link onClick={this.props.handleCourse} id="UX/UI" to='/panel'>UX/UI</Link>
         </div>
         <div>
-          <Link onClick={this.props.handleCourse} id="data" to='/panel'>Data</Link>
+          <Link onClick={this.props.handleCourse} id="Data" to='/panel'>Data</Link>
         </div>
       </div>
       </div>

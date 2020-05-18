@@ -192,21 +192,27 @@ export default class UserDetails extends Component {
                       return <p>{spe}</p>;
                     })}
                   </div>
-                </div>
-              </div>
-              <div className="userMainInfoBoxTwo">
+                  <div className="userMainInfoBoxTwo">
                 <div>
-                  <img src="https://i.ibb.co/8NLSrWX/github.png" alt="github" />
-                  <p>{this.state.github}</p>
+                <a href={`https://github.com/${this.state.github}`}><img src="https://i.ibb.co/8NLSrWX/github.png" alt="github" /></a>
+                <a href={`https://github.com/${this.state.github}`}><p>{this.state.github}</p></a>
                 </div>
                 <div>
-                  <img src="https://i.ibb.co/nLKVXQ2/li.png" alt="linkedin" />
-                  <p>{this.state.linkedin}</p>
+                <a href={this.state.linkedin}><img src="https://i.ibb.co/nLKVXQ2/li.png" alt="linkedin" /></a>
+                <a href={this.state.linkedin}><p>{this.state.name} {this.state.surname}</p></a>
                 </div>
               </div>
             </div>
+                </div>
+              </div>
             <div className="codeWarsInfo">
-              <p>Codewars: {this.state.codewars} </p>
+            <div className="codeWarsBoxOne">
+              <img
+                src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
+                alt="nate"
+              />
+              </div>
+              <div className="codeWarsBoxTwo">
               <p>
                 {this.state.honor
                   ? this.state.honor.map((kata) => {
@@ -214,11 +220,7 @@ export default class UserDetails extends Component {
                     })
                   : null}
               </p>
-
-              <img
-                src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
-                alt="nate"
-              />
+              </div>
             </div>
             <div className="userProjectView">
               <h2>Projects:</h2>

@@ -126,7 +126,7 @@ class ProjectList extends Component {
                 <p>Github repo: {project.github}</p>
                 <p>Heroku link:{project.heroku}</p>
                 {project.contributors.map((contrib) =>
-                  contrib._id.includes(this.props.user._id) ? (
+                  contrib._id.includes(this.props.user?._id) ? (
                     <>
                       <Link to={`/editproject/${project._id}`}>Edit</Link>
                       <button onClick={() => this.deleteProject(project._id)}>
