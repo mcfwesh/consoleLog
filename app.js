@@ -10,7 +10,10 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/consolelog", { useNewUrlParser: true })
+  .connect(
+    "mongodb://heroku_lfxz9m42:h86ugg1asbuhq6vgnbpc0mlmg4@ds343887.mlab.com:43887/heroku_lfxz9m42",
+    { useNewUrlParser: true }
+  )
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -62,7 +65,7 @@ app.use(
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
@@ -75,5 +78,10 @@ app.use("/api/upload", require("./routes/file-upload"));
 app.use("/api/users", require("./routes/user"));
 app.use("/api/notes", require("./routes/notes"));
 app.use("/api/jobs", require("./routes/job"));
+
+app.use((req, res) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/client/build/index.html");
+});
 
 module.exports = app;
