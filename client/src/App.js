@@ -63,7 +63,13 @@ class App extends React.Component {
 
           <Route exact path="/edituser/:id" component={EditUsers} />
           <Route exact path="/editpass/:id" component={EditPassword} />
-
+          <Route
+            exact
+            path="/users/profile/:id"
+            render={(props) => (
+              <UserDetails user={this.state.user} {...props} />
+            )}
+          />
           <Route
             exact
             path="/projects"

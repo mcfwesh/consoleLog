@@ -127,8 +127,6 @@ export default class UserDetails extends Component {
     });
   };
   componentDidMount = () => {
-    this.getProject();
-    //console.log(this.props);
     const id = this.props.match.params.id;
     // console.log("banana", id);
     this.getProject();
@@ -146,6 +144,10 @@ export default class UserDetails extends Component {
     }
     var element = document.getElementById("clickbind");
     element.addEventListener("click", generatePDF);
+  };
+  componentWillReceiveProps = () => {
+    console.log("Jan");
+    this.getProject();
   };
   deleteProject = (userID) => {
     // const id = this.props.projects.map((project) => project._id);
@@ -167,19 +169,29 @@ export default class UserDetails extends Component {
       <div>
         {this.props.user._id == this.props.match.params.id ? (
           <div className="userSettings">
-          <div className="userSettingsBox">
-          <img src={process.env.PUBLIC_URL + '/images/userdetails/edit.png'} /> 
-            <Link to={`/edituser/${this.props.user._id}`}>Edit Profile</Link>
+            <div className="userSettingsBox">
+              <img
+                src={process.env.PUBLIC_URL + "/images/userdetails/edit.png"}
+              />
+              <Link to={`/edituser/${this.props.user._id}`}>Edit Profile</Link>
             </div>
             <div className="userSettingsBox">
-            <img src={process.env.PUBLIC_URL + '/images/userdetails/changepass.png'} /> 
-            <Link to={`/editpass/${this.props.user._id}`}>Change Password</Link>
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/images/userdetails/changepass.png"
+                }
+              />
+              <Link to={`/editpass/${this.props.user._id}`}>
+                Change Password
+              </Link>
             </div>
             <div className="userSettingsBox">
-            <img src={process.env.PUBLIC_URL + '/images/userdetails/trash.png'} /> 
-            <Link onClick={() => this.deleteProject(this.props.user._id)}>
-              Delete
-            </Link>
+              <img
+                src={process.env.PUBLIC_URL + "/images/userdetails/trash.png"}
+              />
+              <Link onClick={() => this.deleteProject(this.props.user._id)}>
+                Delete
+              </Link>
             </div>
           </div>
         ) : (
