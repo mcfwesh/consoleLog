@@ -665,6 +665,41 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   font-weight: bold;
 }
 
+.userSettings{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.userSettings img{
+width: 2vw;
+margin-left:1vw;
+}
+
+.userSettingsBox {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #303133e7;
+  border-radius: 15px;
+  height: 5vh;
+  width: 14vw;
+}
+
+.userSettingsBox a {
+margin-right: 2vw;
+text-decoration: none;
+color: white;
+}
+
+.userSettingsBox button {
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1em;
+  }
+
 .mtk1 {
   color: rgb(24, 189, 254) !important;
 }
@@ -1060,6 +1095,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   border-radius: 25px;
   min-height: 100vh;
   margin-top: 2vh;
+  margin-bottom: 2vh;
   font-family: 'Roboto', sans-serif;
 
 }
@@ -1068,6 +1104,32 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   margin-left: 5vh;
   margin-right: 5vh;
 }
+
+  .btn-signup{
+    border: 5px solid black;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #33c3ff;
+    cursor:pointer;
+    border:none;
+    width:50vw;
+    height: 5vh;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    }
+
+    .btn-login{
+      border: 5px solid black;
+      border-radius: 5px;
+      color: #33c3ff;
+      font-weight: bold;
+      background-color: white;
+      cursor:pointer;
+      border:none;
+      width:5vw;
+      height: 5vh;;
+      }
 
 .form_field {
   font-family: inherit;
@@ -1080,7 +1142,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
-  margin-bottom: 1vh;
+  margin-bottom: 1.5vh;
   margin-top: 1vh;
   font-family: 'Roboto', sans-serif;
 }
@@ -1089,6 +1151,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   position: absolute;
   top: 0; left: 0;
   width: 225px;
+  margin-bottom: 1vh;
   opacity: 0;
   padding: 14px 0;
   cursor: pointer;
