@@ -69,6 +69,8 @@ class Notes extends React.Component {
     console.log(code[0].notes);
     return (
       <div>
+        <h1>Extra Resources</h1>
+        <br></br>
         <form onSubmit={this.handleSubmit}>
           <MonacoEditor
             class="margin-auto"
