@@ -3,6 +3,22 @@ import { Link, Switch } from "react-router-dom";
 
 const UsersList = (props) => {
   //console.log("Tim buy a Macintosh", props.courses);
+  console.log(props.courses);
+  if (props.courses === "UX/UI") {
+    return (
+      <img
+        style={{ width: "900px" }}
+        src={process.env.PUBLIC_URL + "/lara.png"}
+      />
+    );
+  } else if (props.courses === "Data") {
+    return (
+      <img
+        style={{ width: "900px" }}
+        src={process.env.PUBLIC_URL + "/anapaula.png"}
+      />
+    );
+  }
   return (
     <div className="overlay-users">
       {props.users.length > 0}

@@ -57,7 +57,11 @@ class App extends React.Component {
             exact
             path="/users/:id"
             render={(props) => (
-              <UserDetails user={this.state.user} {...props} />
+              <UserDetails
+                user={this.state.user}
+                course={this.state.course}
+                {...props}
+              />
             )}
           />
 
@@ -111,7 +115,11 @@ class App extends React.Component {
             render={(props) => <Users course={this.state.course} {...props} />}
           />
 
-          <Route exact path="/panel" component={Panel} />
+          <Route
+            exact
+            path="/panel"
+            render={(props) => <Panel course={this.state.course} {...props} />}
+          />
           <Route
             exact
             path="/notes"
