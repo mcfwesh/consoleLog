@@ -57,9 +57,10 @@ class ProjectList extends Component {
     // );
 
     return (
-      <div>
-        <Link to="/addprojects">add project</Link>
-        <label htmlFor="search">Project 1</label>
+      <div className="projects-overlay-top">
+        <Link to="/addprojects">add project</Link>          
+        <ul className="ks-cboxtags">
+            <li>
         <input
           type="checkbox"
           id="project1"
@@ -67,7 +68,9 @@ class ProjectList extends Component {
           checked={this.state.project1}
           onChange={this.handleProject1}
         />
-        <label htmlFor="search">Project 2</label>
+        <label htmlFor="project1">Project 1</label>
+        </li>
+        <li>
         <input
           type="checkbox"
           id="project2"
@@ -75,7 +78,9 @@ class ProjectList extends Component {
           checked={this.state.project2}
           onChange={this.handleProject2}
         />
-        <label htmlFor="search">Project 3</label>
+        <label htmlFor="project2">Project 2</label>
+        </li>
+        <li>
         <input
           type="checkbox"
           id="project3"
@@ -83,8 +88,11 @@ class ProjectList extends Component {
           checked={this.state.project3}
           onChange={this.handleProject3}
         />
+        <label htmlFor="project3">Project 3</label>
+        </li>
+        </ul>
 
-        {this.props.projects.length > 0 && <h2>Projects:</h2>}
+        {this.props.projects.length > 0 && <h2></h2>}
 
         {this.props.projects
           .filter((project) => {
@@ -112,8 +120,12 @@ class ProjectList extends Component {
           .map((project) => {
             console.log(project);
             return (
-              <div key={project._id}>
-                <img src={project.imageUrl} style={{ width: "150px" }} alt="" />
+              <div className="projects-container" key={project._id}>
+              <div className="projectPage">
+              <div className="projectImg">
+                <img src={project.imageUrl} alt="" />
+              </div>
+              <div className="projectBody">
                 <h3>{project.title}</h3>
                 <p>Project Category: {project.number}</p>
                 <p>Contributors:</p>
@@ -137,6 +149,8 @@ class ProjectList extends Component {
                     <></>
                   )
                 )}
+                </div>
+                </div>
               </div>
             );
           })}
