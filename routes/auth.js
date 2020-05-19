@@ -8,22 +8,22 @@ const teacherWD = [
   {
     name: "Markus",
     mail: "Markus@ironhack.com",
-    linkedin: "www.linkedin.com",
+    linkedin: "https://www.linkedin.com/in/markus-heldrup-18907564/",
   },
   {
     name: "Andre",
     mail: "Andre@ironhack.com",
-    linkedin: "www.linkedin.com",
+    linkedin: "https://www.linkedin.com/in/itstheandre/",
   },
   {
     name: "Jeff",
     mail: "Jeff@ironhack.com",
-    linkedin: "www.linkedin.com",
+    linkedin: "https://www.linkedin.com/in/jeff-moraes/",
   },
   {
     name: "Alfonso",
     mail: "Alfonso@ironhack.com",
-    linkedin: "www.linkedin.com",
+    linkedin: "https://www.linkedin.com/in/alfonsogms/",
   },
 ];
 
