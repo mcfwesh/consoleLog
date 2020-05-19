@@ -37,13 +37,12 @@ const Navbar = (props) => {
             {/* <Nav.Brand>
             <Link to='/projects'>Projects</Link>
           </Nav.Brand> */}
-            <div>
               {/* <Link to={`/users/${props.user._id}`}>My account</Link> */}
               <Link to={`/users/profile/${props.user._id}`}>My account</Link>
               <Link to="/" onClick={() => handleLogout(props)}>
                 Logout
               </Link>
-            </div>
+
           </>
         ) : (
           <>

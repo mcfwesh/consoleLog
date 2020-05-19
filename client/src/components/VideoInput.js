@@ -7,8 +7,8 @@ import { login } from "../services/auth";
 // Import face profile
 const JSON_PROFILE = require("../descriptors/bnk48.json");
 
-const WIDTH = 420;
-const HEIGHT = 420;
+const WIDTH = 400;
+const HEIGHT = 400;
 const inputSize = 160;
 
 class VideoInput extends Component {
@@ -175,10 +175,11 @@ class VideoInput extends Component {
         >
           <div style={{ position: "relative", width: WIDTH }}>
             {!!videoConstraints ? (
-              <div style={{ position: "absolute" }}>
+              <div style={{ position: "absolute"}}>
                 <Webcam
                   audio={false}
                   width={WIDTH}
+                  className="cam"
                   height={HEIGHT}
                   ref={this.webcam}
                   screenshotFormat="image/jpeg"
