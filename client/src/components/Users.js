@@ -89,7 +89,7 @@ export default class Users extends Component {
                   checked={this.state.specialization.includes("Frontend")}
                   onChange={this.handleSpecialization}
                 ></input>
-                <label for="checkboxOne">Frontend</label>
+                <label htmlFor="checkboxOne">Frontend</label>
               </li>
               <li>
                 <input
@@ -99,7 +99,7 @@ export default class Users extends Component {
                   checked={this.state.specialization.includes("Backend")}
                   onChange={this.handleSpecialization}
                 ></input>
-                <label for="checkboxTwo">Backend</label>
+                <label htmlFor="checkboxTwo">Backend</label>
               </li>
               <li>
                 <input
@@ -119,7 +119,7 @@ export default class Users extends Component {
                   checked={this.state.specialization.includes("React")}
                   onChange={this.handleSpecialization}
                 ></input>
-                <label for="checkboxFour">React</label>
+                <label htmlFor="checkboxFour">React</label>
               </li>
 
               <br></br>
@@ -131,7 +131,7 @@ export default class Users extends Component {
                   checked={this.state.specialization.includes("Bootstrap")}
                   onChange={this.handleSpecialization}
                 ></input>
-                <label for="checkboxFive">Bootstrap</label>
+                <label htmlFor="checkboxFive">Bootstrap</label>
               </li>
               <li>
                 <input
@@ -141,7 +141,7 @@ export default class Users extends Component {
                   checked={this.state.specialization.includes("Managment")}
                   onChange={this.handleSpecialization}
                 ></input>
-                <label for="checkboxSix">Managment</label>
+                <label htmlFor="checkboxSix">Managment</label>
               </li>
               <li>
                 <input
@@ -151,7 +151,7 @@ export default class Users extends Component {
                   checked={this.state.specialization.includes("API")}
                   onChange={this.handleSpecialization}
                 ></input>
-                <label for="checkboxSeven">API</label>
+                <label htmlFor="checkboxSeven">API</label>
               </li>
               <li>
                 <input
@@ -161,7 +161,7 @@ export default class Users extends Component {
                   checked={this.state.specialization.includes("Mongo DB")}
                   onChange={this.handleSpecialization}
                 ></input>
-                <label for="checkboxEight">Mongo DB</label>
+                <label htmlFor="checkboxEight">Mongo DB</label>
               </li>
             </ul>
           </div>
