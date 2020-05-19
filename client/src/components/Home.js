@@ -41,8 +41,10 @@ export default class Home extends Component {
               <img src="https://i.ibb.co/zsWB8sb/uiux.png" alt="uiux" />
             </div>
             <div className="cardBody">
-              <Link onClick={this.props.handleCourse} id="UX/UI" to="/panel">
-                <h2>UX/UI</h2>
+              <Link to="/panel">
+                <h2 onClick={this.props.handleCourse} id="UX/UI">
+                  UX/UI
+                </h2>
               </Link>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
@@ -64,8 +66,10 @@ export default class Home extends Component {
               />
             </div>
             <div className="cardBody">
-              <Link onClick={this.props.handleCourse} id="Data" to="/panel">
-                <h2>Data</h2>
+              <Link to="/panel">
+                <h2 onClick={this.props.handleCourse} id="Data">
+                  Data
+                </h2>
               </Link>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In

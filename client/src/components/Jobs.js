@@ -49,7 +49,7 @@ class Jobs extends Component {
           <h3>City</h3>
           <h3>Date Posted</h3>
         </ul>
-        {this.state.jobs &&
+        {this.state.jobs ? (
           this.state.jobs
             .filter(
               (job) =>
@@ -86,7 +86,10 @@ class Jobs extends Component {
                   </li>
                 </ul>
               );
-            })}
+            })
+        ) : (
+          <img className="loading" src={process.env.PUBLIC_URL + "/4V0b.gif"} />
+        )}
       </>
     );
   }

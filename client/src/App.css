@@ -665,16 +665,16 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   font-weight: bold;
 }
 
-.userSettings{
+.userSettings {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-top: 2vh;
 }
 
-.userSettings img{
-width: 2vw;
-margin-left:1vw;
+.userSettings img {
+  width: 2vw;
+  margin-left: 1vw;
 }
 
 .userSettingsBox {
@@ -688,9 +688,9 @@ margin-left:1vw;
 }
 
 .userSettingsBox a {
-margin-right: 2vw;
-text-decoration: none;
-color: white;
+  margin-right: 2vw;
+  text-decoration: none;
+  color: white;
 }
 
 .userSettingsBox button {
@@ -698,7 +698,7 @@ color: white;
   background: none;
   color: white;
   font-size: 1em;
-  }
+}
 
 .mtk1 {
   color: rgb(24, 189, 254) !important;
@@ -1105,31 +1105,32 @@ color: white;
   margin-right: 5vh;
 }
 
-  .btn-signup{
-    border: 5px solid black;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    background-color: #33c3ff;
-    cursor:pointer;
-    border:none;
-    width:50vw;
-    height: 5vh;
-    margin-bottom: 1vh;
-    margin-top: 1vh;
-    }
+.btn-signup {
+  border: 5px solid black;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #33c3ff;
+  cursor: pointer;
+  border: none;
+  width: 50vw;
+  height: 5vh;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
 
-    .btn-login{
-      border: 5px solid black;
-      border-radius: 5px;
-      color: #33c3ff;
-      font-weight: bold;
-      background-color: white;
-      cursor:pointer;
-      border:none;
-      width:5vw;
-      height: 5vh;;
-      }
+.btn-login {
+  border: 5px solid black;
+  border-radius: 5px;
+  color: #33c3ff;
+  font-weight: bold;
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  width: 5vw;
+  height: 5vh;
+  ;
+}
 
 .form_field {
   font-family: inherit;
@@ -1171,4 +1172,9 @@ color: white;
 .formBox label {
   font-family: 'Roboto', sans-serif;
   font-size: 1.2em;
+}
+
+.loading {
+  display: block;
+  margin: auto;
 }

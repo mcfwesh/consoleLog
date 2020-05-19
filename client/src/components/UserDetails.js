@@ -162,24 +162,35 @@ export default class UserDetails extends Component {
       });
   };
   render() {
-    //console.log(this.state.honor);
+    console.log(this.props.course);
+
     return (
       <div>
         {this.props.user._id == this.props.match.params.id ? (
           <div className="userSettings">
-          <div className="userSettingsBox">
-          <img src={process.env.PUBLIC_URL + '/images/userdetails/edit.png'} /> 
-            <Link to={`/edituser/${this.props.user._id}`}>Edit Profile</Link>
+            <div className="userSettingsBox">
+              <img
+                src={process.env.PUBLIC_URL + "/images/userdetails/edit.png"}
+              />
+              <Link to={`/edituser/${this.props.user._id}`}>Edit Profile</Link>
             </div>
             <div className="userSettingsBox">
-            <img src={process.env.PUBLIC_URL + '/images/userdetails/changepass.png'} /> 
-            <Link to={`/editpass/${this.props.user._id}`}>Change Password</Link>
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/images/userdetails/changepass.png"
+                }
+              />
+              <Link to={`/editpass/${this.props.user._id}`}>
+                Change Password
+              </Link>
             </div>
             <div className="userSettingsBox">
-            <img src={process.env.PUBLIC_URL + '/images/userdetails/trash.png'} /> 
-            <Link onClick={() => this.deleteProject(this.props.user._id)}>
-              Delete
-            </Link>
+              <img
+                src={process.env.PUBLIC_URL + "/images/userdetails/trash.png"}
+              />
+              <Link onClick={() => this.deleteProject(this.props.user._id)}>
+                Delete
+              </Link>
             </div>
           </div>
         ) : (
@@ -335,7 +346,6 @@ export default class UserDetails extends Component {
               })}
             </div>
           </div>
-          <img src={process.env.PUBLIC_URL + "/lara.png"} />
         </div>
         <a id="clickbind" href="#">
           Export PDF
