@@ -157,197 +157,253 @@ export default class extends Component {
 
   render() {
     return (
-      <div>
-        <h1>VAMOS NATE</h1>
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <label>Classroom:</label>
-            <br></br>
-            <input
-              type="checkbox"
-              name="Web Dev"
-              checked={this.state.classroom.includes("Web Dev")}
-              onChange={this.handleClassroom}
-            ></input>
-            <label>Web Dev</label>
-            <input
-              type="checkbox"
-              name="UX/UI"
-              checked={this.state.classroom.includes("UX/UI")}
-              onChange={this.handleClassroom}
-            ></input>
-            <label>UX/UI</label>
-            <input
-              type="checkbox"
-              name="Data"
-              checked={this.state.classroom.includes("Data")}
-              onChange={this.handleClassroom}
-            ></input>
-            <h2>Name:</h2>
-            <input
+      <div className="signup-overlay">
+        <div className="signup-sections">
+        <div className="formBox">
+        <form onSubmit={this.handleSubmit}>
+        <div className="sectionOne">
+        <ul className="ks-cboxtags">
+            <li>
+          <input
+            id="checkboxOne"
+            type="checkbox"
+            name="Web Dev"
+            checked={this.state.classroom.includes("Web Dev")}
+            onChange={this.handleClassroom}
+          />
+          <label for="checkboxOne">Web Dev</label>
+          </li>
+          <li>
+          <input
+          id="checkboxTwo"
+            type="checkbox"
+            name="UX/UI"
+            checked={this.state.classroom.includes("UX/UI")}
+            onChange={this.handleClassroom}
+          ></input>
+          <label for="checkboxTwo">UX/UI</label>
+          </li>
+          <li>
+          <input
+          id="checkboxThree"
+            type="checkbox"
+            name="Data"
+            checked={this.state.classroom.includes("Data")}
+            onChange={this.handleClassroom}
+          ></input>
+          <label for="checkboxThree">Data</label>
+          </li>
+            </ul>
+          </div>
+          <div>
+            <input className="form_field"
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
-            />
-            <h2>Surname:</h2>
-            <input
+              placeholder="First Name"
+            ></input>
+          </div>
+          <div>
+            <input className="form_field"
               type="text"
               name="surname"
               value={this.state.surname}
               onChange={this.handleChange}
+              placeholder="Last Name"
+            ></input>
+          </div>
+          <div>
+            <input className="form_field"
+              type="email"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+              id="username"
+              placeholder="email@gmail.com"
             />
+          </div>
+          <div>
 
-            <div>
-              <label htmlFor="username">Mail: </label>
-              <input
-                type="email"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleChange}
-                id="username"
-                placeholder="email@gmail.com"
-              />
-            </div>
-            <div>
-              <label htmlFor="password">Password: </label>
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-                id="password"
-                placeholder="****"
-              />
-            </div>
-            <div>
-              <label htmlFor="description">Description</label>
-              <textarea
-                type="textarea"
-                name="description"
-                value={this.state.description}
-                onChange={this.handleChange}
-                placeholder="A short description of you, focus it to companies that might like to hire you 😊"
-                style={({ width: "300px" }, { height: "100px" })}
-              ></textarea>
-            </div>
-            <div>
-              <label htmlFor="name">Role</label>
-              <select
-                name="role"
-                value={this.state.role}
-                onChange={this.handleChange}
-              >
-                <option id="Student" value="Student">
-                  Student
-                </option>
-                <option id="Teacher" value="Teacher">
-                  Teacher
-                </option>
-              </select>
-            </div>
+            <input className="form_field"
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              id="password"
+              placeholder="Password"
+            />
+          </div>
 
-            <div>
-              <label>Github id</label>
-              <input
-                type="text"
-                name="github"
-                value={this.state.github}
-                onChange={this.handleChange}
-                placeholder="Git Hub Profile"
-              ></input>
-            </div>
-            <div>
-              <label>Codewars id</label>
-              <input
-                type="text"
-                name="codewars"
-                value={this.state.codewars}
-                onChange={this.handleChange}
-                placeholder="Code Wars Profile"
-              ></input>
-            </div>
-            <div>
-              <label>Linkedin id</label>
-              <input
-                type="text"
-                name="linkedin"
-                value={this.state.linkedin}
-                onChange={this.handleChange}
-                placeholder="Linkedin User"
-              ></input>
-            </div>
-
-            <div>
-              <label>Spezialization :</label>
-              <br></br>
-              <input
-                type="checkbox"
-                name="Frontend"
-                checked={this.state.specialization.includes("Frontend")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label>Frontend</label>
-              <input
-                type="checkbox"
-                name="Backend"
-                checked={this.state.specialization.includes("Backend")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label>Backend</label>
-              <input
-                type="checkbox"
-                name="CSS"
-                checked={this.state.specialization.includes("CSS")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label>CSS</label>
-              <input
-                type="checkbox"
-                name="React"
-                checked={this.state.specialization.includes("React")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label>React</label>
-              <br></br>
-              <input
-                type="checkbox"
-                name="Bootstrap"
-                checked={this.state.specialization.includes("Bootstrap")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label>Bootstrap</label>
-              <input
-                type="checkbox"
-                name="Managment"
-                checked={this.state.specialization.includes("Managment")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label>Managment</label>
-              <input
-                type="checkbox"
-                name="API"
-                checked={this.state.specialization.includes("API")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label>API</label>
-              <input
-                type="checkbox"
-                name="Mongo DB"
-                checked={this.state.specialization.includes("Mongo DB")}
-                onChange={this.handleSpecialization}
-              ></input>
-              <label>Mongo DB</label>
-            </div>
-            <div id="image-uploads">
-              <input type="file" onChange={(e) => this.handleFileUpload(e)} />
-            </div>
-
-            <button type="submit" disabled={this.state.uploadOn}>
-              Edit
+          <div>
+            <textarea className="form_field"
+              type="textarea"
+              name="description"
+              value={this.state.description}
+              onChange={this.handleChange}
+              placeholder="A short description of you, focus it to companies that might like to hire you 😊"
+              style={({ width: "300px" }, { height: "100px" })}
+            ></textarea>
+          </div>
+          <div className="sectionTwo">
+          <div>
+            <label htmlFor="name">Role</label>
+            <select className="form_field"
+              name="role"
+              value={this.state.role}
+              onChange={this.handleChange}
+            >
+              <option id="Student" value="Student">
+                Student
+              </option>
+              <option id="Teacher" value="Teacher">
+                Teacher
+              </option>
+            </select>
+          </div>
+          <div>
+            <label>Spezialization(Max 2)</label>
+            <ul className="ks-cboxtags">
+            <li>
+            <input
+            id="checkboxFour"
+              type="checkbox"
+              name="Frontend"
+              checked={this.state.specialization.includes("Frontend")}
+              onChange={this.handleSpecialization}
+            ></input>
+            <label for="checkboxFour">Frontend</label></li>
+            <li>
+            <input
+            id="checkboxFive"
+              type="checkbox"
+              name="Backend"
+              checked={this.state.specialization.includes("Backend")}
+              onChange={this.handleSpecialization}
+            ></input>
+            <label for="checkboxFive">Backend</label>
+            </li>
+            <li>
+            <input
+            id="checkboxSix"
+              type="checkbox"
+              name="CSS"
+              checked={this.state.specialization.includes("CSS")}
+              onChange={this.handleSpecialization}
+            ></input>
+            <label for="checkboxSix">CSS</label>
+            </li>
+            <li>
+            <input
+            id="checkboxSeven"
+              type="checkbox"
+              name="React"
+              checked={this.state.specialization.includes("React")}
+              onChange={this.handleSpecialization}
+            ></input>
+            <label for="checkboxSeven">React</label>
+            </li>
+            <li>
+            <input
+            id="checkboxEight"
+              type="checkbox"
+              name="Bootstrap"
+              checked={this.state.specialization.includes("Bootstrap")}
+              onChange={this.handleSpecialization}
+            ></input>
+            <label for="checkboxEight">Bootstrap</label>
+            </li>
+            <li>
+            <input
+            id="checkboxNine"
+              type="checkbox"
+              name="Managment"
+              checked={this.state.specialization.includes("Managment")}
+              onChange={this.handleSpecialization}
+            ></input>
+            <label for="checkboxNine">Managment</label>
+            </li>
+            <li>
+            <input
+            id="checkboxTen"
+              type="checkbox"
+              name="API"
+              checked={this.state.specialization.includes("API")}
+              onChange={this.handleSpecialization}
+            ></input>
+            <label for="checkboxTen">API</label>
+            </li>
+            <li>
+            <input
+            id="checkboxEleven"
+              type="checkbox"
+              name="Mongo DB"
+              checked={this.state.specialization.includes("Mongo DB")}
+              onChange={this.handleSpecialization}
+            ></input>
+            <label for="checkboxEleven">Mongo DB</label>
+            </li>
+            </ul>
+          </div>
+          <div id="image-uploads">
+          <label className="fileLabel" for="file">Upload Avatar</label>
+            <input id="file" className="input-file" type="file" onChange={(e) => this.handleFileUpload(e)} />
+          </div>
+          <div>
+            <input className="form_field"
+              type="text"
+              name="github"
+              value={this.state.github}
+              onChange={this.handleChange}
+              placeholder="Git Hub Profile Username"
+            ></input>
+          </div>
+          <div>
+            <input className="form_field"
+              type="text"
+              name="codewars"
+              value={this.state.codewars}
+              onChange={this.handleChange}
+              placeholder="Code Wars Profile Username"
+            ></input>
+          </div>
+          <div>
+            <input className="form_field"
+              type="text"
+              name="linkedin"
+              value={this.state.linkedin}
+              onChange={this.handleChange}
+              placeholder="Linkedin User Url"
+            ></input>
+          </div>
+          <div>
+            {this.state.message && (
+              <alert variant="danger" style={{ color: "red" }}>
+                {this.state.message}
+              </alert>
+            )}
+          </div>
+          </div>
+          <div>
+            <button className="btn-signup" type="submit" disabled={this.state.uploadOn}>
+              Signup
             </button>
-          </form>
+          </div>
+        </form>
         </div>
+        </div>
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
       </div>
     );
   }
