@@ -68,7 +68,14 @@ class App extends React.Component {
 
           <Route exact path="/edituser/:id" component={EditUsers} />
           <Route exact path="/editpass/:id" component={EditPassword} />
-          <Route exact path="/camera" component={VideoInput} />
+          <Route exact path="/camera" 
+          render={(props) => (
+              <VideoInput
+                user={this.state.user}
+                setUser={this.setUser}
+                {...props}
+              />
+            )} />
           <Route
             exact
             path="/users/profile/:id"

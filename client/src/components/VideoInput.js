@@ -152,7 +152,7 @@ class VideoInput extends Component {
         login(userface, "markus", result).then((data) => {
           console.log(data);
           this.props.setUser(data);
-          this.props.history.push("/users");
+          this.props.history.push("/");
         });
       }
     }
