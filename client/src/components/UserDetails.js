@@ -168,6 +168,7 @@ export default class UserDetails extends Component {
   };
   render() {
     console.log(this.props.course);
+    console.log(this.props.courses);
 
     return (
       <div>
@@ -201,157 +202,179 @@ export default class UserDetails extends Component {
         ) : (
           <></>
         )}
-        <div id="nate">
-          <div className="overlaySingleUser" key={this.state.name}>
-            <div className="userMainInfo">
-              <div className="userMainInfoBoxOne">
-                <div className="mainBoxOne">
-                  <img src={this.state.imageUrl} style={{ width: "200px" }} />
-                </div>
-                <div className="mainBoxTwo">
-                  <div>
-                    <h2>
-                      {this.state.name} {this.state.surname}
-                    </h2>
+        {this.props.course === "UX/UI" && (
+          <img
+            style={{ width: "900px" }}
+            src={process.env.PUBLIC_URL + "/lara.png"}
+          />
+        )}
+
+        {this.props.course === "Data" && (
+          <img
+            style={{ width: "900px" }}
+            src={process.env.PUBLIC_URL + "/anapaula.png"}
+          />
+        )}
+
+        {this.props.course === "Web Dev" && (
+          <div id="nate">
+            <div className="overlaySingleUser" key={this.state.name}>
+              <div className="userMainInfo">
+                <div className="userMainInfoBoxOne">
+                  <div className="mainBoxOne">
+                    <img src={this.state.imageUrl} style={{ width: "200px" }} />
                   </div>
-                  <div>
-                    <p>{this.state.description}</p>
-                  </div>
-                  <div className="mainBoxTwoSpecial" id="tim">
-                    <p>
-                      <b>Specialization: </b>
-                    </p>
-                    {this.state.specialization.map((spe) => {
-                      return <p>{spe}</p>;
-                    })}
-                  </div>
-                  <div className="userMainInfoBoxTwo">
+                  <div className="mainBoxTwo">
                     <div>
-                      <a href={`https://github.com/${this.state.github}`}>
-                        <img
-                          src="https://i.ibb.co/8NLSrWX/github.png"
-                          alt="github"
-                        />
-                      </a>
-                      <a href={`https://github.com/${this.state.github}`}>
-                        <p>{this.state.github}</p>
-                      </a>
+                      <h2>
+                        {this.state.name} {this.state.surname}
+                      </h2>
                     </div>
                     <div>
-                      <a href={this.state.linkedin}>
-                        <img
-                          src="https://i.ibb.co/nLKVXQ2/li.png"
-                          alt="linkedin"
-                        />
-                      </a>
-                      <a href={this.state.linkedin}>
-                        <p>
-                          {this.state.name} {this.state.surname}
-                        </p>
-                      </a>
+                      <p>{this.state.description}</p>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="codeWarsInfo">
-              <div className="codeWarsOverlay">
-                <div className="codeWarsImages">
-                  <div className="cwLogo">
-                    <img
-                      src="https://i.ibb.co/bd3Lqgf/codewarspng.png"
-                      alt="cwLogo"
-                    />
-                  </div>
-                  <div className="cwBanner">
-                    <img
-                      src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
-                      alt="nate"
-                    />
-                  </div>
-                </div>
-                <div className="codeWarsMainBox">
-                  <div className="codeWarsBoxTwo">
-                    <div>
-                      <p>Last three katas </p>
+                    <div className="mainBoxTwoSpecial" id="tim">
+                      <p>
+                        <b>Specialization: </b>
+                      </p>
+                      {this.state.specialization.map((spe) => {
+                        return <p>{spe}</p>;
+                      })}
                     </div>
-                    <div className="lastKatas">
-                      {this.state.honor
-                        ? this.state.honor.map((kata) => {
-                            return <p>{kata.name}</p>;
-                          })
-                        : null}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="userProjectView">
-              <div className="projectHeader">
-                <h1>Projects</h1>
-              </div>
-              {this.state.projects
-                .sort((a, b) =>
-                  a.number.localeCompare(b.number, undefined, { numeric: true })
-                )
-                .map((name) => (
-                  <div className="project">
-                    <div className="projectImg">
-                      <img src={name.imageUrl} />
-                    </div>
-                    <div className="projectBody">
+                    <div className="userMainInfoBoxTwo">
                       <div>
-                        <h2>{name.title}</h2>
-                      </div>
-                      <div>
-                        <p>{name.description}</p>
-                        <p>Project Category: {name.number}</p>
-                      </div>
-                      <div className="projectLinks">
-                        <a href={name.heroku}>
+                        <a href={`https://github.com/${this.state.github}`}>
                           <img
-                            src="https://i.ibb.co/bLDW3YD/webbrowserprojects.png"
-                            alt="web"
-                          />
-                          Visit the App
-                        </a>
-                        <a href={name.github}>
-                          <img
-                            src="https://i.ibb.co/0fjMyMW/githubproject.png"
+                            src="https://i.ibb.co/8NLSrWX/github.png"
                             alt="github"
                           />
-                          Github Repo
+                        </a>
+                        <a href={`https://github.com/${this.state.github}`}>
+                          <p>{this.state.github}</p>
+                        </a>
+                      </div>
+                      <div>
+                        <a href={this.state.linkedin}>
+                          <img
+                            src="https://i.ibb.co/nLKVXQ2/li.png"
+                            alt="linkedin"
+                          />
+                        </a>
+                        <a href={this.state.linkedin}>
+                          <p>
+                            {this.state.name} {this.state.surname}
+                          </p>
                         </a>
                       </div>
                     </div>
                   </div>
-                ))}
-            </div>
-            <div className="userTeachers">
-              <div className="teachersHeader">
-                <h1>Teachers</h1>
+                </div>
               </div>
-              {this.state.teachers.map((spe) => {
-                return (
-                  <div className="teacherBox">
-                    <span>{spe.name}</span>
-                    <span>
-                      <img src="https://i.ibb.co/ssgRjGn/mail.png" alt="mail" />
-                      {spe.mail}
-                    </span>
-                    <span>
+              <div className="codeWarsInfo">
+                <div className="codeWarsOverlay">
+                  <div className="codeWarsImages">
+                    <div className="cwLogo">
                       <img
-                        src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png"
-                        alt="linkedin"
+                        src="https://i.ibb.co/bd3Lqgf/codewarspng.png"
+                        alt="cwLogo"
                       />
-                      {spe.linkedin}
-                    </span>
+                    </div>
+                    <div className="cwBanner">
+                      <img
+                        src={`https://www.codewars.com/users/${this.state.codewars}/badges/large`}
+                        alt="nate"
+                      />
+                    </div>
                   </div>
-                );
-              })}
+                  <div className="codeWarsMainBox">
+                    <div className="codeWarsBoxTwo">
+                      <div>
+                        <p>Last three katas </p>
+                      </div>
+                      <div className="lastKatas">
+                        {this.state.honor
+                          ? this.state.honor.map((kata) => {
+                              return <p>{kata.name}</p>;
+                            })
+                          : null}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="userProjectView">
+                <div className="projectHeader">
+                  <h1>Projects</h1>
+                </div>
+                {this.state.projects
+                  .sort((a, b) =>
+                    a.number.localeCompare(b.number, undefined, {
+                      numeric: true,
+                    })
+                  )
+                  .map((name) => (
+                    <div className="project">
+                      <div className="projectImg">
+                        <img src={name.imageUrl} />
+                      </div>
+                      <div className="projectBody">
+                        <div>
+                          <h2>{name.title}</h2>
+                        </div>
+                        <div>
+                          <p>{name.description}</p>
+                          <p>Project Category: {name.number}</p>
+                        </div>
+                        <div className="projectLinks">
+                          <a href={name.heroku}>
+                            <img
+                              src="https://i.ibb.co/bLDW3YD/webbrowserprojects.png"
+                              alt="web"
+                            />
+                            Visit the App
+                          </a>
+                          <a href={name.github}>
+                            <img
+                              src="https://i.ibb.co/0fjMyMW/githubproject.png"
+                              alt="github"
+                            />
+                            Github Repo
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              <div className="userTeachers">
+                <div className="teachersHeader">
+                  <h1>Teachers</h1>
+                </div>
+                {this.state.teachers.map((spe) => {
+                  return (
+                    <div className="teacherBox">
+                      <span>{spe.name}</span>
+                      <span>
+                        <img
+                          src="https://i.ibb.co/ssgRjGn/mail.png"
+                          alt="mail"
+                        />
+                        {spe.mail}
+                      </span>
+                      <span>
+                        <img
+                          src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png"
+                          alt="linkedin"
+                        />
+                        {spe.linkedin}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
         <a id="clickbind" href="#">
           Export PDF
         </a>
