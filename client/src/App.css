@@ -40,7 +40,7 @@ h2 {
   flex-direction: row;
   align-items: center;
   min-height: 5vh;
-  font-family: monospace;
+  font-family: 'Roboto', sans-serif;
 }
 
 .navLeft {
@@ -100,7 +100,7 @@ h2 {
   flex-direction: row;
   align-items: center;
   min-height: 5vh;
-  font-family: monospace;
+  font-family: 'Roboto', sans-serif;
 }
 
 .navbar-left {
@@ -110,6 +110,7 @@ h2 {
   align-items: center;
   min-width: 50vw;
   font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
 }
 
 .navbar-left a {
@@ -123,7 +124,7 @@ h2 {
   flex-direction: row;
   align-items: center;
   min-width: 20vw;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .navbar-right a {
@@ -136,6 +137,7 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: 'Roboto', sans-serif;
 }
 
 .overlay-top {
@@ -450,6 +452,7 @@ font-size: 2em;
   align-items: center;
   flex-direction: row;
   width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .overlay-panel-cards {
@@ -488,6 +491,7 @@ font-size: 2em;
   flex-direction: column;
   height: 100vh;
   width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .overlay-user-filter {
@@ -576,6 +580,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   flex-flow: row wrap;
   width: 80vw;
   margin-top: 1vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 .overlay-userlist {
@@ -592,7 +597,6 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   justify-content: center;
   margin: 2vh;
   border-radius: 5%;
-  font-family: monospace;
 }
 
 .userCardRed {
@@ -676,6 +680,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   align-items: center;
   flex-direction: column;
   min-height: 90vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 .userMainInfo {
@@ -1042,6 +1047,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   justify-content: center;
   background-color: rgba(0,0,0,0.2);
   min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 .signup-sections{
@@ -1050,6 +1056,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border-radius: 25px;
   min-height: 100vh;
   margin-top: 2vh;
+  font-family: 'Roboto', sans-serif;
 
 }
 
@@ -1070,6 +1077,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   transition: border-color 0.2s;
   margin-bottom: 1vh;
   margin-top: 1vh;
+  font-family: 'Roboto', sans-serif;
 }
 .input-file {
   position: absolute;
@@ -1078,13 +1086,20 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   opacity: 0;
   padding: 14px 0;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 }
 
 .fileLabel {
   background-color: #33c3ff;
   color: white;
   border-radius: 15px;
-  padding: 5px;
-  font-size: 2em;
+  padding: 7px;
+  font-size: 1.8em;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+.formBox label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
 }

@@ -345,7 +345,7 @@ export default class Signup extends Component {
             </ul>
           </div>
           <div id="image-uploads">
-          <label className="fileLabel" for="file">Choose a file</label>
+          <label className="fileLabel" for="file">Upload Avatar</label>
             <input id="file" className="input-file" type="file" onChange={(e) => this.handleFileUpload(e)} />
           </div>
           <div>
