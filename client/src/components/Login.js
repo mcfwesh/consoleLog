@@ -51,7 +51,8 @@ export default class Login extends Component {
             <span></span>
             <form onSubmit={this.handleSubmit}>
               <div className="loginContainer">
-                <h2>Login</h2>
+              <VideoInput setUser={this.props.setUser} />
+                {/* <h2>Login</h2>
                 <Form.Group>
                   <div className="inputBox">
                     <input
@@ -81,7 +82,7 @@ export default class Login extends Component {
                 )}
                 <Button className="btn-login" type="submit">
                   Login
-                </Button>
+                </Button> */}
               </div>
             </form>
           </div>

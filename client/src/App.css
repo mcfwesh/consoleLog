@@ -679,7 +679,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
 
 .userCarSpecialization {
   position: relative;
-  width: 15vw;
+  min-width: 17vw;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -1207,4 +1207,8 @@ color: white;
 .formBox label {
   font-family: 'Roboto', sans-serif;
   font-size: 1.2em;
+}
+
+.cam{
+  border-radius: 50%;
 }
