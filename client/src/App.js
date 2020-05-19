@@ -21,6 +21,7 @@ import EditUsers from "./components/EditUsers";
 import EditPassword from "./components/EditPassword";
 import Jobs from "./components/Jobs";
 import Face from "./components/Face";
+import VideoInput from "./components/VideoInput";
 
 class App extends React.Component {
   state = {
@@ -67,6 +68,7 @@ class App extends React.Component {
 
           <Route exact path="/edituser/:id" component={EditUsers} />
           <Route exact path="/editpass/:id" component={EditPassword} />
+          <Route exact path="/camera" component={VideoInput} />
           <Route
             exact
             path="/users/profile/:id"

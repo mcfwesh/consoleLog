@@ -4,6 +4,9 @@ import axios from "axios";
 import html2pdf from "html2pdf.js";
 import EditUsers from "./EditUsers";
 import Notes from "./Notes";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+
 export default class UserDetails extends Component {
   state = {
     username: "",
@@ -54,6 +57,7 @@ export default class UserDetails extends Component {
         console.log(err);
       });
   };
+
   getData = (projectusers) => {
     const id = this.props.match.params.id;
 
@@ -132,13 +136,12 @@ export default class UserDetails extends Component {
     this.getProject();
     //this.getData();
     function generatePDF() {
-      const element = document.getElementById("nate");
+      const element = document.getElementById("tim");
       //console.log(element);
       var opt = {
-        margin: 2,
-        image: { type: "jpg", quality: 0.95 },
+        image: { type: "jpg", quality: 0.7 },
         html2canvas: { dpi: 100, letterRendering: true, useCORS: true },
-        jsPDF: { unit: "pt", format: "letter", orientation: "portrait" },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
       };
       html2pdf().from(element).set(opt).save();
     }
@@ -214,7 +217,7 @@ export default class UserDetails extends Component {
                   <div>
                     <p>{this.state.description}</p>
                   </div>
-                  <div className="mainBoxTwoSpecial">
+                  <div className="mainBoxTwoSpecial" id="tim">
                     <p>
                       <b>Specialization: </b>
                     </p>
@@ -352,6 +355,7 @@ export default class UserDetails extends Component {
         <a id="clickbind" href="#">
           Export PDF
         </a>
+        <button onClick={this.printDocument}>Print</button>
       </div>
     );
   }

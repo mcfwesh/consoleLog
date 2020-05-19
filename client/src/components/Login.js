@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { login } from "../services/auth";
+import VideoInput from "./VideoInput";
 
 export default class Login extends Component {
   state = {
@@ -22,7 +23,7 @@ export default class Login extends Component {
 
     const { username, password } = this.state;
 
-    login(username, password).then((data) => {
+    login(username, password, "Markus").then((data) => {
       if (data.message) {
         this.setState({
           message: data.message,
@@ -32,6 +33,8 @@ export default class Login extends Component {
       } else {
         // successfully logged in
         // update the state for the parent component
+        console.log(data);
+        localStorage.setItem(data.username, data.password);
         this.props.setUser(data);
         this.props.history.push("/");
       }
@@ -76,7 +79,9 @@ export default class Login extends Component {
                 {this.state.message && (
                   <Alert variant="danger">{this.state.message}</Alert>
                 )}
-                <Button className="btn-login" type="submit">Login</Button>
+                <Button className="btn-login" type="submit">
+                  Login
+                </Button>
               </div>
             </form>
           </div>
