@@ -124,7 +124,17 @@ class App extends React.Component {
           />
           <Route exact path="/jobs" render={(props) => <Jobs {...props} />} />
 
-          <Home />
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <Home
+                course={this.state.course}
+                handleCourse={this.handleCourse}
+                {...props}
+              />
+            )}
+          />
         </Switch>
       </div>
     );
