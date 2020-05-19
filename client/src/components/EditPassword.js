@@ -3,8 +3,8 @@ import axios from "axios";
 
 export default class EditPassword extends Component {
   state = {
-    oldpassword: "",
-    newpassword: "",
+    oldPassword: "",
+    newPassword: "",
   };
 
   handleChange = (event) => {
@@ -17,18 +17,23 @@ export default class EditPassword extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.props.match.params.id);
+    const { id } = this.props.match.params;
+    console.log(id);
     axios
-      .post(`/api/auth/${this.props.match.params.id}`, {
-        oldpassword: this.state.oldpassword,
-        password: this.state.newpassword,
+      .post(`/api/auth/editPass/${id}`, {
+        oldPassword: this.state.oldPassword,
+        password: this.state.newPassword,
       })
       .then((data) => {
         console.log(data);
+
         this.props.history.push("/users");
       })
-      .catch((err, data) => {
-        console.log("Error while uploading the file: ", err, data);
+      .catch((err) => {
+        console.log(
+          "Error while password updating: ",
+          JSON.stringify(err, null, 4)
+        );
       });
   };
 
@@ -42,18 +47,18 @@ export default class EditPassword extends Component {
           <p>old password</p>
           <input
             type="password"
-            name="oldpassword"
+            name="oldPassword"
             placeholder="Password"
-            value={this.state.oldpassword}
+            value={this.state.oldPassword}
             onChange={this.handleChange}
             id="passwordold"
           />
           <p>new password</p>
           <input
             type="password"
-            name="newpassword"
+            name="newPassword"
             placeholder="New Password"
-            value={this.state.newpassword}
+            value={this.state.newPassword}
             onChange={this.handleChange}
             id="passwordnew"
           />

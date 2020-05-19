@@ -326,6 +326,7 @@ export default class UserDetails extends Component {
               })}
             </div>
           </div>
+          <img src={process.env.PUBLIC_URL + "/lara.png"} />
         </div>
         <a id="clickbind" href="#">
           Export PDF
