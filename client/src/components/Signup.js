@@ -384,7 +384,7 @@ export default class Signup extends Component {
           </div>
           </div>
           <div>
-            <button type="submit" disabled={this.state.uploadOn}>
+            <button className="btn-signup" type="submit" disabled={this.state.uploadOn}>
               Signup
             </button>
           </div>
