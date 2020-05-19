@@ -656,6 +656,10 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   justify-content: flex-start;
 }
 
+.userCardBodyTitle{
+  width: 50vw;
+}
+
 .userCardBodyTitle h2 {
   width: auto;
   height: 1vh;
@@ -669,10 +673,12 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
 
 .userCardDesctiption {
   font-style: italic;
-  height: 8vh;
+  height: 10vh;
+  min-width: 25vw;
 }
 
 .userCarSpecialization {
+  position: relative;
   width: 15vw;
   display: flex;
   justify-content: space-between;
