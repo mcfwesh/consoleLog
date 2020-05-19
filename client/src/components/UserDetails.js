@@ -127,8 +127,6 @@ export default class UserDetails extends Component {
     });
   };
   componentDidMount = () => {
-    this.getProject();
-    //console.log(this.props);
     const id = this.props.match.params.id;
     // console.log("banana", id);
     this.getProject();
@@ -146,6 +144,10 @@ export default class UserDetails extends Component {
     }
     var element = document.getElementById("clickbind");
     element.addEventListener("click", generatePDF);
+  };
+  componentWillReceiveProps = () => {
+    console.log("Jan");
+    this.getProject();
   };
   deleteProject = (userID) => {
     // const id = this.props.projects.map((project) => project._id);
