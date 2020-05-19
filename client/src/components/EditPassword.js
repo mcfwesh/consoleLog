@@ -40,21 +40,19 @@ export default class EditPassword extends Component {
   render() {
     console.log(this.state);
     return (
-      <div>
-        <h1>EDIT PASSWORD</h1>
-
+      <div className="signup-overlay">
+        <div className="signup-sections-change">
+        <div className="formBox">
         <form onSubmit={this.handleSubmit}>
-          <p>old password</p>
-          <input
+          <input className="form_field"
             type="password"
             name="oldPassword"
-            placeholder="Password"
+            placeholder="Old Password"
             value={this.state.oldPassword}
             onChange={this.handleChange}
             id="passwordold"
           />
-          <p>new password</p>
-          <input
+          <input className="form_field"
             type="password"
             name="newPassword"
             placeholder="New Password"
@@ -63,8 +61,22 @@ export default class EditPassword extends Component {
             id="passwordnew"
           />
           <br></br>
-          <button type="submit">Change password</button>
+          <button className="btn-signup" type="submit">Change password</button>
         </form>
+        </div>
+        </div>
+        <ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
       </div>
     );
   }
