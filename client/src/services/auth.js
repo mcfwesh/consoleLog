@@ -38,9 +38,9 @@ const signup = (
     });
 };
 
-const login = (username, password) => {
+const login = (username, password, faceId) => {
   return axios
-    .post("/api/auth/login", { username, password })
+    .post("/api/auth/login", { username, password, faceId })
     .then((response) => {
       return response.data;
     })
