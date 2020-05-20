@@ -747,11 +747,16 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 
 .userMainInfoBoxOne {
-  width: 50vw;
+  width: 60vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
   text-align: flex-start;
+}
+
+.mainBoxOne {
+  height: 10vh;
+  margin-top: 2vh
 }
 
 .mainBoxOne img {
@@ -778,10 +783,14 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   font-size: 1em;
 }
 
+.mainBoxTwoHeader{
+  width: 40vw;
+}
+
 .mainBoxTwoSpecial {
-  min-width: 5vw !important;
+  width: 5vw !important;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 3vh;
   background-color: #33c3ff;
@@ -789,8 +798,11 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border-radius: 5px;
 }
 
-.mainBoxTwoSpecial > p {
-  margin-right: 1vw;
+
+.mainBoxTwoSpecial>p {
+  margin-right: 2vw;
+  margin-left: 1vw;
+
   display: flex;
   justify-content: flex-start;
   align-items: center;

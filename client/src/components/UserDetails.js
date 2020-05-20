@@ -225,7 +225,7 @@ export default class UserDetails extends Component {
                     <img src={this.state.imageUrl} style={{ width: "200px" }} />
                   </div>
                   <div className="mainBoxTwo">
-                    <div>
+                    <div className="mainBoxTwoHeader">
                       <h2>
                         {this.state.name} {this.state.surname}
                       </h2>
