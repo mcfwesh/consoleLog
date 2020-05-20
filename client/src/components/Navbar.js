@@ -29,9 +29,9 @@ const Navbar = (props) => {
             Projects
           </Link>
         </div>
-        <div>
+        {/* <div>
           <Link to="/face">face</Link>
-        </div>
+        </div> */}
       </div>
       <div className="navbar-right">
         {props.user ? (
