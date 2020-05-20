@@ -65,6 +65,7 @@ class VideoInput extends Component {
         this.webcam.current.getScreenshot(),
         inputSize
       ).then((fullDesc) => {
+        console.log(fullDesc)
         if (!!fullDesc) {
           this.setState({
             detections: fullDesc.map((fd) => fd.detection),
