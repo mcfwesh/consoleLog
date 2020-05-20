@@ -6,7 +6,6 @@ import EditUsers from "./EditUsers";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
-
 export default class UserDetails extends Component {
   state = {
     username: "",
@@ -175,7 +174,7 @@ export default class UserDetails extends Component {
     // console.log("banana", id);
     this.getProject();
     //this.getData();
-
+  };
 
   printDocument() {
     const input = document.getElementById("nate");
@@ -212,9 +211,6 @@ export default class UserDetails extends Component {
   render() {
     return (
       <>
-        <div className="mb5">
-          <button onClick={this.printDocument}>Print</button>
-        </div>
         <div
           id="divToPrint"
           className="mt4"
@@ -289,7 +285,6 @@ export default class UserDetails extends Component {
                           src={this.state.imageUrl}
                           style={{ width: "200px" }}
                         />
-
                       </div>
                       <div className="mainBoxTwo">
                         <div className="mainBoxTwoHeader">
@@ -353,7 +348,6 @@ export default class UserDetails extends Component {
                             alt="nate"
                           />
                         </div>
-
                       </div>
                       <div className="codeWarsMainBox">
                         <div className="codeWarsBoxTwo">
@@ -440,18 +434,15 @@ export default class UserDetails extends Component {
                       );
                     })}
                   </div>
-
                 </div>
               </div>
             )}
-            {/* <a id="clickbind" href="#">
-          Export PDF
-        </a>
-        <button onClick={this.printDocument}>Print</button> */}
+            <a onClick={this.printDocument} class="exportPDF">
+              Export To PDF
+            </a>
           </div>
         </div>
       </>
-
     );
   }
 }

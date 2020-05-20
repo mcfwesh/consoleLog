@@ -73,11 +73,13 @@ export default class Panel extends Component {
                 <span></span>
                 <span></span>
 
-                <Link to="/login">
+                <Link to={this.props.user ? `/` : "/login"}>
                   {" "}
                   <img src="https://i.ibb.co/c1dLTc0/logo.png" alt="login" />
                 </Link>
-                <a href="/login">Login</a>
+                <a href={this.props.user ? `/` : "/login"}>
+                  {this.props.user ? "Logout" : "Login"}
+                </a>
               </div>
             </div>
           </div>
@@ -88,11 +90,28 @@ export default class Panel extends Component {
                 <span></span>
                 <span></span>
 
-                <Link to="/signup">
+                <Link
+                  to={
+                    this.props.user
+                      ? `/users/${this.props.user._id}`
+                      : "/signup"
+                  }
+                >
                   {" "}
-                  <img src="https://i.ibb.co/c1dLTc0/logo.png" alt="register" />
+                  <img
+                    src="https://cdn1.imggmi.com/uploads/2020/5/21/f041b52e7099a62dfc8f67f0ce461975-full.png"
+                    alt="register"
+                  />
                 </Link>
-                <a href="/signup">Register</a>
+                <a
+                  href={
+                    this.props.user
+                      ? `/users/${this.props.user._id}`
+                      : "/signup"
+                  }
+                >
+                  {this.props.user ? "My Account" : "Register"}
+                </a>
               </div>
             </div>
           </div>

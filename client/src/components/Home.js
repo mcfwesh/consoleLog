@@ -6,12 +6,7 @@ export default class Home extends Component {
     return (
       <div className="homeContainer">
         <div className="overlay-top">
-          <div className="ironBanner">
-            <img
-              src="https://i.ibb.co/T4JsC2y/avtandil2.png"
-              alt="ironBanner"
-            />
-          </div>
+          <img src="https://i.ibb.co/LRsYPnz/totalconfusion.png" alt="" />
         </div>
         <div className="overlay-bottom">
           <div className="card">
@@ -58,7 +53,7 @@ export default class Home extends Component {
           <div className="card">
             <div className="cardImg">
               <img
-                src="https://i.ibb.co/DKBrWHN/data-Iron-Hack.jpg"
+                src="https://cdn1.imggmi.com/uploads/2020/5/20/da893275d8c19ff03427af217c23535d-full.png"
                 alt="data"
               />
             </div>
