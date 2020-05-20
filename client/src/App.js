@@ -46,7 +46,11 @@ class App extends React.Component {
     //console.log("banana APPJS", this.state.course);
     return (
       <div className="App">
-        <NavbarMain handleCourse={this.handleCourse} />
+        <NavbarMain
+          exact
+          course={this.state.course}
+          handleCourse={this.handleCourse}
+        />
         <Navbar
           course={this.state.course}
           user={this.state.user}
