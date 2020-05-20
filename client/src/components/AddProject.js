@@ -102,6 +102,8 @@ export default class AddProject extends Component {
   };
 
   render() {
+    console.log(this.props.course);
+
     return (
       <Form onSubmit={this.handleSubmit}>
         {/* all groups (label + input) are grouped in a Form.Group */}
@@ -171,6 +173,7 @@ export default class AddProject extends Component {
         <select name="contributors" onChange={this.handleSelect}>
           <option value="">Select a contributor</option>
           {this.state.contributorsList &&
+            this.props.course &&
             this.state.contributorsList.map((contrib) => {
               return (
                 <option id={contrib._id} value={contrib._id} key={contrib._id}>

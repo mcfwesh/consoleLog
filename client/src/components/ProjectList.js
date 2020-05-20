@@ -55,46 +55,51 @@ class ProjectList extends Component {
     // project.contributors.map((contrib) =>
     //   console.log(contrib._id.includes(this.props.user._id))
     // );
+    console.log(this.props.course);
+    if (this.props.course !== "Web Dev") {
+      return <></>;
+    }
 
     return (
       <div className="projects-overlay-top">
-        <Link to="/addprojects">add project</Link>          
+        <Link to="/addprojects">add project</Link>
         <ul className="ks-cboxtags">
-            <li>
-        <input
-          type="checkbox"
-          id="project1"
-          name="project1"
-          checked={this.state.project1}
-          onChange={this.handleProject1}
-        />
-        <label htmlFor="project1">Project 1</label>
-        </li>
-        <li>
-        <input
-          type="checkbox"
-          id="project2"
-          name="project2"
-          checked={this.state.project2}
-          onChange={this.handleProject2}
-        />
-        <label htmlFor="project2">Project 2</label>
-        </li>
-        <li>
-        <input
-          type="checkbox"
-          id="project3"
-          name="project3"
-          checked={this.state.project3}
-          onChange={this.handleProject3}
-        />
-        <label htmlFor="project3">Project 3</label>
-        </li>
+          <li>
+            <input
+              type="checkbox"
+              id="project1"
+              name="project1"
+              checked={this.state.project1}
+              onChange={this.handleProject1}
+            />
+            <label htmlFor="project1">Project 1</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="project2"
+              name="project2"
+              checked={this.state.project2}
+              onChange={this.handleProject2}
+            />
+            <label htmlFor="project2">Project 2</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="project3"
+              name="project3"
+              checked={this.state.project3}
+              onChange={this.handleProject3}
+            />
+            <label htmlFor="project3">Project 3</label>
+          </li>
         </ul>
 
         {this.props.projects.length > 0 && <h2></h2>}
 
         {this.props.projects
+          .sort((a, b) => a.title.localeCompare(b.title))
           .filter((project) => {
             if (
               this.state.project1 &&
@@ -118,38 +123,39 @@ class ProjectList extends Component {
             return true;
           })
           .map((project) => {
-            console.log(project);
             return (
               <div className="projects-container" key={project._id}>
-              <div className="projectPage">
-              <div className="projectImg">
-                <img src={project.imageUrl} alt="" />
-              </div>
-              <div className="projectBody">
-                <h3>{project.title}</h3>
-                <p>Project Category: {project.number}</p>
-                <p>Contributors:</p>
-                <ul>
-                  {project.contributors.map((contrib) => (
-                    <li key={contrib._id}> {contrib.name}</li>
-                  ))}
-                </ul>
-                <p>Description: {project.description}</p>
-                <p>Github repo: {project.github}</p>
-                <p>Heroku link:{project.heroku}</p>
-                {project.contributors.map((contrib) =>
-                  contrib._id.includes(this.props.user?._id) ? (
-                    <>
-                      <Link to={`/editproject/${project._id}`}>Edit</Link>
-                      <button onClick={() => this.deleteProject(project._id)}>
-                        Delete
-                      </button>
-                    </>
-                  ) : (
-                    <></>
-                  )
-                )}
-                </div>
+                <div className="projectPage">
+                  <div className="projectImg">
+                    <img src={project.imageUrl} alt="" />
+                  </div>
+                  <div className="projectBody">
+                    <h3>{project.title}</h3>
+                    <p>Project Category: {project.number}</p>
+                    <p>Contributors:</p>
+                    <ul>
+                      {project.contributors.map((contrib) => (
+                        <li key={contrib._id}> {contrib.name}</li>
+                      ))}
+                    </ul>
+                    <p>Description: {project.description}</p>
+                    <p>Github repo: {project.github}</p>
+                    <p>Heroku link:{project.heroku}</p>
+                    {project.contributors.map((contrib) =>
+                      contrib._id.includes(this.props.user?._id) ? (
+                        <>
+                          <Link to={`/editproject/${project._id}`}>Edit</Link>
+                          <button
+                            onClick={() => this.deleteProject(project._id)}
+                          >
+                            Delete
+                          </button>
+                        </>
+                      ) : (
+                        <></>
+                      )
+                    )}
+                  </div>
                 </div>
               </div>
             );

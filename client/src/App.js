@@ -68,14 +68,17 @@ class App extends React.Component {
 
           <Route exact path="/edituser/:id" component={EditUsers} />
           <Route exact path="/editpass/:id" component={EditPassword} />
-          <Route exact path="/camera" 
-          render={(props) => (
+          <Route
+            exact
+            path="/camera"
+            render={(props) => (
               <VideoInput
                 user={this.state.user}
                 setUser={this.setUser}
                 {...props}
               />
-            )} />
+            )}
+          />
           <Route
             exact
             path="/users/profile/:id"
@@ -87,7 +90,13 @@ class App extends React.Component {
             exact
             path="/projects"
             render={(props) => {
-              return <Projects user={this.state.user} {...props} />;
+              return (
+                <Projects
+                  user={this.state.user}
+                  course={this.state.course}
+                  {...props}
+                />
+              );
             }}
           />
           {/* <ProtectedRoute
@@ -113,6 +122,7 @@ class App extends React.Component {
             exact
             path="/addprojects"
             user={this.state.user}
+            course={this.state.course}
             component={AddProject}
           />
           <Route exact path="/face" component={Face} />
