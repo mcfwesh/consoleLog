@@ -204,6 +204,7 @@ export default class UserDetails extends Component {
         )}
         {this.props.course === "UX/UI" && (
           <img
+            className="loading"
             style={{ width: "900px" }}
             src={process.env.PUBLIC_URL + "/lara.png"}
           />
@@ -211,6 +212,7 @@ export default class UserDetails extends Component {
 
         {this.props.course === "Data" && (
           <img
+            className="loading"
             style={{ width: "900px" }}
             src={process.env.PUBLIC_URL + "/anapaula.png"}
           />

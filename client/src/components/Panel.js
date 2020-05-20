@@ -7,7 +7,7 @@ export default class Panel extends Component {
         <div className="overlay-panel-cards">
           <div className="overlay-panel-card">
             <div className="panel-img">
-              <div class="squarePanel">
+              <div className="squarePanel">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -23,7 +23,7 @@ export default class Panel extends Component {
           </div>
           <div className="overlay-panel-card">
             <div className="panel-img">
-              <div class="squarePanel">
+              <div className="squarePanel">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -37,7 +37,7 @@ export default class Panel extends Component {
           </div>
           <div className="overlay-panel-card">
             <div className="panel-img">
-              <div class="squarePanel">
+              <div className="squarePanel">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -51,11 +51,11 @@ export default class Panel extends Component {
           </div>
           <div className="overlay-panel-card">
             <div className="panel-img">
-              <div class="squarePanel">
+              <div className="squarePanel">
                 <span></span>
                 <span></span>
                 <span></span>
-                <Link to="/projects">
+                <Link course={this.props.course} to="/projects">
                   {" "}
                   <img
                     src="https://i.ibb.co/wsb3zGB/2247603.png"
@@ -68,7 +68,7 @@ export default class Panel extends Component {
           </div>
           <div className="overlay-panel-card">
             <div className="panel-img">
-              <div class="squarePanel">
+              <div className="squarePanel">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -83,7 +83,7 @@ export default class Panel extends Component {
           </div>
           <div className="overlay-panel-card">
             <div className="panel-img">
-              <div class="squarePanel">
+              <div className="squarePanel">
                 <span></span>
                 <span></span>
                 <span></span>
