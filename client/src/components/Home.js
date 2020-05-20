@@ -25,14 +25,12 @@ export default class Home extends Component {
                 </h2>
               </Link>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                euismod id purus ac vestibulum. Aenean id iaculis sapien, at
-                varius turpis. Cras in purus vulputate, vehicula velit et,
-                ullamcorper ipsum. Donec pellentesque pellentesque sodales.
-                Praesent purus augue, blandit at libero sodales, commodo dapibus
-                ligula. Fusce rhoncus gravida porttitor. Aliquam sit amet risus
-                eu orci maximus mattis. Vestibulum vel elit et augue condimentum
-                aliquam.
+                Meet the students of the Berlin, March 2020 cohort who have
+                trained to become full-stack web developers. They learnt
+                Front-end design and Back-end architecture fundamentals using
+                top-notch technologies. They learnt how to code with the
+                fundamentals of HTML5, CSS3, JavaScript, NodeJS, Express, and
+                React.
               </p>
             </div>
           </div>
@@ -47,14 +45,13 @@ export default class Home extends Component {
                 </h2>
               </Link>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                euismod id purus ac vestibulum. Aenean id iaculis sapien, at
-                varius turpis. Cras in purus vulputate, vehicula velit et,
-                ullamcorper ipsum. Donec pellentesque pellentesque sodales.
-                Praesent purus augue, blandit at libero sodales, commodo dapibus
-                ligula. Fusce rhoncus gravida porttitor. Aliquam sit amet risus
-                eu orci maximus mattis. Vestibulum vel elit et augue condimentum
-                aliquam.
+                Meet the students of the Berlin, March 2020 cohort who have
+                trained to become UX/UI designers. They learnt user-centered
+                design by applying the Design Thinking process and validate
+                ideas through user research, prototyping, user testing, and
+                heuristic evaluation. They have developed the art of Design
+                thinking, agile organization and lean management — these
+                methodologies are essential to the ever-evolving tech industry.
               </p>
             </div>
           </div>
@@ -72,14 +69,12 @@ export default class Home extends Component {
                 </h2>
               </Link>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                euismod id purus ac vestibulum. Aenean id iaculis sapien, at
-                varius turpis. Cras in purus vulputate, vehicula velit et,
-                ullamcorper ipsum. Donec pellentesque pellentesque sodales.
-                Praesent purus augue, blandit at libero sodales, commodo dapibus
-                ligula. Fusce rhoncus gravida porttitor. Aliquam sit amet risus
-                eu orci maximus mattis. Vestibulum vel elit et augue condimentum
-                aliquam.
+                Meet the students of the Berlin, March 2020 cohort who have
+                trained to become data analysts. They learnt to load, clean,
+                explore and extract valuable insights from a wide range of
+                datasets as well as cultivate tools and languages such as
+                Python, SQL and Tableau. They developed the secret knowledge of
+                analytics by developing cross-disciplinary expertise in data.
               </p>
             </div>
           </div>
