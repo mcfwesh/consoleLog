@@ -8,7 +8,9 @@ export default class Login extends Component {
     username: "",
     password: "",
     message: "",
+    loginMethod: "true"
   };
+
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -16,6 +18,17 @@ export default class Login extends Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  handleLoginMethodFace = (event) => {
+    this.setState({
+      loginMethod: "false"
+    })
+  };
+  handleLoginMethodNormal = (event) => {
+    this.setState({
+      loginMethod: "true"
+    })
   };
 
   handleSubmit = (event) => {
@@ -29,6 +42,7 @@ export default class Login extends Component {
           message: data.message,
           username: "",
           password: "",
+          loginMethod: ""
         });
       } else {
         // successfully logged in
@@ -40,7 +54,6 @@ export default class Login extends Component {
       }
     });
   };
-
   render() {
     return (
       <>
@@ -51,8 +64,11 @@ export default class Login extends Component {
             <span></span>
             <form onSubmit={this.handleSubmit}>
               <div className="loginContainer">
-                {/* <VideoInput setUser={this.props.setUser} /> */}
-                <h2>Login</h2>
+              {console.log(this.state.loginMethod)}
+              {this.state.loginMethod == "true"
+              ?
+              <>
+              <h2>Login</h2>
                 <Form.Group>
                   <div className="inputBox">
                     <input
@@ -77,12 +93,20 @@ export default class Login extends Component {
                     />
                   </div>
                 </Form.Group>
+                
                 {this.state.message && (
                   <Alert variant="danger">{this.state.message}</Alert>
                 )}
                 <Button className="btn-login" type="submit">
                   Login
                 </Button>
+                <Button className="btn-login" onClick={this.handleLoginMethodFace}>
+                  Login with Facial Recognition
+                </Button>
+                </>
+              :
+              <VideoInput normal={this.handleLoginMethodNormal} setUser={this.props.setUser} />
+              }
               </div>
             </form>
           </div>

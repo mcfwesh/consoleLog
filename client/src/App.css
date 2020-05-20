@@ -202,14 +202,14 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
-  margin: 10vh;
+  width: 99vw;
+  height: 90vh;
 }
 
 .square {
-  position: relative;
-  min-width: 25vw;
-  min-height: 50vh;
+  position: absolute;
+  min-width: 30vw;
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -606,7 +606,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   height: 20vh;
   display: flex;
   justify-content: center;
-  margin: 2vh;
+  margin: 5vh;
   border-radius: 5%;
 }
 
@@ -656,7 +656,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 
 .userCardBodyTitle {
-  width: 50vw;
+  width: 25vw;
 }
 
 .userCardBodyTitle h2 {
@@ -1170,7 +1170,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   background-color: white;
   cursor: pointer;
   border: none;
-  width: 5vw;
+  min-width: 5vw;
   height: 5vh;
 }
 

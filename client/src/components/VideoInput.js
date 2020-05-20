@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import Webcam from "react-webcam";
 import { loadModels, getFullFaceDescription, createMatcher } from "../api/face";
 import { login } from "../services/auth";
+import { Form, Button, Alert } from "react-bootstrap";
+import { getCenterPoint } from "face-api.js/build/commonjs/utils";
 
 // Import face profile
 const JSON_PROFILE = require("../descriptors/bnk48.json");
@@ -166,7 +168,6 @@ class VideoInput extends Component {
           alignItems: "center",
         }}
       >
-        <p>Camera: {camera}</p>
         <div
           style={{
             width: WIDTH,
@@ -190,6 +191,10 @@ class VideoInput extends Component {
             {!!drawBox ? drawBox : null}
           </div>
         </div>
+        <Button className="btn-login" onClick={this.props.normal}>
+        {console.log(this.props.normal)}
+                  Back to Login Screen
+                </Button>
       </div>
     );
   }
