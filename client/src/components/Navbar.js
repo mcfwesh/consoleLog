@@ -38,7 +38,7 @@ const Navbar = (props) => {
             <Link to='/projects'>Projects</Link>
           </Nav.Brand> */}
               {/* <Link to={`/users/${props.user._id}`}>My account</Link> */}
-              <Link to={`/users/profile/${props.user._id}`}>My account</Link>
+              <Link to={`/users/${props.user._id}`}>My account</Link>
               <Link to="/" onClick={() => handleLogout(props)}>
                 Logout
               </Link>

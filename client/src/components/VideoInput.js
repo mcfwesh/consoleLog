@@ -60,12 +60,16 @@ class VideoInput extends Component {
   }
 
   capture = async () => {
+    console.log(this.webcam.current);
+
     if (!!this.webcam.current) {
       await getFullFaceDescription(
         this.webcam.current.getScreenshot(),
         inputSize
       ).then((fullDesc) => {
-        console.log(fullDesc)
+        console.log(this.webcam.current.getScreenshot());
+
+        console.log(fullDesc);
         if (!!fullDesc) {
           this.setState({
             detections: fullDesc.map((fd) => fd.detection),
