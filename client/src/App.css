@@ -748,11 +748,16 @@ color: white;
 }
 
 .userMainInfoBoxOne {
-  width: 50vw;
+  width: 60vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
   text-align: flex-start;
+}
+
+.mainBoxOne {
+  height: 10vh;
+  margin-top: 2vh
 }
 
 .mainBoxOne img {
@@ -779,10 +784,14 @@ color: white;
   font-size: 1em;
 }
 
+.mainBoxTwoHeader{
+  width: 40vw;
+}
+
 .mainBoxTwoSpecial {
-  min-width: 5vw !important;
+  width: 5vw !important;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 3vh;
   background-color: #33c3ff;
@@ -791,7 +800,8 @@ color: white;
 }
 
 .mainBoxTwoSpecial>p {
-  margin-right: 1vw;
+  margin-right: 2vw;
+  margin-left: 1vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;
