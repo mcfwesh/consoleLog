@@ -25,7 +25,9 @@ const Navbar = (props) => {
           <Link to="/notes">Notes</Link>
         </div>
         <div>
-          <Link to="/projects">Projects</Link>
+          <Link course={props.course} to="/projects">
+            Projects
+          </Link>
         </div>
         <div>
           <Link to="/face">face</Link>
@@ -37,12 +39,11 @@ const Navbar = (props) => {
             {/* <Nav.Brand>
             <Link to='/projects'>Projects</Link>
           </Nav.Brand> */}
-              {/* <Link to={`/users/${props.user._id}`}>My account</Link> */}
-              <Link to={`/users/${props.user._id}`}>My account</Link>
-              <Link to="/" onClick={() => handleLogout(props)}>
-                Logout
-              </Link>
-
+            {/* <Link to={`/users/${props.user._id}`}>My account</Link> */}
+            <Link to={`/users/${props.user._id}`}>My account</Link>
+            <Link to="/" onClick={() => handleLogout(props)}>
+              Logout
+            </Link>
           </>
         ) : (
           <>

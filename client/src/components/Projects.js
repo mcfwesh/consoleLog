@@ -10,7 +10,7 @@ export default class Projects extends Component {
   };
 
   componentDidMount = () => {
-    console.log(this.props.user)
+    console.log(this.props.user);
     this.getData();
   };
 
@@ -32,7 +32,11 @@ export default class Projects extends Component {
     return (
       <>
         <div className="projects-container">
-          <ProjectList projects={this.state.projects} user={this.props.user} />
+          <ProjectList
+            projects={this.state.projects}
+            user={this.props.user}
+            course={this.props.course}
+          />
         </div>
       </>
     );

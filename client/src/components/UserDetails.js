@@ -203,7 +203,8 @@ export default class UserDetails extends Component {
           <></>
         )}
         {this.props.course === "UX/UI" && (
-          <div
+
+          /*<div
             style={{
               display: "flex",
               flexDirection: "row",
@@ -237,7 +238,22 @@ export default class UserDetails extends Component {
               }}
               src={process.env.PUBLIC_URL + "/anapaula.png"}
             />
-          </div>
+          </div>*/
+
+          <img
+            className="loading"
+            style={{ width: "900px" }}
+            src={process.env.PUBLIC_URL + "/lara.png"}
+          />
+        )}
+
+        {this.props.course === "Data" && (
+          <img
+            className="loading"
+            style={{ width: "900px" }}
+            src={process.env.PUBLIC_URL + "/anapaula.png"}
+          />
+
         )}
 
         {this.props.course === "Web Dev" && (
