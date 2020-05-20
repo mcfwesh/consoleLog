@@ -269,6 +269,8 @@ h2 {
 .squarePanel a {
   margin-top: 1vh;
   font-size: 2em;
+  text-decoration: none;
+  color: black;
 }
 
 .squarePanel span:nth-child(1) {
@@ -792,8 +794,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 .userMainInfoBoxTwo {
   width: 30vw;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
   margin-bottom: 2vh;
 }
 
@@ -854,11 +856,23 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   justify-content: space-evenly;
 }
 
+.codeWarsTitle {
+  display: flex;
+  justify-content: flex-start;
+  height: 13vh;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
 .lastKatas {
   display: flex;
   flex-direction: column;
-  font-style: italic;
   margin-left: 1vw;
+}
+
+.lastKatas > p {
+  font-family: monospace;
 }
 
 .userProjectView {
@@ -870,6 +884,28 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .userProjectView img {
   width: 15vw;
+}
+
+.projectUser {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10vh;
+  width: 80vw;
+}
+
+.projectUserImg {
+  display: flex;
+  width: 30vw;
+}
+
+.projectUserImg img {
+  width: 25vw;
+}
+
+.projectUserBody {
+  flex-direction: column;
+  width: 20vw;
+  height: auto;
 }
 
 .project {
@@ -902,7 +938,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   align-items: center;
   flex-direction: column;
   width: 25vw;
-  height: 60vh;
+  height: 30vh;
+  margin-bottom: 30vh;
 }
 
 .projectsLists {
@@ -937,11 +974,130 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .projectBody {
   flex-direction: column;
-  width: 24vw;
-  height: auto;
+  width: 19vw;
   position: absolute;
   margin-top: 20vh;
   height: 20vh;
+}
+
+.ProjectBodyTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3vh;
+}
+
+.projectBodyContributors {
+  display: flex;
+  align-items: center;
+  height: 1vh;
+}
+
+.projectBodyContributors > div {
+  display: flex;
+  align-items: center;
+  width: 15vw;
+}
+
+.projectBodyContributors > div > p {
+  margin-left: 1vw;
+}
+
+.projectBodyDescription {
+  height: 11vh;
+}
+
+.projectBodyLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  height: 5vh;
+  width: 19vw;
+}
+
+.projectBodyLinks a {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+}
+
+.projectBodyLinks > a > p {
+  margin-left: 0.5vw;
+}
+
+.projectBodyLinks img {
+  width: 2vw;
+}
+
+.projectCrud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  width: 22vw;
+}
+
+.projectSettingsBox {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #303133e7;
+  border-radius: 15px;
+  height: 4vh;
+  width: 7vw;
+  font-size: 0.8em;
+  margin-right: 0.5vw;
+}
+
+.projectSettingsBox img {
+  width: 1.5vw;
+  margin-left: 0.5vw;
+}
+
+.projectSettingsBox a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  width: 7vw;
+}
+
+.projectAddBox {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #303133e7;
+  border-radius: 15px;
+  height: 4vh;
+  width: 9vw;
+  font-size: 0.8em;
+  margin-top: 1vh;
+}
+
+.projectAddBox img {
+  width: 1.5vw;
+  margin-left: 0.5vw;
+}
+
+.projectAddBox a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  width: 7vw;
+}
+
+.add-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 75vh;
+  border-radius: 25px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  font-family: "Roboto", sans-serif;
 }
 
 .projectLinks {
@@ -1020,7 +1176,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   left: 0;
   z-index: -1;
   height: 100vh;
-  width: 90vw;
+  width: 97vw;
   overflow: hidden;
 }
 
@@ -1214,16 +1370,17 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   font-family: "Roboto", sans-serif;
 }
 
-/* .input-file {
+.input-file {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 225px;
   margin-bottom: 1vh;
   opacity: 0;
   padding: 14px 0;
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-} */
+  font-family: "Roboto", sans-serif;
+}
 
 .fileLabel {
   background-color: #33c3ff;
