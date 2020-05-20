@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import html2pdf from "html2pdf.js";
 import EditUsers from "./EditUsers";
-import Notes from "./Notes";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import domtoimage from "dom-to-image";
+
 
 export default class UserDetails extends Component {
   state = {
@@ -26,6 +25,8 @@ export default class UserDetails extends Component {
     teachers: [],
     projects: [],
     honor: null,
+    // numPages: null,
+    // pageNumber: 1,
     // title: "",
     // description: "",
     // editForm: false,
@@ -131,25 +132,50 @@ export default class UserDetails extends Component {
       taskForm: !this.state.taskForm,
     });
   };
+  // _exportPdf = () => {
+  //   html2canvas(document.getElementById("dioni")).then((canvas) => {
+  //     document.body.appendChild(canvas); // if you want see your screenshot in body.
+  //     const imgData = canvas.toDataURL("image/png");
+  //     const pdf = new jsPDF();
+  //     pdf.addImage(imgData, "PNG", 0, 0);
+  //     pdf.save("download.pdf");
+  //   });
+  // };
+
+  // elems = document.getElementById("dioni");
+  // pdf = new jsPDF("portrait", "mm", "a4");
+
+  // Fix Graphics Output by scaling PDF and html2canvas output to 2
+  // pdf.scaleFactor = 2;
+
+  // addPages = new Promise((resolve,reject)=>{
+  //   elems.forEach((elem, idx) => {
+  //     // Scaling fix set scale to 2
+  //     html2canvas(elem, {scale: "2"})
+  //       .then(canvas =>{
+  //         if(idx < elems.length - 1){
+  //           pdf.addImage(canvas.toDataURL("image/png"), 0, 0, 210, 297);
+  //           pdf.addPage();
+  //         } else {
+  //           pdf.addImage(canvas.toDataURL("image/png"), 0, 0, 210, 297);
+  //           console.log("Reached last page, completing");
+  //         }
+  //   })
+
+  //   setTimeout(resolve, 100, "Timeout adding page #" + idx);
+  // })
+
+  // addPages.finally(()=>{
+  //    console.log("Saving PDF");
+  //    pdf.save();
+  // });
+
   componentDidMount = () => {
     const id = this.props.match.params.id;
     // console.log("banana", id);
     this.getProject();
     //this.getData();
 
-    // function generatePDF() {
-    //   const element = document.getElementById("tim");
-    //   //console.log(element);
-    //   var opt = {
-    //     image: { type: "jpg", quality: 0.7 },
-    //     html2canvas: { dpi: 100, letterRendering: true, useCORS: true },
-    //     jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    //   };
-    //   html2pdf().from(element).set(opt).save();
-    // }
-    // var element = document.getElementById("clickbind");
-    // element.addEventListener("click", generatePDF);
-  };
 
   printDocument() {
     const input = document.getElementById("nate");
@@ -166,7 +192,7 @@ export default class UserDetails extends Component {
   }
 
   componentWillReceiveProps = () => {
-    console.log("Jan");
+    // console.log("Jan");
     this.getProject();
   };
   deleteProject = (userID) => {
@@ -184,9 +210,6 @@ export default class UserDetails extends Component {
       });
   };
   render() {
-    //console.log(this.props.course);
-    //console.log(this.props.courses);
-
     return (
       <>
         <div className="mb5">
@@ -266,6 +289,7 @@ export default class UserDetails extends Component {
                           src={this.state.imageUrl}
                           style={{ width: "200px" }}
                         />
+
                       </div>
                       <div className="mainBoxTwo">
                         <div className="mainBoxTwoHeader">
@@ -313,6 +337,7 @@ export default class UserDetails extends Component {
                       </div>
                     </div>
                   </div>
+
                   <div className="codeWarsInfo">
                     <div className="codeWarsOverlay">
                       <div className="codeWarsImages">
@@ -328,6 +353,7 @@ export default class UserDetails extends Component {
                             alt="nate"
                           />
                         </div>
+
                       </div>
                       <div className="codeWarsMainBox">
                         <div className="codeWarsBoxTwo">
@@ -414,6 +440,7 @@ export default class UserDetails extends Component {
                       );
                     })}
                   </div>
+
                 </div>
               </div>
             )}
@@ -424,6 +451,7 @@ export default class UserDetails extends Component {
           </div>
         </div>
       </>
+
     );
   }
 }
