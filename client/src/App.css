@@ -720,9 +720,9 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   font-size: 1em;
 }
 
-/* .mtk1 {
+.mtk1 {
   color: rgb(24, 189, 254) !important;
-} */
+}
 
 .react-monaco-editor-container {
   margin: auto;
@@ -756,7 +756,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .mainBoxOne {
   height: 10vh;
-  margin-top: 2vh
+  margin-top: 2vh;
 }
 
 .mainBoxOne img {
@@ -783,7 +783,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   font-size: 1em;
 }
 
-.mainBoxTwoHeader{
+.mainBoxTwoHeader {
   width: 40vw;
 }
 
@@ -798,8 +798,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border-radius: 5px;
 }
 
-
-.mainBoxTwoSpecial>p {
+.mainBoxTwoSpecial > p {
   margin-right: 2vw;
   margin-left: 1vw;
 

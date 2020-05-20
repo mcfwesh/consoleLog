@@ -203,17 +203,41 @@ export default class UserDetails extends Component {
           <></>
         )}
         {this.props.course === "UX/UI" && (
-          <img
-            style={{ width: "900px" }}
-            src={process.env.PUBLIC_URL + "/lara.png"}
-          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "nowrap",
+              justifyContent: "center",
+              alignitems: "center",
+              alignContent: "center",
+            }}
+          >
+            <img
+              style={{ width: "900px" }}
+              src={process.env.PUBLIC_URL + "/lara.png"}
+            />
+          </div>
         )}
 
         {this.props.course === "Data" && (
-          <img
-            style={{ width: "900px" }}
-            src={process.env.PUBLIC_URL + "/anapaula.png"}
-          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "nowrap",
+              justifyContent: "center",
+              alignitems: "center",
+              alignContent: "center",
+            }}
+          >
+            <img
+              style={{
+                width: "900px",
+              }}
+              src={process.env.PUBLIC_URL + "/anapaula.png"}
+            />
+          </div>
         )}
 
         {this.props.course === "Web Dev" && (
