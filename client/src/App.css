@@ -46,6 +46,10 @@ h2 {
 
 /* Navbar Stuff */
 
+.Nav_link:active {
+  color: #33ccff;
+}
+
 .navbarMain {
   background-color: rgb(27, 27, 27);
   display: flex;
@@ -90,14 +94,16 @@ h2 {
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
-  color: white;
   font-size: 1.5em;
   margin-right: 1vw;
 }
 
 .courses a {
-  color: white;
-  text-decoration: none;
+  color:white
+}
+
+.courses a:link {
+  color: #33c3ff;
 }
 
 .courses > div {

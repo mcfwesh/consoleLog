@@ -73,17 +73,15 @@ class Notes extends React.Component {
         <h1>Extra Resources</h1>
         <br></br>
         <form onSubmit={this.handleSubmit}>
-          <MonacoEditor
-            class="margin-auto"
-            width="80%"
-            height="600"
-            language="javascript"
-            theme="vs-dark"
-            value={code}
-            options={options}
-            onChange={this.onChange}
-            editorDidMount={this.editorDidMount}
-          />
+        <MonacoEditor
+          height="600"
+          language="javascript"
+          theme="vs-light"
+          value={code}
+          options={options}
+          onChange={this.onChange}
+          editorDidMount={this.editorDidMount}
+        />
           {this.props.user?._id && <button type="submit">Save</button>}
         </form>
       </div>

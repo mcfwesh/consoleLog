@@ -14,17 +14,26 @@ export default class NavbarMain extends Component {
         <div className="navRight">
           <div className="courses">
             <div>
-              <Link onClick={this.props.handleCourse} id="Web Dev" to="/panel">
+              <Link
+              className="Nav_link"
+              activeClassName="activeRoute" 
+              onClick={this.props.handleCourse} id="Web Dev" to="/panel">
                 Web Dev
               </Link>
             </div>
             <div>
-              <Link onClick={this.props.handleCourse} id="UX/UI" to="/panel">
+              <Link
+              className="Nav_link"
+              activeClassName="activeRoute" 
+              onClick={this.props.handleCourse} id="UX/UI" to="/panel">
                 UX/UI
               </Link>
             </div>
             <div>
-              <Link onClick={this.props.handleCourse} id="Data" to="/panel">
+              <Link
+              className="Nav_link"
+              activeClassName="activeRoute"  
+              onClick={this.props.handleCourse} id="Data" to="/panel">
                 Data
               </Link>
             </div>
