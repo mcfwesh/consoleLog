@@ -1,42 +1,65 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+const websiteMap = ["Web Dev", "UX/UI", "Data"];
 export default class NavbarMain extends Component {
   render() {
     return (
       <div className="navbarMain">
         <div className="navleft">
           <div className="logo">
-            <Link to="/">
+            <NavLink exact={true} to="/">
               <img src="https://i.ibb.co/wpQGhGG/Conosole-log-logo.png" />
-            </Link>
+            </NavLink>
           </div>
         </div>
         <div className="navRight">
           <div className="courses">
-            <div>
-              <Link
-              className="Nav_link"
-              activeClassName="activeRoute" 
+            {websiteMap.map((e, i) => {
+              return (
+                <div>
+                  <NavLink
+                    exact
+                    onClick={this.props.handleCourse}
+                    id={e}
+                    to="/panel"
+                    style={{
+                      color: this.props.course === e ? "#33c3ff" : "white",
+                      borderBottom:
+                        this.props.course === e ? "1px solid #33c3ff" : "none",
+                    }}
+                  >
+                    {e}
+                  </NavLink>
+                </div>
+              );
+            })}
+            {/* <div>
+              <NavLink
+              exact={true}
+              // className="inactiveLink"
+              // activeClassName="activeLink"
               onClick={this.props.handleCourse} id="Web Dev" to="/panel">
                 Web Dev
-              </Link>
+              </NavLink>
             </div>
             <div>
-              <Link
-              className="Nav_link"
-              activeClassName="activeRoute" 
+              <NavLink
+              exact={true}
+              // className="inactiveLink"
+              // activeClassName="activeLink"
               onClick={this.props.handleCourse} id="UX/UI" to="/panel">
                 UX/UI
-              </Link>
+              </NavLink>
             </div>
             <div>
-              <Link
-              className="Nav_link"
-              activeClassName="activeRoute"  
+              <NavLink
+              exact={true}
+              // className="inactiveLink"
+              // activeClassName="activeLink" 
               onClick={this.props.handleCourse} id="Data" to="/panel">
                 Data
-              </Link>
-            </div>
+              </NavLink>
+            </div> */}
           </div>
         </div>
       </div>

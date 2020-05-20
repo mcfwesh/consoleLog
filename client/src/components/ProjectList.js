@@ -63,84 +63,95 @@ class ProjectList extends Component {
     return (
       <div className="projects-overlay-top">
         <Link to="/addprojects">add project</Link>
-        <ul className="ks-cboxtags">
-          <li>
-            <input
-              type="checkbox"
-              id="project1"
-              name="project1"
-              checked={this.state.project1}
-              onChange={this.handleProject1}
-            />
-            <label htmlFor="project1">Project 1</label>
-          </li>
-          <li>
-            <input
-              type="checkbox"
-              id="project2"
-              name="project2"
-              checked={this.state.project2}
-              onChange={this.handleProject2}
-            />
-            <label htmlFor="project2">Project 2</label>
-          </li>
-          <li>
-            <input
-              type="checkbox"
-              id="project3"
-              name="project3"
-              checked={this.state.project3}
-              onChange={this.handleProject3}
-            />
-            <label htmlFor="project3">Project 3</label>
-          </li>
-        </ul>
+        <div className="projectsFilters">
+          <ul className="ks-cboxtags">
+            <li>
+              <input
+                type="checkbox"
+                id="project1"
+                name="project1"
+                checked={this.state.project1}
+                onChange={this.handleProject1}
+              />
+              <label htmlFor="project1">Project 1</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                id="project2"
+                name="project2"
+                checked={this.state.project2}
+                onChange={this.handleProject2}
+              />
+              <label htmlFor="project2">Project 2</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                id="project3"
+                name="project3"
+                checked={this.state.project3}
+                onChange={this.handleProject3}
+              />
+              <label htmlFor="project3">Project 3</label>
+            </li>
+          </ul>
+        </div>
+        <div className="projectsLists">
+          {this.props.projects.length > 0 && <></>}
 
-        {this.props.projects.length > 0 && <h2></h2>}
-
-        {this.props.projects
-          .sort((a, b) => a.title.localeCompare(b.title))
-          .filter((project) => {
-            if (
-              this.state.project1 &&
-              this.state.project2 &&
-              this.state.project3
-            ) {
+          {this.props.projects
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .filter((project) => {
+              if (
+                this.state.project1 &&
+                this.state.project2 &&
+                this.state.project3
+              ) {
+                return true;
+              } else if (this.state.project1 && this.state.project2) {
+                return project.number === "1" || project.number === "2";
+              } else if (this.state.project1 && this.state.project3) {
+                return project.number === "1" || project.number === "3";
+              } else if (this.state.project2 && this.state.project3) {
+                return project.number === "2" || project.number === "3";
+              } else if (this.state.project1) {
+                return project.number === "1";
+              } else if (this.state.project2) {
+                return project.number === "2";
+              } else if (this.state.project3) {
+                return project.number === "3";
+              }
               return true;
-            } else if (this.state.project1 && this.state.project2) {
-              return project.number === "1" || project.number === "2";
-            } else if (this.state.project1 && this.state.project3) {
-              return project.number === "1" || project.number === "3";
-            } else if (this.state.project2 && this.state.project3) {
-              return project.number === "2" || project.number === "3";
-            } else if (this.state.project1) {
-              return project.number === "1";
-            } else if (this.state.project2) {
-              return project.number === "2";
-            } else if (this.state.project3) {
-              return project.number === "3";
-            }
-            return true;
-          })
-          .map((project) => {
-            return (
-              <div className="projects-container" key={project._id}>
-                <div className="projectPage">
+            })
+            .map((project) => {
+              return (
+                <div className="projects-container-card" key={project._id}>
                   <div className="projectImg">
                     <img src={project.imageUrl} alt="" />
                   </div>
                   <div className="projectBody">
-                    <h3>{project.title}</h3>
-                    <p>Project Category: {project.number}</p>
-                    <p>Contributors:</p>
-                    <ul>
-                      {project.contributors.map((contrib) => (
-                        <li key={contrib._id}> {contrib.name}</li>
-                      ))}
-                    </ul>
-                    <p>Description: {project.description}</p>
-                    <p>Github repo: {project.github}</p>
-                    <p>Heroku link:{project.heroku}</p>
+                    <div className="ProjectBodyTitle">
+                      <h3>{project.title}</h3>
+                    </div>
+                    <div className="projectBodyCategory">
+                      <p>Project Category: {project.number}</p>
+                    </div>
+                    <div className="projectBodyContributors">
+                      <p>Contributors:</p>
+                      <ul>
+                        {project.contributors.map((contrib) => (
+                          <li key={contrib._id}> {contrib.name}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="projectBodyDescription">
+                      <p>Description: {project.description}</p>
+                    </div>
+                    <div className="projectBodyLinks">
+                      <p>Github repo: {project.github}</p>
+                      <p>Heroku link:{project.heroku}</p>
+                    </div>
                     {project.contributors.map((contrib) =>
                       contrib._id.includes(this.props.user?._id) ? (
                         <>
@@ -157,9 +168,9 @@ class ProjectList extends Component {
                     )}
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+        </div>
       </div>
     );
   }
