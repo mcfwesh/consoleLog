@@ -95,7 +95,7 @@ export default class UserDetails extends Component {
     axios.get(`/api/users/codewars/${CW}`).then((response) => {
       let katas = response.data;
       let nateBoss = [];
-      console.log(Array.isArray(katas.data));
+      //console.log(Array.isArray(katas.data));
       if (Array.isArray(katas.data)) {
         nateBoss = [...katas.data.slice(0, 3)];
       }
@@ -167,8 +167,8 @@ export default class UserDetails extends Component {
       });
   };
   render() {
-    console.log(this.props.course);
-    console.log(this.props.courses);
+    //console.log(this.props.course);
+    //console.log(this.props.courses);
 
     return (
       <div>

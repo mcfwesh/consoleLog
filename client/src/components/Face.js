@@ -26,8 +26,8 @@ function Face() {
         height="90vh"
         language="javascript"
         value={"// write your code here"}
+        theme="vs-light"
         editorDidMount={handleEditorDidMount}
-        theme="vs-dark"
       />
     </>
   );
