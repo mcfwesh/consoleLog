@@ -8,6 +8,7 @@
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@monaco-editor/react": "^3.3.0",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.18.3",
@@ -33,10 +34,18 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react-monaco-editor": "^0.36.0",
+    "react-scripts": "^3.4.1",
     "react-webcam": "^5.0.1",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
-  }
+    "nodemon": "^1.12.1",
+    "typescript": "^3.9.3"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
