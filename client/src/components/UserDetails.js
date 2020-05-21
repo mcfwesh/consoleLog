@@ -211,9 +211,6 @@ export default class UserDetails extends Component {
   render() {
     return (
       <>
-        <div className="mb5">
-          <button onClick={this.printDocument}>Print</button>
-        </div>
         <div
           id="divToPrint"
           className="mt4"
@@ -441,10 +438,9 @@ export default class UserDetails extends Component {
                 </div>
               </div>
             )}
-            {/* <a id="clickbind" href="#">
-          Export PDF
-        </a>
-        <button onClick={this.printDocument}>Print</button> */}
+            <a onClick={this.printDocument} class="exportPDF">
+              Export To PDF
+            </a>
           </div>
         </div>
       </>

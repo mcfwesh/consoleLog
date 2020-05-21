@@ -147,7 +147,13 @@ class App extends React.Component {
           <Route
             exact
             path="/panel"
-            render={(props) => <Panel course={this.state.course} {...props} />}
+            render={(props) => (
+              <Panel
+                course={this.state.course}
+                user={this.state.user}
+                {...props}
+              />
+            )}
           />
           <Route
             exact
