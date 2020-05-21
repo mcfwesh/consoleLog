@@ -16,7 +16,7 @@ export default class Panel extends Component {
                   <img src="https://i.ibb.co/N1KGxHZ/476759.png" alt="users" />
                 </Link>
                 <a href="/users" course={this.props.course}>
-                  Users
+                  Students
                 </a>
               </div>
             </div>
