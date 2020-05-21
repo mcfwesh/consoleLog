@@ -45,7 +45,7 @@ export default class Panel extends Component {
                 <Link to="/notes">
                   <img src="https://i.ibb.co/0VCQ43y/1355461.png" alt="notes" />
                 </Link>
-                <a href="/notes">Notes</a>
+                <a href="/notes">Note</a>
               </div>
             </div>
           </div>
