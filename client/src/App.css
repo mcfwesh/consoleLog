@@ -1596,7 +1596,6 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   -moz-border-radius: 20px;
   border-radius: 20px;
   text-decoration: none;
-
 }
 
 /* .view-lines:nth-child(2) {
@@ -1608,4 +1607,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
 
 .mtk1 {
   color: rgb(24, 189, 254) !important;
+}
+
+.changed-for.gh {
+  color: white;
 }
