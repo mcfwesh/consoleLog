@@ -5,7 +5,7 @@ import html2pdf from "html2pdf.js";
 import EditUsers from "./EditUsers";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-
+import domtoimage from "dom-to-image";
 
 export default class UserDetails extends Component {
   state = {
@@ -175,8 +175,7 @@ export default class UserDetails extends Component {
     // console.log("banana", id);
     this.getProject();
     //this.getData();
-
-
+  };
   printDocument() {
     const input = document.getElementById("nate");
     html2canvas(input, {
@@ -289,7 +288,6 @@ export default class UserDetails extends Component {
                           src={this.state.imageUrl}
                           style={{ width: "200px" }}
                         />
-
                       </div>
                       <div className="mainBoxTwo">
                         <div className="mainBoxTwoHeader">
@@ -353,7 +351,6 @@ export default class UserDetails extends Component {
                             alt="nate"
                           />
                         </div>
-
                       </div>
                       <div className="codeWarsMainBox">
                         <div className="codeWarsBoxTwo">
@@ -440,7 +437,6 @@ export default class UserDetails extends Component {
                       );
                     })}
                   </div>
-
                 </div>
               </div>
             )}
@@ -451,7 +447,6 @@ export default class UserDetails extends Component {
           </div>
         </div>
       </>
-
     );
   }
 }
