@@ -70,19 +70,28 @@ class Notes extends React.Component {
     console.log(code[0].notes);
     return (
       <div>
-        <h1>Extra Resources</h1>
-        <br></br>
-        <form onSubmit={this.handleSubmit}>
-        <MonacoEditor
-          height="600"
-          language="javascript"
-          theme="vs-light"
-          value={code}
-          options={options}
-          onChange={this.onChange}
-          editorDidMount={this.editorDidMount}
-        />
-          {this.props.user?._id && <button type="submit">Save</button>}
+        <form class="notes" onSubmit={this.handleSubmit}>
+          <div class="notes-div-top">
+            <h1>
+              <span class="blue-color">E</span>xtra{" "}
+              <span class="blue-color">R</span>esources
+            </h1>
+            {this.props.user?._id && (
+              <button class="btn-notes" type="submit">
+                Save
+              </button>
+            )}
+          </div>
+          <br></br>
+          <MonacoEditor
+            height="800"
+            language="javascript"
+            theme="vs-dark"
+            value={code}
+            options={options}
+            onChange={this.onChange}
+            editorDidMount={this.editorDidMount}
+          />
         </form>
       </div>
     );

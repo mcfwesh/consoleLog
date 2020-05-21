@@ -1466,6 +1466,100 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   margin: auto;
 }
 
+
+/* .mt4{
+  height: 100vh;
+  width: 100vw;
+} */
+
+.notes {
+  max-width: 95%;
+}
+
+.btn-notes {
+  border: 5px solid black;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #33c3ff;
+  cursor: pointer;
+  border: none;
+  width: 15vw;
+  height: 5vh;
+  margin-left: 150px;
+  margin-top: 1vh;
+  font-size: 16px;
+}
+
+.notes-div-top {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: -2vh;
+}
+
+.jobs-search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 1%;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin-left: -5%;
+}
+.jobs-search img {
+  width: 32px;
+  margin-left: 5px;
+}
+.jobs-search input {
+  width: 200px;
+  height: 35px;
+  font-size: 16px;
+  margin-left: 5px;
+  border-color: #33c3ff;
+}
+.jobs-search label {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.blue-color {
+  color: #33c3ff;
+}
+.black {
+  background-color: black;
+}
+.job-line {
+  border-bottom: 2px solid black;
+}
+.link-job {
+  min-width: 280px;
+}
+.container img {
+  width: 30px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-left: -50%;
+}
+.container a {
+  text-decoration: none;
+  color: black;
+}
+
 .exportPDF {
   background: #33C3FF;
   background-image: -webkit-linear-gradient(top, #33C3FF, #33C3FF);
@@ -1500,3 +1594,4 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   border-radius: 20px;
   text-decoration: none;
 }
+

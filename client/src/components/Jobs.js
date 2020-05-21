@@ -35,15 +35,21 @@ class Jobs extends Component {
 
     return (
       <>
-        <label htmlFor="search">Search By Company or Job Title</label>
-        <input
-          type="text"
-          id="search"
-          name="search"
-          value={this.state.search}
-          onChange={this.handleSearch}
-        />
-        <ul className="jobs">
+        <div className="jobs-search">
+          <label htmlFor="search">
+            <span className="blue-color">S</span>earch By Company or Job Title :
+          </label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            value={this.state.search}
+            onChange={this.handleSearch}
+            placeholder="Ex: programmer, ux,data... "
+          />
+          <img clasName="link-job" src="../search.png"></img>
+        </div>
+        <ul className="jobs black blue-color">
           <h3>Job Title</h3>
           <h3>Company</h3>
           <h3>City</h3>
@@ -74,15 +80,21 @@ class Jobs extends Component {
             })
             .map((job) => {
               return (
-                <ul className="jobs" key={job._id}>
+                <ul className="jobs job-line" key={job._id}>
                   <li>{job.title}</li>
                   <li>{job.company.display_name}</li>
                   <li>
                     {job.location.area[2]} {job.location.area[1]}
                   </li>
                   <li>{job.created.slice(0, 10)}</li>
+
                   <li>
-                    <a href={`${job.redirect_url}`}>Go to Job</a>
+                    <div class="container">
+                      <a href={`${job.redirect_url}`}>
+                        <img clasName="link-job" src="../link.png"></img>Go to
+                        Job
+                      </a>
+                    </div>
                   </li>
                 </ul>
               );

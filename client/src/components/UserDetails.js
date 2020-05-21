@@ -6,6 +6,9 @@ import EditUsers from "./EditUsers";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
+import domtoimage from "dom-to-image";
+
+
 export default class UserDetails extends Component {
   state = {
     username: "",
@@ -278,6 +281,7 @@ export default class UserDetails extends Component {
             {this.props.course === "Web Dev" && (
               <div id="nate">
                 <div className="overlaySingleUser" key={this.state.name}>
+
                   {/* <div className="userMainInfo"> */}
                   <div className="userMainInfoBoxOne">
                     <div className="mainBoxOne">
@@ -291,6 +295,7 @@ export default class UserDetails extends Component {
                         <h2>
                           {this.state.name} {this.state.surname}
                         </h2>
+
                       </div>
                       <div>
                         <p>{this.state.description}</p>
