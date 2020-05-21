@@ -195,7 +195,7 @@ class ProjectList extends Component {
                               }
                             />
                             <Link to={`/editproject/${project._id}`}>
-                              Edit Profile
+                              Edit Project
                             </Link>
                           </div>
 
