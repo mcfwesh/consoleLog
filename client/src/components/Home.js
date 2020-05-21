@@ -6,7 +6,9 @@ export default class Home extends Component {
     return (
       <div className="homeContainer">
         <div className="overlay-top">
+
           <img src={process.env.PUBLIC_URL + "/totalconfused.jpg"} />
+
         </div>
         <div className="overlay-bottom">
           <div className="card">
@@ -20,12 +22,7 @@ export default class Home extends Component {
                 </h2>
               </Link>
               <p>
-                Meet the students of the Berlin, March 2020 cohort who have
-                trained to become full-stack web developers. They learnt
-                Front-end design and Back-end architecture fundamentals using
-                top-notch technologies. They learnt how to code with the
-                fundamentals of HTML5, CSS3, JavaScript, NodeJS, Express, and
-                React.
+                <p>Connect with the Web Dev Berlin Cohort (March 2020)</p>
               </p>
             </div>
           </div>
@@ -39,15 +36,7 @@ export default class Home extends Component {
                   UX/UI
                 </h2>
               </Link>
-              <p>
-                Meet the students of the Berlin, March 2020 cohort who have
-                trained to become UX/UI designers. They learnt user-centered
-                design by applying the Design Thinking process and validate
-                ideas through user research, prototyping, user testing, and
-                heuristic evaluation. They have developed the art of Design
-                thinking, agile organization and lean management — these
-                methodologies are essential to the ever-evolving tech industry.
-              </p>
+              <p>Connect with the UX/UI Berlin Cohort (March 2020)</p>
             </div>
           </div>
           <div className="card">
@@ -61,12 +50,7 @@ export default class Home extends Component {
                 </h2>
               </Link>
               <p>
-                Meet the students of the Berlin, March 2020 cohort who have
-                trained to become data analysts. They learnt to load, clean,
-                explore and extract valuable insights from a wide range of
-                datasets as well as cultivate tools and languages such as
-                Python, SQL and Tableau. They developed the secret knowledge of
-                analytics by developing cross-disciplinary expertise in data.
+                <p>Connect with the Data Berlin Cohort (March 2020)</p>
               </p>
             </div>
           </div>
