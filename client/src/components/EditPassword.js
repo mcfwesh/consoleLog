@@ -42,41 +42,45 @@ export default class EditPassword extends Component {
     return (
       <div className="signup-overlay">
         <div className="signup-sections-change">
-        <div className="formBox">
-        <form onSubmit={this.handleSubmit}>
-          <input className="form_field"
-            type="password"
-            name="oldPassword"
-            placeholder="Old Password"
-            value={this.state.oldPassword}
-            onChange={this.handleChange}
-            id="passwordold"
-          />
-          <input className="form_field"
-            type="password"
-            name="newPassword"
-            placeholder="New Password"
-            value={this.state.newPassword}
-            onChange={this.handleChange}
-            id="passwordnew"
-          />
-          <br></br>
-          <button className="btn-signup" type="submit">Change password</button>
-        </form>
-        </div>
+          <div className="formBox">
+            <form onSubmit={this.handleSubmit}>
+              <input
+                className="form_field"
+                type="password"
+                name="oldPassword"
+                placeholder="Old Password"
+                value={this.state.oldPassword}
+                onChange={this.handleChange}
+                id="passwordold"
+              />
+              <input
+                className="form_field"
+                type="password"
+                name="newPassword"
+                placeholder="New Password"
+                value={this.state.newPassword}
+                onChange={this.handleChange}
+                id="passwordnew"
+              />
+              <br></br>
+              <button className="btn-signup" type="submit">
+                Change password
+              </button>
+            </form>
+          </div>
         </div>
         <ul class="bg-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     );
   }

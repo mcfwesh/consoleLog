@@ -105,88 +105,119 @@ export default class AddProject extends Component {
     console.log(this.props.course);
 
     return (
-      <Form onSubmit={this.handleSubmit}>
-        {/* all groups (label + input) are grouped in a Form.Group */}
-        <Form.Group>
-          {/* <label></label> */}
-          <Form.Label htmlFor="title">Title: </Form.Label>
-          {/* <input /> */}
-          <Form.Control
-            type="text"
-            id="title"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="description">Description: </Form.Label>
-          <Form.Control
-            type="text"
-            name="description"
-            id="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <select
-          value={this.state.number}
-          name="number"
-          id="number"
-          onChange={this.handleChange}
-        >
-          <option value="Any">Any Project</option>
-          <option value="1">Project 1</option>
-          <option value="2">Project 2</option>
-          <option value="3">Project 3</option>
-        </select>
-        <Form.Group>
-          <Form.Label htmlFor="imageUrl">ImageUrl: </Form.Label>
-          <div id="image-uploads">
-            <input type="file" onChange={(e) => this.handleFileUpload(e)} />
-          </div>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="github">github: </Form.Label>
-          <Form.Control
-            type="text"
-            name="github"
-            id="github"
-            value={this.state.github}
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="heroku">heroku: </Form.Label>
-          <Form.Control
-            type="text"
-            name="heroku"
-            id="heroku"
-            value={this.state.heroku}
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        {this.state.contributorsName &&
-          this.state.contributorsName.map((name) => {
-            return <p>{name}</p>;
-          })}
-        <select name="contributors" onChange={this.handleSelect}>
-          <option value="">Select a contributor</option>
-          {this.state.contributorsList &&
-            this.props.course &&
-            this.state.contributorsList.map((contrib) => {
-              return (
-                <option id={contrib._id} value={contrib._id} key={contrib._id}>
-                  {contrib.name}
-                </option>
-              );
-            })}
-        </select>
+      <div className="signup-overlay">
+        <div className="add-project">
+          <div className="formBox">
+            <Form onSubmit={this.handleSubmit}>
+              {/* all groups (label + input) are grouped in a Form.Group */}
+              {/* <label></label> */}
+              {/* <input /> */}
+              <input
+                className="form_field"
+                placeholder="Project Title"
+                type="text"
+                id="title"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleChange}
+              />
+              <input
+                className="form_field"
+                placeholder="Description"
+                type="text"
+                name="description"
+                id="description"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+              <select
+                className="form_field"
+                value={this.state.number}
+                name="number"
+                id="number"
+                onChange={this.handleChange}
+              >
+                <option value="Any">Select a project</option>
+                <option value="1">Project 1</option>
+                <option value="2">Project 2</option>
+                <option value="3">Project 3</option>
+              </select>
+              <div id="image-uploads">
+                <label className="fileLabel" for="file">
+                  Upload Project Screen Shot
+                </label>
+                <input
+                  className="input-file"
+                  type="file"
+                  onChange={(e) => this.handleFileUpload(e)}
+                />
+              </div>
+              <input
+                className="form_field"
+                placeholder="Github Username"
+                type="text"
+                name="github"
+                id="github"
+                value={this.state.github}
+                onChange={this.handleChange}
+              />
+              <input
+                className="form_field"
+                placeholder="Deploy Link"
+                type="text"
+                name="heroku"
+                id="heroku"
+                value={this.state.heroku}
+                onChange={this.handleChange}
+              />
+              {this.state.contributorsName &&
+                this.state.contributorsName.map((name) => {
+                  return <p>{name}</p>;
+                })}
+              <select
+                className="form_field"
+                name="contributors"
+                onChange={this.handleSelect}
+              >
+                <option value="">Select a contributor</option>
+                {this.state.contributorsList &&
+                  this.props.course &&
+                  this.state.contributorsList.map((contrib) => {
+                    return (
+                      <option
+                        id={contrib._id}
+                        value={contrib._id}
+                        key={contrib._id}
+                      >
+                        {contrib.name}
+                      </option>
+                    );
+                  })}
+              </select>
 
-        <Button type="submit" disabled={this.state.uploadOn}>
-          Add Project
-        </Button>
-      </Form>
+              <Button
+                className="btn-signup"
+                type="submit"
+                disabled={this.state.uploadOn}
+              >
+                Add Project
+              </Button>
+            </Form>
+          </div>
+        </div>
+        <ul class="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
     );
   }
 }

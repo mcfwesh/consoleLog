@@ -62,7 +62,13 @@ class ProjectList extends Component {
 
     return (
       <div className="projects-overlay-top">
-        <Link to="/addprojects">add project</Link>
+        {/* <Link to="/addprojects">add project</Link> */}
+        <div className="projectAddBox">
+          <img
+            src={process.env.PUBLIC_URL + "/images/project/addProject.png"}
+          />
+          <Link to="/addprojects">Add Project</Link>
+        </div>
         <div className="projectsFilters">
           <ul className="ks-cboxtags">
             <li>
@@ -139,29 +145,72 @@ class ProjectList extends Component {
                     </div>
                     <div className="projectBodyContributors">
                       <p>Contributors:</p>
-                      <ul>
+                      <div>
                         {project.contributors.map((contrib) => (
-                          <li key={contrib._id}> {contrib.name}</li>
+                          <p key={contrib._id}>
+                            {" "}
+                            <b>{contrib.name}</b>
+                          </p>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                     <div className="projectBodyDescription">
-                      <p>Description: {project.description}</p>
+                      <p>
+                        <i>{project.description}</i>
+                      </p>
                     </div>
                     <div className="projectBodyLinks">
-                      <p>Github repo: {project.github}</p>
-                      <p>Heroku link:{project.heroku}</p>
+                      <a href={project.heroku}>
+                        <img
+                          src="https://i.ibb.co/bLDW3YD/webbrowserprojects.png"
+                          alt="web"
+                        />
+                        <p>Visit the App</p>
+                      </a>
+                      <a href={project.github}>
+                        <img
+                          src="https://i.ibb.co/0fjMyMW/githubproject.png"
+                          alt="github"
+                        />
+                        <p>Github Repo</p>
+                      </a>
                     </div>
                     {project.contributors.map((contrib) =>
                       contrib._id.includes(this.props.user?._id) ? (
-                        <>
-                          <Link to={`/editproject/${project._id}`}>Edit</Link>
+                        <div class="projectCrud">
+                          {/* <Link to={`/editproject/${project._id}`}>Edit</Link>
                           <button
                             onClick={() => this.deleteProject(project._id)}
                           >
                             Delete
-                          </button>
-                        </>
+                          </button> */}
+
+                          <div className="projectSettingsBox">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/images/userdetails/edit.png"
+                              }
+                            />
+                            <Link to={`/editproject/${project._id}`}>
+                              Edit Profile
+                            </Link>
+                          </div>
+
+                          <div className="projectSettingsBox">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/images/userdetails/trash.png"
+                              }
+                            />
+                            <Link
+                              onClick={() => this.deleteProject(project._id)}
+                            >
+                              Delete
+                            </Link>
+                          </div>
+                        </div>
                       ) : (
                         <></>
                       )
