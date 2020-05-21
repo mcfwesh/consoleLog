@@ -6,7 +6,7 @@ export default class Home extends Component {
     return (
       <div className="homeContainer">
         <div className="overlay-top">
-          <img src="https://i.ibb.co/LRsYPnz/totalconfusion.png" alt="" />
+          <img src={process.env.PUBLIC_URL + "/totalconfused.jpg"} />
         </div>
         <div className="overlay-bottom">
           <div className="card">
