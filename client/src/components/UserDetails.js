@@ -5,7 +5,9 @@ import html2pdf from "html2pdf.js";
 import EditUsers from "./EditUsers";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+
 import domtoimage from "dom-to-image";
+
 
 export default class UserDetails extends Component {
   state = {
@@ -176,6 +178,7 @@ export default class UserDetails extends Component {
     this.getProject();
     //this.getData();
   };
+
   printDocument() {
     const input = document.getElementById("nate");
     html2canvas(input, {
@@ -211,9 +214,6 @@ export default class UserDetails extends Component {
   render() {
     return (
       <>
-        <div className="mb5">
-          <button onClick={this.printDocument}>Print</button>
-        </div>
         <div
           id="divToPrint"
           className="mt4"
@@ -281,56 +281,57 @@ export default class UserDetails extends Component {
             {this.props.course === "Web Dev" && (
               <div id="nate">
                 <div className="overlaySingleUser" key={this.state.name}>
-                  <div className="userMainInfo">
-                    <div className="userMainInfoBoxOne">
-                      <div className="mainBoxOne">
-                        <img
-                          src={this.state.imageUrl}
-                          style={{ width: "200px" }}
-                        />
+
+                  {/* <div className="userMainInfo"> */}
+                  <div className="userMainInfoBoxOne">
+                    <div className="mainBoxOne">
+                      <img
+                        src={this.state.imageUrl}
+                        style={{ width: "200px" }}
+                      />
+                    </div>
+                    <div className="mainBoxTwo">
+                      <div className="mainBoxTwoHeader">
+                        <h2>
+                          {this.state.name} {this.state.surname}
+                        </h2>
+
                       </div>
-                      <div className="mainBoxTwo">
-                        <div className="mainBoxTwoHeader">
-                          <h2>
-                            {this.state.name} {this.state.surname}
-                          </h2>
+                      <div>
+                        <p>{this.state.description}</p>
+                      </div>
+                      <div className="mainBoxTwoSpecial" id="tim">
+                        <p>
+                          <b>Specialization: </b>
+                        </p>
+                        {this.state.specialization.map((spe) => {
+                          return <p>{spe}</p>;
+                        })}
+                      </div>
+                      <div className="userMainInfoBoxTwo">
+                        <div>
+                          <a href={`https://github.com/${this.state.github}`}>
+                            <img
+                              src="https://i.ibb.co/8NLSrWX/github.png"
+                              alt="github"
+                            />
+                          </a>
+                          <a href={`https://github.com/${this.state.github}`}>
+                            <p>{this.state.github}</p>
+                          </a>
                         </div>
                         <div>
-                          <p>{this.state.description}</p>
-                        </div>
-                        <div className="mainBoxTwoSpecial" id="tim">
-                          <p>
-                            <b>Specialization: </b>
-                          </p>
-                          {this.state.specialization.map((spe) => {
-                            return <p>{spe}</p>;
-                          })}
-                        </div>
-                        <div className="userMainInfoBoxTwo">
-                          <div>
-                            <a href={`https://github.com/${this.state.github}`}>
-                              <img
-                                src="https://i.ibb.co/8NLSrWX/github.png"
-                                alt="github"
-                              />
-                            </a>
-                            <a href={`https://github.com/${this.state.github}`}>
-                              <p>{this.state.github}</p>
-                            </a>
-                          </div>
-                          <div>
-                            <a href={this.state.linkedin}>
-                              <img
-                                src="https://i.ibb.co/nLKVXQ2/li.png"
-                                alt="linkedin"
-                              />
-                            </a>
-                            <a href={this.state.linkedin}>
-                              <p>
-                                {this.state.name} {this.state.surname}
-                              </p>
-                            </a>
-                          </div>
+                          <a href={this.state.linkedin}>
+                            <img
+                              src="https://i.ibb.co/nLKVXQ2/li.png"
+                              alt="linkedin"
+                            />
+                          </a>
+                          <a href={this.state.linkedin}>
+                            <p>
+                              {this.state.name} {this.state.surname}
+                            </p>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -354,15 +355,17 @@ export default class UserDetails extends Component {
                       </div>
                       <div className="codeWarsMainBox">
                         <div className="codeWarsBoxTwo">
-                          <div>
-                            <p>Last three katas </p>
+                          <div className="codeWarsTitle">
+                            <p>let lastThreeKatas = </p>
                           </div>
                           <div className="lastKatas">
+                            [
                             {this.state.honor
                               ? this.state.honor.map((kata) => {
-                                  return <p>{kata.name}</p>;
+                                  return <p>["{kata.name}"],</p>;
                                 })
                               : null}
+                            ]
                           </div>
                         </div>
                       </div>
@@ -379,11 +382,11 @@ export default class UserDetails extends Component {
                         })
                       )
                       .map((name) => (
-                        <div className="project">
-                          <div className="projectImg">
+                        <div className="projectUser">
+                          <div className="projectUserImg">
                             <img src={name.imageUrl} />
                           </div>
-                          <div className="projectBody">
+                          <div className="projectUserBody">
                             <div>
                               <h2>{name.title}</h2>
                             </div>
@@ -440,10 +443,9 @@ export default class UserDetails extends Component {
                 </div>
               </div>
             )}
-            {/* <a id="clickbind" href="#">
-          Export PDF
-        </a>
-        <button onClick={this.printDocument}>Print</button> */}
+            <a onClick={this.printDocument} class="exportPDF">
+              Export To PDF
+            </a>
           </div>
         </div>
       </>
