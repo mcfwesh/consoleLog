@@ -925,7 +925,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   margin-left: 1vw;
 }
 
-.lastKatas>p {
+.lastKatas > p {
   font-family: monospace;
 }
 
@@ -1047,13 +1047,13 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   height: 1vh;
 }
 
-.projectBodyContributors>div {
+.projectBodyContributors > div {
   display: flex;
   align-items: center;
   width: 15vw;
 }
 
-.projectBodyContributors>div>p {
+.projectBodyContributors > div > p {
   margin-left: 1vw;
 }
 
@@ -1076,7 +1076,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   margin-left: 1vw;
 }
 
-.projectBodyLinks>a>p {
+.projectBodyLinks > a > p {
   margin-left: 0.5vw;
 }
 
@@ -1595,7 +1595,6 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   -moz-border-radius: 20px;
   border-radius: 20px;
   text-decoration: none;
-
 }
 /* .view-lines:nth-child(2) {
   color: pink !important;
@@ -1605,4 +1604,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 .mtk1 {
   color: rgb(24, 189, 254) !important;
+}
+.changed-for.gh {
+  color: white;
 }
