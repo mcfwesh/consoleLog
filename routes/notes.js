@@ -14,12 +14,12 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const notes = req.body.notes;
-  console.log("nate is a lord", notes);
+  //console.log("nate is a lord", notes);
   Notes.findByIdAndUpdate("5ebe84e95e1c38659df2e67f", {
     notes,
   })
     .then((notes) => {
-      console.log(notes);
+      //console.log(notes);
 
       res.status(201).json(notes);
     })

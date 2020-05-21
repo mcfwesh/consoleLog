@@ -55,7 +55,7 @@ class ProjectList extends Component {
     // project.contributors.map((contrib) =>
     //   console.log(contrib._id.includes(this.props.user._id))
     // );
-    console.log(this.props.course);
+    //console.log(this.props.course);
     if (this.props.course !== "Web Dev") {
       return <></>;
     }

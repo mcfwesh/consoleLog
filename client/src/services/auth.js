@@ -30,7 +30,7 @@ const signup = (
       classroom,
     })
     .then((response) => {
-      console.log(response);
+      //console.log(response);
       return response.data;
     })
     .catch((err) => {
@@ -82,7 +82,7 @@ const project = (
       users,
     })
     .then((response) => {
-      console.log(response);
+      //console.log(response);
       return response.data;
     })
     .catch((err) => {

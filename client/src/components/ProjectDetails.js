@@ -49,11 +49,11 @@ export default class ProjectDetails extends Component {
 
   getData = () => {
     const id = this.props.match.params.id;
-    console.log(id);
+    //console.log(id);
     axios
       .get(`/api/projects/${id}`)
       .then((response) => {
-        console.log(response);
+        //console.log(response);
 
         this.setState({
           project: response.data,
@@ -71,7 +71,7 @@ export default class ProjectDetails extends Component {
 
   deleteProject = () => {
     const id = this.props.match.params.id;
-    console.log(id);
+    //console.log(id);
 
     axios
       .delete(`/api/projects/${id}`)
@@ -100,7 +100,7 @@ export default class ProjectDetails extends Component {
   };
 
   render() {
-    console.log(this.state.taskForm);
+    //console.log(this.state.taskForm);
     if (this.state.error) return <div>{this.state.error}</div>;
     if (!this.state.project) return <></>;
 

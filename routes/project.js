@@ -33,7 +33,7 @@ router.post("/", (req, res) => {
   const heroku = req.body.heroku;
   const contributors = req.body.contributors;
   const userId = req.user._id;
-  console.log(userId);
+  //console.log(userId);
 
   Project.create({
     title,
@@ -46,7 +46,7 @@ router.post("/", (req, res) => {
     user: userId,
   })
     .then((project) => {
-      console.log(project);
+      //console.log(project);
       User.findByIdAndUpdate(userId, {
         $push: { projects: project.id },
       }).then((project) => {
@@ -89,7 +89,7 @@ router.get("/:id", (req, res) => {
 
 router.put("/:id", (req, res) => {
   const { title, description, imageUrl, number, github, heroku } = req.body;
-  console.log(req.params, req.body);
+  //console.log(req.params, req.body);
   Project.findByIdAndUpdate(
     req.params.id,
     { title, description, imageUrl, number, github, heroku },
@@ -97,7 +97,7 @@ router.put("/:id", (req, res) => {
     { new: true }
   )
     .then((project) => {
-      console.log(project);
+      //console.log(project);
       res.status(200).json(project);
     })
     .catch((err) => {

@@ -16,16 +16,16 @@ class Notes extends React.Component {
   };
 
   editorDidMount(editor, monaco) {
-    console.log("editorDidMount", editor);
+    //console.log("editorDidMount", editor);
     editor.focus();
   }
 
   getData = () => {
-    console.log("nate is the master of the universe");
+    //console.log("nate is the master of the universe");
     axios
       .get("/api/notes")
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         this.setState({
           code: response.data[0].notes,
         });
@@ -38,7 +38,7 @@ class Notes extends React.Component {
   handleSubmit = (event, newValue) => {
     event.preventDefault();
     const { code } = this.state;
-    console.log(code);
+    //console.log(code);
     axios
       .post("/api/notes", {
         notes: code,
@@ -55,19 +55,19 @@ class Notes extends React.Component {
   };
 
   onChange = (newValue, e) => {
-    console.log(newValue);
+    //console.log(newValue);
     this.setState({
       code: newValue,
     });
   };
   render() {
-    console.log("this are the this.props", this.props);
+    //console.log("this are the this.props", this.props);
 
     const code = this.state.code;
     const options = {
       selectOnLineNumbers: true,
     };
-    console.log(code[0].notes);
+    //console.log(code[0].notes);
     return (
       <div>
         <form class="notes" onSubmit={this.handleSubmit}>
