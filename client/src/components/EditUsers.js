@@ -226,7 +226,7 @@ export default class extends Component {
                   placeholder="email@gmail.com"
                 />
               </div>
-              <div>
+              {/* <div>
                 <input
                   className="form_field"
                   type="password"
@@ -236,7 +236,7 @@ export default class extends Component {
                   id="password"
                   placeholder="Password"
                 />
-              </div>
+              </div> */}
 
               <div>
                 <textarea
