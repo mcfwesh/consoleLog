@@ -181,9 +181,9 @@ export default class UserDetails extends Component {
     const input = document.getElementById("nate");
     html2canvas(input, {
       useCORS: true,
-      scale: 0.2,
-      width: 235,
-      height: 1000,
+      scale: 0.9,
+      y: 100,
+      allowTaint: true,
     }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
