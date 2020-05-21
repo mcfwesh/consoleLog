@@ -545,6 +545,12 @@ h2 {
   font-family: "Roboto", sans-serif;
 }
 
+.filter-header {
+  position: absolute;
+  top: 18%;
+  left: 25%;
+}
+
 .overlay-user-filter {
   min-height: 15vh;
   display: flex;

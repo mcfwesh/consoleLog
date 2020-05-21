@@ -15,7 +15,7 @@ const Navbar = (props) => {
       <div className="navbar-left">
         <div>
           <Link course={props.course} to="/users">
-            Users
+            Students
           </Link>
         </div>
         <div>

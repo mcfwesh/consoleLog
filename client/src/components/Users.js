@@ -78,6 +78,9 @@ export default class Users extends Component {
     //console.log("nate Love you", this.props.course);
     return (
       <div className="overlay-user">
+        <p className="filter-header">
+          <strong>Filter By Specializations:</strong>
+        </p>
         {this.props.course == "Web Dev" ? (
           <div className="overlay-user-filter">
             <ul className="ks-cboxtags">
