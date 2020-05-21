@@ -172,10 +172,9 @@ export default class UserDetails extends Component {
   // });
 
   componentDidMount = () => {
-    const id = this.props.match.params.id;
     // console.log("banana", id);
-
     this.getProject();
+    //this.getData();
   };
 
   printDocument() {
@@ -195,8 +194,7 @@ export default class UserDetails extends Component {
   }
 
   componentWillReceiveProps = () => {
-    // console.log("banana", id);
-
+    // console.log("Jan");
     this.getProject();
   };
   deleteProject = (userID) => {
@@ -221,7 +219,7 @@ export default class UserDetails extends Component {
           className="mt4"
           style={{
             width: "235mm",
-            height: "500mm",
+            height: "1000mm",
             marginLeft: "auto",
             marginRight: "auto",
             display: "block",
