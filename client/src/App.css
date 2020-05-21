@@ -925,7 +925,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   margin-left: 1vw;
 }
 
-.lastKatas>p {
+.lastKatas > p {
   font-family: monospace;
 }
 
@@ -1041,19 +1041,23 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   height: 3vh;
 }
 
+.ProjectBodyTitle h3 {
+  font-size: 2em;
+}
+
 .projectBodyContributors {
   display: flex;
   align-items: center;
   height: 1vh;
 }
 
-.projectBodyContributors>div {
+.projectBodyContributors > div {
   display: flex;
   align-items: center;
   width: 15vw;
 }
 
-.projectBodyContributors>div>p {
+.projectBodyContributors > div > p {
   margin-left: 1vw;
 }
 
@@ -1076,7 +1080,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   margin-left: 1vw;
 }
 
-.projectBodyLinks>a>p {
+.projectBodyLinks > a > p {
   margin-left: 0.5vw;
 }
 
@@ -1200,6 +1204,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  border-bottom: 1px solid #adadad;
 }
 
 .teacherBox span {
@@ -1208,7 +1213,19 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   align-items: center;
 }
 
+.teacherBox span:first-child {
+  width: 12vw;
+  display: flex;
+  font-size: 1.5em;
+  align-items: center;
+}
+
 .teacherBox > span > img {
+  width: 2vw;
+  margin-right: 2vw;
+}
+
+.teacherBox > span > img:first-child {
   width: 2vw;
   margin-right: 2vw;
 }
@@ -1595,7 +1612,6 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   -moz-border-radius: 20px;
   border-radius: 20px;
   text-decoration: none;
-
 }
 /* .view-lines:nth-child(2) {
   color: pink !important;

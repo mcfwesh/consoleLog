@@ -111,73 +111,85 @@ export default class EditProject extends Component {
     //console.log(this.state.github);
 
     return (
-      <div>
-        <h2>Edit project: </h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label>Title:</Form.Label>
-            <Form.Control
-              type="text"
-              name="title"
-              value={this.state.title}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Description:</Form.Label>
-            <Form.Control
-              type="text"
-              name="description"
-              value={this.state.description}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <select
-            value={this.state.number}
-            name="number"
-            id="number"
-            onChange={this.handleChange}
-          >
-            <option value="Any">Any Project</option>
-            <option value="1">Project 1</option>
-            <option value="2">Project 2</option>
-            <option value="3">Project 3</option>
-          </select>
-          <Form.Group>
-            <Form.Label htmlFor="imageUrl">ImageUrl: </Form.Label>
-            <div id="image-uploads">
+      <div className="signup-overlay">
+        <div className="add-project">
+          <div className="formBox">
+            <Form onSubmit={this.handleSubmit}>
               <input
-                type="file"
-                value={this.imageUrl}
-                onChange={(e) => this.handleFileUpload(e)}
+                className="form_field"
+                type="text"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleChange}
               />
-            </div>
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="github">github: </Form.Label>
-            <Form.Control
-              type="text"
-              name="github"
-              id="github"
-              value={this.state.github}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="heroku">heroku: </Form.Label>
-            <Form.Control
-              type="text"
-              name="heroku"
-              id="heroku"
-              value={this.state.heroku}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-
-          <Button type="submit" disabled={this.state.uploadOn}>
-            Edit
-          </Button>
-        </Form>
+              <input
+                className="form_field"
+                type="text"
+                name="description"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+              <select
+                className="form_field"
+                value={this.state.number}
+                name="number"
+                id="number"
+                onChange={this.handleChange}
+              >
+                <option value="Any">Any Project</option>
+                <option value="1">Project 1</option>
+                <option value="2">Project 2</option>
+                <option value="3">Project 3</option>
+              </select>
+              <div id="image-uploads">
+                <label className="fileLabel" for="file">
+                  Upload Project Screen Shot
+                </label>
+                <input
+                  className="input-file"
+                  type="file"
+                  value={this.imageUrl}
+                  onChange={(e) => this.handleFileUpload(e)}
+                />
+              </div>
+              <input
+                className="form_field"
+                type="text"
+                name="github"
+                id="github"
+                value={this.state.github}
+                onChange={this.handleChange}
+              />
+              <input
+                className="form_field"
+                type="text"
+                name="heroku"
+                id="heroku"
+                value={this.state.heroku}
+                onChange={this.handleChange}
+              />
+              <Button
+                className="btn-signup"
+                type="submit"
+                disabled={this.state.uploadOn}
+              >
+                Edit Project
+              </Button>
+            </Form>
+          </div>
+        </div>
+        <ul class="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     );
   }

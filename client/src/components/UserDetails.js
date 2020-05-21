@@ -8,7 +8,6 @@ import html2canvas from "html2canvas";
 
 import domtoimage from "dom-to-image";
 
-
 export default class UserDetails extends Component {
   state = {
     username: "",
@@ -281,7 +280,6 @@ export default class UserDetails extends Component {
             {this.props.course === "Web Dev" && (
               <div id="nate">
                 <div className="overlaySingleUser" key={this.state.name}>
-
                   {/* <div className="userMainInfo"> */}
                   <div className="userMainInfoBoxOne">
                     <div className="mainBoxOne">
@@ -295,7 +293,6 @@ export default class UserDetails extends Component {
                         <h2>
                           {this.state.name} {this.state.surname}
                         </h2>
-
                       </div>
                       <div>
                         <p>{this.state.description}</p>
@@ -422,20 +419,36 @@ export default class UserDetails extends Component {
                       return (
                         <div className="teacherBox">
                           <span>{spe.name}</span>
-                          <span>
-                            <img
-                              src="https://i.ibb.co/ssgRjGn/mail.png"
-                              alt="mail"
-                            />
-                            {spe.mail}
-                          </span>
-                          <span>
+
+                          {spe.mail !== "" ? (
+                            <span>
+                              <img
+                                src="https://i.ibb.co/ssgRjGn/mail.png"
+                                alt="mail"
+                              />
+                              <p>{spe.mail}</p>
+                            </span>
+                          ) : (
+                            <></>
+                          )}
+                          {spe.linkedin !== "" ? (
+                            <span>
+                              <img
+                                src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png"
+                                alt="mail"
+                              />
+                              {spe.linkedin}
+                            </span>
+                          ) : (
+                            <span>{spe.linkedin}</span>
+                          )}
+                          {/* <span>
                             <img
                               src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png"
                               alt="linkedin"
                             />
                             {spe.linkedin}
-                          </span>
+                          </span> */}
                         </div>
                       );
                     })}
