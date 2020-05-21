@@ -19,15 +19,15 @@ const Navbar = (props) => {
           </Link>
         </div>
         <div>
-          <Link to="/jobs">Jobs</Link>
+          <Link course={props.course} to="/projects">
+            Projects
+          </Link>
         </div>
         <div>
           <Link to="/notes">Notes</Link>
         </div>
         <div>
-          <Link course={props.course} to="/projects">
-            Projects
-          </Link>
+          <Link to="/jobs">Jobs</Link>
         </div>
         {/* <div>
           <Link to="/face">face</Link>

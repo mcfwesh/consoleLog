@@ -149,7 +149,9 @@ class ProjectList extends Component {
                         {project.contributors.map((contrib) => (
                           <p key={contrib._id}>
                             {" "}
-                            <b>{contrib.name}</b>
+                            <Link to={`/users/${contrib._id}`}>
+                              <b>{contrib.name}</b>
+                            </Link>
                           </p>
                         ))}
                       </div>

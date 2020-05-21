@@ -1042,6 +1042,10 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   height: 3vh;
 }
 
+.ProjectBodyTitle h3 {
+  font-size: 2em;
+}
+
 .projectBodyContributors {
   display: flex;
   align-items: center;
@@ -1201,6 +1205,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  border-bottom: 1px solid #adadad;
 }
 
 .teacherBox span {
@@ -1209,7 +1214,19 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   align-items: center;
 }
 
+.teacherBox span:first-child {
+  width: 12vw;
+  display: flex;
+  font-size: 1.5em;
+  align-items: center;
+}
+
 .teacherBox>span>img {
+  width: 2vw;
+  margin-right: 2vw;
+}
+
+.teacherBox>span>img:first-child {
   width: 2vw;
   margin-right: 2vw;
 }

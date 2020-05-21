@@ -420,20 +420,36 @@ export default class UserDetails extends Component {
                       return (
                         <div className="teacherBox">
                           <span>{spe.name}</span>
-                          <span>
-                            <img
-                              src="https://i.ibb.co/ssgRjGn/mail.png"
-                              alt="mail"
-                            />
-                            {spe.mail}
-                          </span>
-                          <span>
+
+                          {spe.mail !== "" ? (
+                            <span>
+                              <img
+                                src="https://i.ibb.co/ssgRjGn/mail.png"
+                                alt="mail"
+                              />
+                              <p>{spe.mail}</p>
+                            </span>
+                          ) : (
+                            <></>
+                          )}
+                          {spe.linkedin !== "" ? (
+                            <span>
+                              <img
+                                src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png"
+                                alt="mail"
+                              />
+                              {spe.linkedin}
+                            </span>
+                          ) : (
+                            <span>{spe.linkedin}</span>
+                          )}
+                          {/* <span>
                             <img
                               src="https://i.ibb.co/C9fNRTF/linkedin-teachers.png"
                               alt="linkedin"
                             />
                             {spe.linkedin}
-                          </span>
+                          </span> */}
                         </div>
                       );
                     })}
