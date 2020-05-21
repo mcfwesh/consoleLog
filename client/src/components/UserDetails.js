@@ -8,7 +8,6 @@ import html2canvas from "html2canvas";
 
 import domtoimage from "dom-to-image";
 
-
 export default class UserDetails extends Component {
   state = {
     username: "",
@@ -175,8 +174,8 @@ export default class UserDetails extends Component {
   componentDidMount = () => {
     const id = this.props.match.params.id;
     // console.log("banana", id);
+
     this.getProject();
-    //this.getData();
   };
 
   printDocument() {
@@ -184,6 +183,8 @@ export default class UserDetails extends Component {
     html2canvas(input, {
       useCORS: true,
       scale: 0.9,
+      y: 100,
+      allowTaint: true,
     }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
@@ -194,7 +195,8 @@ export default class UserDetails extends Component {
   }
 
   componentWillReceiveProps = () => {
-    // console.log("Jan");
+    // console.log("banana", id);
+
     this.getProject();
   };
   deleteProject = (userID) => {
@@ -281,7 +283,6 @@ export default class UserDetails extends Component {
             {this.props.course === "Web Dev" && (
               <div id="nate">
                 <div className="overlaySingleUser" key={this.state.name}>
-
                   {/* <div className="userMainInfo"> */}
                   <div className="userMainInfoBoxOne">
                     <div className="mainBoxOne">
@@ -295,7 +296,6 @@ export default class UserDetails extends Component {
                         <h2>
                           {this.state.name} {this.state.surname}
                         </h2>
-
                       </div>
                       <div>
                         <p>{this.state.description}</p>
