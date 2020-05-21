@@ -1599,9 +1599,9 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 /* .view-lines:nth-child(2) {
   color: pink !important;
 } */
-.mtk1:nth-of-type(1n) {
+/* .mtk1:nth-of-type(1n) {
   color: pink !important;
-}
+} */
 .mtk1 {
   color: rgb(24, 189, 254) !important;
 }
