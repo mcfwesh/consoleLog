@@ -192,7 +192,7 @@ class VideoInput extends Component {
           </div>
         </div>
         <Button className="btn-login" onClick={this.props.normal}>
-          {console.log(this.props.normal)}
+          {/* {console.log(this.props.normal)} */}
           Back to Login Screen
         </Button>
       </div>

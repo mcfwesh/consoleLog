@@ -37,7 +37,7 @@ export default class AddProject extends Component {
   };
 
   handleSelect = (event) => {
-    console.log(event.target.key);
+    //console.log(event.target.key);
     const name = document.getElementById(event.target.value).innerText;
     const target = event.target;
     const value = target.value;
@@ -48,7 +48,7 @@ export default class AddProject extends Component {
   };
 
   handleFileUpload = (e) => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
+    //console.log("The file to be uploaded is: ", e.target.files[0]);
 
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
@@ -59,7 +59,7 @@ export default class AddProject extends Component {
     handleUpload(uploadData)
       .then((response) => {
         // console.log('response is: ', response);
-        console.log(response.secure_url);
+        //console.log(response.secure_url);
 
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({ imageUrl: response.secure_url, uploadOn: false });
@@ -102,7 +102,7 @@ export default class AddProject extends Component {
   };
 
   render() {
-    console.log(this.props.course);
+    //console.log(this.props.course);
 
     return (
       <div className="signup-overlay">

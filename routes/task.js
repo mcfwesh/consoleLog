@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log('post task');
+  //console.log('post task');
   const { title, description, projectId } = req.body;
 
   Task.create({
