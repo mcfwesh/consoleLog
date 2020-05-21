@@ -133,43 +133,6 @@ export default class UserDetails extends Component {
       taskForm: !this.state.taskForm,
     });
   };
-  // _exportPdf = () => {
-  //   html2canvas(document.getElementById("dioni")).then((canvas) => {
-  //     document.body.appendChild(canvas); // if you want see your screenshot in body.
-  //     const imgData = canvas.toDataURL("image/png");
-  //     const pdf = new jsPDF();
-  //     pdf.addImage(imgData, "PNG", 0, 0);
-  //     pdf.save("download.pdf");
-  //   });
-  // };
-
-  // elems = document.getElementById("dioni");
-  // pdf = new jsPDF("portrait", "mm", "a4");
-
-  // Fix Graphics Output by scaling PDF and html2canvas output to 2
-  // pdf.scaleFactor = 2;
-
-  // addPages = new Promise((resolve,reject)=>{
-  //   elems.forEach((elem, idx) => {
-  //     // Scaling fix set scale to 2
-  //     html2canvas(elem, {scale: "2"})
-  //       .then(canvas =>{
-  //         if(idx < elems.length - 1){
-  //           pdf.addImage(canvas.toDataURL("image/png"), 0, 0, 210, 297);
-  //           pdf.addPage();
-  //         } else {
-  //           pdf.addImage(canvas.toDataURL("image/png"), 0, 0, 210, 297);
-  //           console.log("Reached last page, completing");
-  //         }
-  //   })
-
-  //   setTimeout(resolve, 100, "Timeout adding page #" + idx);
-  // })
-
-  // addPages.finally(()=>{
-  //    console.log("Saving PDF");
-  //    pdf.save();
-  // });
 
   componentDidMount = () => {
     // console.log("banana", id);
@@ -219,7 +182,7 @@ export default class UserDetails extends Component {
           className="mt4"
           style={{
             width: "235mm",
-            height: "1000mm",
+            // height: "1000mm",
             marginLeft: "auto",
             marginRight: "auto",
             display: "block",
