@@ -99,7 +99,7 @@ export default class Panel extends Component {
                 >
                   {" "}
                   <img
-                    src="https://cdn1.imggmi.com/uploads/2020/5/21/f041b52e7099a62dfc8f67f0ce461975-full.png"
+                    src="https://i.ibb.co/sj1SxHw/login.png"
                     alt="register"
                   />
                 </Link>

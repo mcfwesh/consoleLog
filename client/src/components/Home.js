@@ -52,10 +52,7 @@ export default class Home extends Component {
           </div>
           <div className="card">
             <div className="cardImg">
-              <img
-                src="https://cdn1.imggmi.com/uploads/2020/5/20/da893275d8c19ff03427af217c23535d-full.png"
-                alt="data"
-              />
+              <img src="https://i.ibb.co/3yn4JZk/datahome.png" alt="data" />
             </div>
             <div className="cardBody">
               <Link to="/panel">
