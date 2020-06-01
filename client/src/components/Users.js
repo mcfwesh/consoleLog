@@ -12,13 +12,11 @@ export default class Users extends Component {
 
   componentDidMount = () => {
     this.getData();
-
-    //console.log("componenet did mount", this.state.specialization);
   };
 
   handleSpecialization = (event) => {
     const name = event.target.name;
-    //console.log(name);
+
     let newSpezialization;
     if (event.target.checked) {
       if (!this.state.specialization.includes(name)) {
@@ -62,8 +60,6 @@ export default class Users extends Component {
           (fil) => fil.classroom == this.props.course
         );
 
-        //console.log(boom, response);
-        //console.log(response);
         this.setState({
           users: boom,
           filteredUsers: boom,
@@ -75,7 +71,6 @@ export default class Users extends Component {
   };
 
   render() {
-    //console.log("nate Love you", this.props.course);
     return (
       <div className="overlay-user">
         <p className="filter-header">

@@ -26,34 +26,18 @@ export default class UserDetails extends Component {
     teachers: [],
     projects: [],
     honor: null,
-    // numPages: null,
-    // pageNumber: 1,
-    // title: "",
-    // description: "",
-    // editForm: false,
-    // taskForm: false,
-    // error: null,
   };
 
   getProject = () => {
     const id = this.props.match.params.id;
-    //console.log("the id", id);
+
     axios
       .get(`/api/projects/`)
       .then((response) => {
-        //console.log("projects", response.data[1].contributors[0]._id);
-        // console.log(
-        //   "projects map 1",
-        //   response.data.filter((student) =>
-        //     student.contributors.map((userid) => userid._id).includes(id)
-        //   ),
-        //   id,
-        //   response.data
-        // );
         let projectusers = response.data.filter((student) =>
           student.contributors.map((userid) => userid._id).includes(id)
         );
-        //console.log(projectusers);
+
         this.getData(projectusers);
       })
       .catch((err) => {
@@ -67,7 +51,6 @@ export default class UserDetails extends Component {
     axios
       .get(`/api/users/${id}`)
       .then((response) => {
-        //console.log("this is respons", response.data);
         this.setState({
           username: response.data.username,
           name: response.data.name,
@@ -94,17 +77,13 @@ export default class UserDetails extends Component {
   };
 
   getCodeWars = (CW) => {
-    //console.log("this is CW", CW);
     axios.get(`/api/users/codewars/${CW}`).then((response) => {
       let katas = response.data;
       let nateBoss = [];
-      //console.log(Array.isArray(katas.data));
+
       if (Array.isArray(katas.data)) {
         nateBoss = [...katas.data.slice(0, 3)];
       }
-
-      // let nateBoss = JSON.stringify(katas.data.slice(0, 3));
-      //let nateBoss = [...katas.data.slice(0, 3)];
 
       this.setState({
         honor: nateBoss,
@@ -135,9 +114,7 @@ export default class UserDetails extends Component {
   };
 
   componentDidMount = () => {
-    // console.log("banana", id);
     this.getProject();
-    //this.getData();
   };
 
   printDocument() {
@@ -151,23 +128,18 @@ export default class UserDetails extends Component {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
       pdf.addImage(imgData, "JPEG", 0, 0);
-      // pdf.output('dataurlnewwindow');
+
       pdf.save("download.pdf");
     });
   }
 
   componentWillReceiveProps = () => {
-    // console.log("Jan");
     this.getProject();
   };
   deleteProject = (userID) => {
-    // const id = this.props.projects.map((project) => project._id);
-    // console.log(id.map((id) => id));
-    //console.log(userID);
     axios
       .delete(`/api/users/${userID}`)
       .then((response) => {
-        // this.props.history.go("/");
         window.location = "/";
       })
       .catch((err) => {

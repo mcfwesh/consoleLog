@@ -4,26 +4,6 @@ const Project = require("../models/Project");
 const Task = require("../models/Task");
 const User = require("../models/User");
 
-// post route using async await
-/*
-router.post('/', async (req, res) => {
-  const title = req.body.title;
-  const description = req.body.description;
-  const tasks = [];
-  try {
-    const project = await Project.create({
-      title,
-      description,
-      tasks
-    });
-    res.status(201).json(project);
-
-  } catch (err) {
-    res.json(err);
-  }
-});
-*/
-
 router.post("/", (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
@@ -33,7 +13,6 @@ router.post("/", (req, res) => {
   const heroku = req.body.heroku;
   const contributors = req.body.contributors;
   const userId = req.user._id;
-  //console.log(userId);
 
   Project.create({
     title,
@@ -46,7 +25,6 @@ router.post("/", (req, res) => {
     user: userId,
   })
     .then((project) => {
-      //console.log(project);
       User.findByIdAndUpdate(userId, {
         $push: { projects: project.id },
       }).then((project) => {
@@ -89,7 +67,7 @@ router.get("/:id", (req, res) => {
 
 router.put("/:id", (req, res) => {
   const { title, description, imageUrl, number, github, heroku } = req.body;
-  //console.log(req.params, req.body);
+
   Project.findByIdAndUpdate(
     req.params.id,
     { title, description, imageUrl, number, github, heroku },
@@ -97,7 +75,6 @@ router.put("/:id", (req, res) => {
     { new: true }
   )
     .then((project) => {
-      //console.log(project);
       res.status(200).json(project);
     })
     .catch((err) => {

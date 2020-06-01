@@ -17,7 +17,6 @@ class Jobs extends Component {
 
   getJobs = () => {
     axios.get(`/api/jobs/`).then((response) => {
-      console.log("Jobs", response.data);
       let jobs = response.data;
       let jobSorted = [...jobs];
       jobSorted.sort((a, b) => new Date(b.created) - new Date(a.created));
@@ -31,8 +30,6 @@ class Jobs extends Component {
     this.getJobs();
   }
   render() {
-    console.log(this.state.search);
-
     return (
       <>
         <div className="jobs-search">

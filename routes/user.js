@@ -31,11 +31,8 @@ router.get("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  //console.log("this is req", req.params.id);
   User.findByIdAndDelete(req.params.id)
     .then((project) => {
-      //console.log("this is project", project);
-
       res.status(200).json({ message: "ok" });
     })
     .catch((err) => {
@@ -57,7 +54,7 @@ router.put("/:id", (req, res) => {
     linkedin,
     classroom,
   } = req.body;
-  //console.log("this is req", req.body, req.params);
+
   User.findByIdAndUpdate(
     req.params.id,
     {
@@ -86,7 +83,6 @@ router.put("/:id", (req, res) => {
 
 router.get("/codewars/:name", (req, res) => {
   const userCodeCodeWars = req.params.name;
-  //console.log(userCodeCodeWars);
 
   axios({
     url: `https://www.codewars.com/api/v1/users/${userCodeCodeWars}/code-challenges/completed?page=0`,
@@ -96,7 +92,6 @@ router.get("/codewars/:name", (req, res) => {
     },
   })
     .then((response) => {
-      //console.log(response.data);
       res.json(response.data);
     })
     .catch((error) => {

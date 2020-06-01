@@ -80,9 +80,7 @@ router.post("/signup", (req, res) => {
         linkedin: linkedin,
         classroom: classroom,
         teachers: teacher,
-        // teachers: teachers,
       }).then((dbUser) => {
-        //console.log(dbUser);
         req.login(dbUser, (err) => {
           if (err) {
             return res
@@ -128,17 +126,9 @@ router.get("/loggedin", (req, res) => {
 });
 
 router.post("/editPass/:id", (req, res) => {
-  // console.log("req.body", req.body.oldpassword);
-  //console.log("req.params", req.user.password);
-  // console.log(
-  //   "This is checking password",
-  //   bcrypt.compareSync(req.body.oldpassword, req.user.password)
-  // );
-
   const oldPassword = req.body.oldPassword;
   const password = req.body.password;
   const username = req.params.id;
-  //console.log("this is username", req.params.id);
 
   if (!password || !oldPassword || password.length < 4) {
     return res

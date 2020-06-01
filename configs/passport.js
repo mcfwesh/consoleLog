@@ -25,7 +25,6 @@ passport.use(
       passReqToCallback: true,
     },
     (req, username, password, next) => {
-      console.log(req.body);
       User.findOne({ username }, (err, foundUser) => {
         if (err) {
           next(err);

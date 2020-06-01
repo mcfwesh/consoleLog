@@ -34,5 +34,3 @@ function Face() {
 }
 
 export default Face;
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<Face />, rootElement);

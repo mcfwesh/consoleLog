@@ -33,33 +33,6 @@ export default class NavbarMain extends Component {
                 </div>
               );
             })}
-            {/* <div>
-              <NavLink
-              exact={true}
-              // className="inactiveLink"
-              // activeClassName="activeLink"
-              onClick={this.props.handleCourse} id="Web Dev" to="/panel">
-                Web Dev
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-              exact={true}
-              // className="inactiveLink"
-              // activeClassName="activeLink"
-              onClick={this.props.handleCourse} id="UX/UI" to="/panel">
-                UX/UI
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-              exact={true}
-              // className="inactiveLink"
-              // activeClassName="activeLink" 
-              onClick={this.props.handleCourse} id="Data" to="/panel">
-                Data
-              </NavLink>
-            </div> */}
           </div>
         </div>
       </div>

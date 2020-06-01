@@ -4,7 +4,6 @@ const axios = require("axios");
 
 router.get("/", (req, res) => {
   const searchJob = req.query.search;
-  console.log(searchJob);
 
   axios
     .get(

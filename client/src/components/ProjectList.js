@@ -27,9 +27,6 @@ class ProjectList extends Component {
   };
 
   deleteProject = (projectID) => {
-    // const id = this.props.projects.map((project) => project._id);
-    // console.log(id.map((id) => id));
-
     axios
       .delete(`/api/projects/${projectID}`)
       .then((response) => {
@@ -41,21 +38,6 @@ class ProjectList extends Component {
   };
 
   render() {
-    //   let projectusers = this.filter((student) =>
-    //   student.contributors.map((userid) => userid._id).includes(id)
-    // );
-    // const contribIDs = this.props.projects.map((project) =>
-    //   project.contributors
-    //     .map((contrib) => contrib._id)
-    //     .includes(this.props.user._id)
-    // );
-
-    // console.log(this.props.projects.map((project) => project._id));
-
-    // project.contributors.map((contrib) =>
-    //   console.log(contrib._id.includes(this.props.user._id))
-    // );
-    //console.log(this.props.course);
     if (this.props.course !== "Web Dev") {
       return <></>;
     }

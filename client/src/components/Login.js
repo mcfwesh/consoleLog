@@ -8,9 +8,8 @@ export default class Login extends Component {
     username: "",
     password: "",
     message: "",
-    loginMethod: "true"
+    loginMethod: "true",
   };
-
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,13 +21,13 @@ export default class Login extends Component {
 
   handleLoginMethodFace = (event) => {
     this.setState({
-      loginMethod: "false"
-    })
+      loginMethod: "false",
+    });
   };
   handleLoginMethodNormal = (event) => {
     this.setState({
-      loginMethod: "true"
-    })
+      loginMethod: "true",
+    });
   };
 
   handleSubmit = (event) => {
@@ -42,12 +41,12 @@ export default class Login extends Component {
           message: data.message,
           username: "",
           password: "",
-          loginMethod: ""
+          loginMethod: "",
         });
       } else {
         // successfully logged in
         // update the state for the parent component
-        console.log(data);
+
         localStorage.setItem(data.username, data.password);
         this.props.setUser(data);
         this.props.history.push("/");
@@ -64,49 +63,54 @@ export default class Login extends Component {
             <span></span>
             <form onSubmit={this.handleSubmit}>
               <div className="loginContainer">
-              {console.log(this.state.loginMethod)}
-              {this.state.loginMethod == "true"
-              ?
-              <>
-              <h2>Login</h2>
-                <Form.Group>
-                  <div className="inputBox">
-                    <input
-                      type="text"
-                      name="username"
-                      placeholder="Email"
-                      value={this.state.username}
-                      onChange={this.handleChange}
-                      id="username"
-                    />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <div className="inputBox">
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      value={this.state.password}
-                      onChange={this.handleChange}
-                      id="password"
-                    />
-                  </div>
-                </Form.Group>
-                
-                {this.state.message && (
-                  <Alert variant="danger">{this.state.message}</Alert>
+                {console.log(this.state.loginMethod)}
+                {this.state.loginMethod == "true" ? (
+                  <>
+                    <h2>Login</h2>
+                    <Form.Group>
+                      <div className="inputBox">
+                        <input
+                          type="text"
+                          name="username"
+                          placeholder="Email"
+                          value={this.state.username}
+                          onChange={this.handleChange}
+                          id="username"
+                        />
+                      </div>
+                    </Form.Group>
+                    <Form.Group>
+                      <div className="inputBox">
+                        <input
+                          type="password"
+                          name="password"
+                          placeholder="Password"
+                          value={this.state.password}
+                          onChange={this.handleChange}
+                          id="password"
+                        />
+                      </div>
+                    </Form.Group>
+
+                    {this.state.message && (
+                      <Alert variant="danger">{this.state.message}</Alert>
+                    )}
+                    <Button className="btn-login" type="submit">
+                      Login
+                    </Button>
+                    <Button
+                      className="btn-login"
+                      onClick={this.handleLoginMethodFace}
+                    >
+                      Login with Facial Recognition
+                    </Button>
+                  </>
+                ) : (
+                  <VideoInput
+                    normal={this.handleLoginMethodNormal}
+                    setUser={this.props.setUser}
+                  />
                 )}
-                <Button className="btn-login" type="submit">
-                  Login
-                </Button>
-                <Button className="btn-login" onClick={this.handleLoginMethodFace}>
-                  Login with Facial Recognition
-                </Button>
-                </>
-              :
-              <VideoInput normal={this.handleLoginMethodNormal} setUser={this.props.setUser} />
-              }
               </div>
             </form>
           </div>

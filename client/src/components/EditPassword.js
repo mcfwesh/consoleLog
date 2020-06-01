@@ -18,15 +18,13 @@ export default class EditPassword extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { id } = this.props.match.params;
-    console.log(id);
+
     axios
       .post(`/api/auth/editPass/${id}`, {
         oldPassword: this.state.oldPassword,
         password: this.state.newPassword,
       })
       .then((data) => {
-        console.log(data);
-
         this.props.history.push("/users");
       })
       .catch((err) => {
@@ -38,7 +36,6 @@ export default class EditPassword extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="signup-overlay">
         <div className="signup-sections-change">

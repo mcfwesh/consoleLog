@@ -30,7 +30,6 @@ const signup = (
       classroom,
     })
     .then((response) => {
-      //console.log(response);
       return response.data;
     })
     .catch((err) => {
@@ -82,7 +81,6 @@ const project = (
       users,
     })
     .then((response) => {
-      //console.log(response);
       return response.data;
     })
     .catch((err) => {
@@ -91,7 +89,6 @@ const project = (
 };
 
 const handleUpload = (theFile) => {
-  // console.log('file in service: ', theFile)
   return axios
     .post("/api/upload", theFile)
     .then((response) => response.data)
@@ -99,7 +96,6 @@ const handleUpload = (theFile) => {
 };
 
 const saveNewThing = (newThing) => {
-  // console.log('new thing is: ', newThing)
   return axios
     .post("/api/things/create", newThing)
     .then((response) => response.data)

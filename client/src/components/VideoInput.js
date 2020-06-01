@@ -142,17 +142,12 @@ class VideoInput extends Component {
     }
 
     if (!this.state.match) {
-      // console.log("bananas");
     } else if (this.state.match.length == 0) {
-      // console.log("nate big banana");
     } else {
-      // console.log(this.state.match[0]._label);
       let userface = this.state.match[0]._label;
       let result = localStorage.getItem(userface);
       if (result) {
-        // console.log(result, userface);
         login(userface, "markus", result).then((data) => {
-          // console.log(data);
           this.props.setUser(data);
           this.props.history.push("/");
         });
@@ -192,7 +187,6 @@ class VideoInput extends Component {
           </div>
         </div>
         <Button className="btn-login" onClick={this.props.normal}>
-          {/* {console.log(this.props.normal)} */}
           Back to Login Screen
         </Button>
       </div>

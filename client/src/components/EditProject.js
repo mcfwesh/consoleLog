@@ -16,11 +16,10 @@ export default class EditProject extends Component {
 
   getData = (projectusers) => {
     const id = this.props.match.params.id;
-    //console.log(projectusers);
+
     axios
       .get(`/api/projects/${id}`)
       .then((response) => {
-        //console.log("this is respons", response.data);
         this.setState({
           title: response.data.title,
           description: response.data.description,
@@ -47,8 +46,6 @@ export default class EditProject extends Component {
   };
 
   handleFileUpload = (e) => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
-
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
@@ -57,9 +54,6 @@ export default class EditProject extends Component {
     this.setState({ uploadOn: true });
     handleUpload(uploadData)
       .then((response) => {
-        // console.log('response is: ', response);
-        console.log(response.secure_url);
-
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({ imageUrl: response.secure_url, uploadOn: false });
       })
@@ -69,7 +63,6 @@ export default class EditProject extends Component {
   };
 
   handleSubmit = (event) => {
-    //console.log(event);
     event.preventDefault();
     if (this.state.uploadOn) return;
     axios
@@ -80,19 +73,8 @@ export default class EditProject extends Component {
         imageUrl: this.state.imageUrl,
         github: this.state.github,
         heroku: this.state.heroku,
-        // contributors: this.state.contributors,
       })
       .then(() => {
-        // this.setState({
-        //   title: "",
-        //   description: "",
-        //   // number: "",
-        //   // imageUrl: "",
-        //   // github: "",
-        //   // heroku: "",
-        //   // contributors: "",
-        // });
-        // update state in Projects by executing getData()
         this.getData();
         this.props.history.push("/projects");
       })
@@ -106,10 +88,6 @@ export default class EditProject extends Component {
   };
 
   render() {
-    //console.log(this.props.match.params.id);
-
-    //console.log(this.state.github);
-
     return (
       <div className="signup-overlay">
         <div className="add-project">

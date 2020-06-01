@@ -19,7 +19,6 @@ export default class Signup extends Component {
   };
 
   handleClassroom = (event) => {
-    //console.log(event.target.name);
     this.setState({
       classroom: event.target.name,
     });
@@ -32,8 +31,6 @@ export default class Signup extends Component {
     this.setState({
       [name]: value,
     });
-    //console.log(name);
-    //console.log(this.state);
   };
 
   handleSpecialization = (event) => {
@@ -41,15 +38,12 @@ export default class Signup extends Component {
     if (event.target.checked) {
       if (!this.state.specialization.includes(name)) {
         if (this.state.specialization.length > 1) return;
-        // console.log("hiertrue");
+
         this.setState({
           specialization: [...this.state.specialization, name],
         });
       }
     } else {
-      //console.log(this.state.specialization);
-      //console.log("name", name);
-      //console.log(this.state.specialization.indexOf(name));
       let crazy = [...this.state.specialization];
       crazy.splice(this.state.specialization.indexOf(name), 1);
       this.setState({
@@ -59,8 +53,6 @@ export default class Signup extends Component {
   };
 
   handleFileUpload = (e) => {
-    //console.log("The file to be uploaded is: ", e.target.files[0]);
-
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
@@ -69,9 +61,6 @@ export default class Signup extends Component {
     this.setState({ uploadOn: true });
     handleUpload(uploadData)
       .then((response) => {
-        // console.log('response is: ', response);
-        //console.log(response.secure_url);
-
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({ imageUrl: response.secure_url, uploadOn: false });
       })
@@ -97,7 +86,7 @@ export default class Signup extends Component {
       linkedin,
       classroom,
     } = this.state;
-    //console.log(this.state.specialization);
+
     if (this.state.uploadOn) return;
     signup(
       username,
@@ -113,7 +102,6 @@ export default class Signup extends Component {
       linkedin,
       classroom
     ).then((data) => {
-      //console.log(data);
       if (data.message) {
         this.setState({
           message: data.message,
@@ -138,23 +126,7 @@ export default class Signup extends Component {
     });
   };
 
-  // handleSubmitImage = (e) => {
-  //   e.preventDefault();
-
-  //if (this.state.uploadOn) return; // do nothing if the file is still being uploaded
-
-  //   saveNewThing(this.state)
-  //     .then((res) => {
-  //       console.log("added: ", res);
-  //       // here you would redirect to some other page
-  //     })
-  //     .catch((err) => {
-  //       console.log("Error while adding the thing: ", err);
-  //     });
-  // };
-
   render() {
-    //console.log(this.state.classroom);
     return (
       <div className="signup-overlay">
         <div className="signup-sections">
